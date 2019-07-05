@@ -1,0 +1,3350 @@
+{
+  "info": {
+    "_postman_id": "212d9f75-b645-4973-9f35-d97881a6f1c6",
+    "name": "FastTrack One#",
+    "description": "# Introduction\r\nProvides access to FastTrack One\r\n\r\n# Overview\r\nTo access any functionality in FastTrack One a user must be logged in\r\n\r\n# Authentication\r\nTo access any functionality in FastTrack One a user must be logged in\r\n\r\n# Error Codes\r\n\r\nPossible status codes\r\n500 InternalServerError\r\n401 Unauthorized\r\n201 Created\r\n200 Ok\r\n\r\n\r\n# Error Message\r\nThese are messages return in the meta data objkect \r\nThe error messages will have some text and code that is documented in the API its self.  \r\n\r\n\r\n\r\n# Sampling Parameters\r\n\r\nSome API return list of data and require sample size information.   \r\n\r\nThe sample size is used to determijne how many records are sampled and the sample age specifies how many units old the data can be that is sampled.\r\n\r\nA sample age type is determined by the method being called and the documentation should reflect if it is years, months, day, hours or minutes.\r\n\r\n\r\n# Result with Meta Data\r\n\r\nResults return the results and meta data\r\n\r\n```\r\ninterface Meta<T>: Wrap<T> {\r\n   error: string (nullable)\r\n   dateCreated: string\r\n   totalNumberRows: int\r\n   take: int\r\n   skip: int\r\n}\r\n```\r\n\r\n# Result Wrapper  \r\n\r\nResults are always wrapped  \r\n\r\n\r\n```\r\ninterface Wrap<T> {\r\n   result: T\r\n}\r\n```\r\n\r\nA result gets wrapped. The meta data provides meta information for the result.  \r\n\r\n---\r\n\r\n# API Exception Handler\r\n\r\nThe following error codes are known to the API Error Handler.  \r\n\r\n## ArgumentNullException  \r\n\r\n```\r\n{\r\n   ErrorCode = 400,\r\n   \"ErrorMessage\" : \"Bad Request (F1.2)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n\r\n\r\n## ArgumentOutOfRangeException  \r\n\r\n```\r\n{\r\n   ErrorCode = 400,\r\n   \"ErrorMessage\" : \"Bad Request (F1.3)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n\r\n\r\n## ArgumentOutOfRangeException  \r\n\r\n```\r\n{\r\n   ErrorCode = 400,\r\n   \"ErrorMessage\" : \"Bad Request (F1.1)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n\r\n## Catch all   \r\n\r\n```\r\n{\r\n   ErrorCode = 500,\r\n   \"ErrorMessage\" : \"Internal Server Error (F1)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n---\r\n\r\n# Payway Details\r\n```\r\n\r\n\r\nexport enum PaymentMethods {\r\n    Cheque,\r\n    Cash,\r\n    MoneyOrder,\r\n    CreditCard,\r\n    Postbillpay,\r\n    BankTransfer\r\n}\r\n\r\nexport interface PayWayDetails\r\n{\r\n\r\n    isMSO: boolean = false;\r\n    isFeeAmendmentDisabled: boolean;\r\n    creditCard: CardPaymentDetails;\r\n    cheque: ChequePaymentDetails;\r\n    moneyOrder: MoneyOrderDetails;\r\n    PaymentMethod:PaymentMethods;\r\n    amountToPay: number;\r\n    isFeeAmended: boolean;\r\n    authorisedPerson: string;\r\n    authorisationCode: string;\r\n    reason: string;\r\n    doDuplicateCheck: boolean;\r\n    isDuplicateDetected: boolean;\r\n    isDuplicateOverridden: boolean;\r\n    isPostbillpayDisabled: boolean;\r\n\r\n}\r\n\r\n\r\nexport interface CardPaymentDetails \r\n{\r\n    cardholder: string;\r\n    number: string;\r\n    expiryMonth: string;\r\n    expiryYear: string;\r\n    CCV: string;\r\n}\r\n\r\nexport interface ChequePaymentDetails{       \r\n    accountNumber: string;\r\n    bank: string;\r\n    BSB: string;\r\n    drawer: string;\r\n    chequeNumber: string;\r\n}\r\n\r\nexport interface MoneyOrderDetails \r\n{\r\n    drawer: string;\r\n    issuingOffice: string;\r\n    moneyOrderNo: string;\r\n}  \r\n\r\n```\r\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Breeding",
+      "item": [
+        {
+          "name": "Result Of Mating",
+          "item": [
+            {
+              "name": "Save",
+              "_postman_id": "8c85a8f9-f77f-48a4-8c3c-916bca6b1075",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"pups\": null,\n    \"whelpedDate\": \"2019-02-20T00:00:00.0000000\",\n    \"whelpingDateMin\": \"2019-02-17T00:00:00.0000000\",\n    \"whelpingDateMax\": \"2019-02-27T00:00:00.0000000\",\n    \"breederName\": \"RONALD MCCULLAGH\",\n    \"isWantingDetailsPublished\": false,\n    \"kennelAddress\": \"85 COONAWARRA DVE\",\n    \"kennelSuburb\": \"LARA\",\n    \"kennelState\": \"VIC\",\n    \"kennelPostcode\": \"3212\",\n    \"litterAddress\": null,\n    \"litterContact\": {\n        \"title\": \"Mr\",\n        \"firstName\": \"RONALD\",\n        \"surname\": \"MCCULLAGH\"\n    },\n    \"isOtherAddress\": false,\n    \"earBranderName\": \"Brian  Jones\",\n    \"earBranderPhone\": \"03-52821130\",\n    \"earBranderSuburb\": \"Lara\",\n    \"earBranderId\": -1,\n    \"clinicName\": null,\n    \"clinicPhone\": null,\n    \"clinicAddress\": null,\n    \"clinicId\": 0,\n    \"id\": 393774011,\n    \"selectedMatingResult\": \"Whelped\",\n    \"sire\": \"ASTON DEE BEE\",\n    \"sireId\": 1490820093,\n    \"sireColour\": \"Black\",\n    \"isDamDNARegistered\": true,\n    \"dam\": \"MOTORETTE\",\n    \"damColour\": \"BK\",\n    \"serviceDate\": \"2018-12-21T00:00:00.0000000\",\n    \"damId\": -627719,\n    \"numberOfDogs\": 0,\n    \"numberOfBitches\": 0,\n    \"isEligibleToBreed\": true\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/{{FastTrack1 BreedingId}}/Save",
+                "description": "Validate and save the breeding.  \n\nThe data is validated and returns a payment gateway object with a result of the charges.  \n\n## Other Status Codes\n* 400 Not Found (Breeding not found)\n* 401 Unauthorised (Not permitted to enter matting details)\n\n## Inputs\nResultOfMatingWhelpedOutput\n\n## Returns  \nResultOfMatingPaymentGatewayInput"
+              },
+              "response": [
+                {
+                  "id": "b8b8c210-c78a-4bab-ac9e-0f8d161445ae",
+                  "name": "Breeding Outcome Validate",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Certificate provided by Security/LoginAsUser",
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"pups\": null,\n    \"whelpedDate\": \"2019-02-20T00:00:00.0000000\",\n    \"whelpingDateMin\": \"2019-02-17T00:00:00.0000000\",\n    \"whelpingDateMax\": \"2019-02-27T00:00:00.0000000\",\n    \"breederName\": \"RONALD MCCULLAGH\",\n    \"isWantingDetailsPublished\": false,\n    \"kennelAddress\": \"85 COONAWARRA DVE\",\n    \"kennelSuburb\": \"LARA\",\n    \"kennelState\": \"VIC\",\n    \"kennelPostcode\": \"3212\",\n    \"litterAddress\": null,\n    \"litterContact\": {\n        \"title\": \"Mr\",\n        \"firstName\": \"RONALD\",\n        \"surname\": \"MCCULLAGH\"\n    },\n    \"isOtherAddress\": false,\n    \"earBranderName\": \"Brian  Jones\",\n    \"earBranderPhone\": \"03-52821130\",\n    \"earBranderSuburb\": \"Lara\",\n    \"earBranderId\": -1,\n    \"clinicName\": null,\n    \"clinicPhone\": null,\n    \"clinicAddress\": null,\n    \"clinicId\": 0,\n    \"id\": 393774011,\n    \"selectedMatingResult\": \"Whelped\",\n    \"sire\": \"ASTON DEE BEE\",\n    \"sireId\": 1490820093,\n    \"sireColour\": \"Black\",\n    \"isDamDNARegistered\": true,\n    \"dam\": \"MOTORETTE\",\n    \"damColour\": \"Black\",\n    \"serviceDate\": \"2018-12-21T00:00:00.0000000\",\n    \"damId\": -627719,\n    \"numberOfDogs\": 0,\n    \"numberOfBitches\": 0,\n    \"isEligibleToBreed\": true\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/Validate"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 30 May 2019 01:49:17 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "1812"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"result\": {\n        \"arguments\": {\n            \"pups\": [],\n            \"whelpedDate\": \"2019-02-20T00:00:00.0000000\",\n            \"whelpingDateMin\": \"2019-02-17T00:00:00.0000000\",\n            \"whelpingDateMax\": \"2019-02-27T00:00:00.0000000\",\n            \"breederName\": \"RONALD MCCULLAGH\",\n            \"isWantingDetailsPublished\": false,\n            \"kennelAddress\": \"85 COONAWARRA DVE\",\n            \"kennelSuburb\": \"LARA\",\n            \"kennelState\": \"VIC\",\n            \"kennelPostcode\": \"3212\",\n            \"litterAddress\": null,\n            \"litterContact\": {\n                \"title\": \"Mr\",\n                \"firstName\": \"RONALD\",\n                \"surname\": \"MCCULLAGH\"\n            },\n            \"isOtherAddress\": false,\n            \"earBranderName\": \"Brian  Jones\",\n            \"earBranderPhone\": \"03-52821130\",\n            \"earBranderSuburb\": \"Lara\",\n            \"earBranderId\": -1,\n            \"clinicName\": null,\n            \"clinicPhone\": null,\n            \"clinicAddress\": null,\n            \"clinicId\": 0,\n            \"id\": 393774011,\n            \"selectedMatingResult\": 1,\n            \"sire\": \"ASTON DEE BEE\",\n            \"sireId\": 1490820093,\n            \"sireColour\": \"Black\",\n            \"isDamDNARegistered\": true,\n            \"dam\": \"MOTORETTE\",\n            \"damColour\": \"Black\",\n            \"serviceDate\": \"2018-12-21T00:00:00.0000000\",\n            \"damId\": -627719,\n            \"numberOfDogs\": 0,\n            \"numberOfBitches\": 0,\n            \"isEligibleToBreed\": true\n        },\n        \"dateCreated\": \"2019-05-30T01:49:16.8445044Z\",\n        \"error\": null,\n        \"result\": {\n            \"ResultOfMating_ServiceDetailsInputSRZ\": \"42d59814154e5803158537163e4580f1||{\\\"LitterId\\\":393774011,\\\"DateSubmitted\\\":{\\\"ticks\\\":636947712000000000},\\\"DateOfWhelping\\\":{\\\"ticks\\\":636862176000000000},\\\"LitterAddress\\\":null,\\\"LitterContact\\\":{\\\"Title\\\":\\\"Mr\\\",\\\"FirstName\\\":\\\"RONALD\\\",\\\"Surname\\\":\\\"MCCULLAGH\\\"},\\\"MatingResultType\\\":1,\\\"IsBreederAddress\\\":true,\\\"EarBranderId\\\":-1,\\\"VetClinicId\\\":0,\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailureDuplicatePayment\\\":null,\\\"FailedAmendment\\\":null,\\\"LoggedOnUserId\\\":-2926,\\\"ReceiptNumber\\\":null,\\\"Fee\\\":60.00,\\\"HasLateFeeIncluded\\\":true,\\\"LateFee\\\":60.00,\\\"IsWantingDetailsPublished\\\":false,\\\"IsImpersonating\\\":false,\\\"Pups\\\":[]}\",\n            \"PayWayDetails\": {\n                \"CreditCard\": null,\n                \"Cheque\": null,\n                \"PaymentMethod\": 1,\n                \"AmountToPay\": 60\n            }\n        }\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Outcome",
+              "_postman_id": "bdd7d938-7fa7-4e85-8be1-ad3fa9214fc1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/{{FastTrack1 BreedingId}}/Outcome",
+                "description": "Get the outcomes as a result of mating.\n\n\n## Status Codes\n* 404 Not found (Breeding not found)\n* 401 Unauthorised (Not permitted to enter matting details)\n\n\n\n## Returns  \nResultOfMatingWhelpedOutput"
+              },
+              "response": [
+                {
+                  "id": "b9dad9e8-ea71-42b3-a850-4b3ca4e19e22",
+                  "name": "Breeding Outcome (Dev)",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Certificate provided by Security/LoginAsUser",
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"BreedingId\":\"{{FastTrack1 BreedingId}}\",\n\t\"breeding\":\"details to be defined\"\n}\n"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/Outcome"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 30 May 2019 01:33:17 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "1018"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"result\": {\n        \"arguments\": {\n            \"id\": 393774011\n        },\n        \"dateCreated\": \"2019-05-30T01:33:17.3685235Z\",\n        \"error\": null,\n        \"result\": {\n            \"pups\": null,\n            \"whelpedDate\": \"2019-02-20T00:00:00.0000000\",\n            \"whelpingDateMin\": \"2019-02-17T00:00:00.0000000\",\n            \"whelpingDateMax\": \"2019-02-27T00:00:00.0000000\",\n            \"breederName\": \"RONALD MCCULLAGH\",\n            \"isWantingDetailsPublished\": false,\n            \"kennelAddress\": \"85 COONAWARRA DVE\",\n            \"kennelSuburb\": \"LARA\",\n            \"kennelState\": \"VIC\",\n            \"kennelPostcode\": \"3212\",\n            \"litterAddress\": null,\n            \"litterContact\": {\n                \"title\": \"Mr\",\n                \"firstName\": \"RONALD\",\n                \"surname\": \"MCCULLAGH\"\n            },\n            \"isOtherAddress\": false,\n            \"earBranderName\": \"Brian  Jones\",\n            \"earBranderPhone\": \"03-52821130\",\n            \"earBranderSuburb\": \"Lara\",\n            \"earBranderId\": -1,\n            \"clinicName\": null,\n            \"clinicPhone\": null,\n            \"clinicAddress\": null,\n            \"clinicId\": 0,\n            \"id\": 393774011,\n            \"selectedMatingResult\": 0,\n            \"sire\": \"ASTON DEE BEE\",\n            \"sireId\": 1490820093,\n            \"sireColour\": \"Black\",\n            \"isDamDNARegistered\": true,\n            \"dam\": \"MOTORETTE\",\n            \"damColour\": \"Black\",\n            \"serviceDate\": \"2018-12-21T00:00:00.0000000\",\n            \"damId\": -627719,\n            \"numberOfDogs\": 0,\n            \"numberOfBitches\": 0,\n            \"isEligibleToBreed\": true\n        }\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Payment",
+              "_postman_id": "6af8367e-70ac-4145-84aa-3975b249a3d6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ResultOfMating_ServiceDetailsInputSRZ\": \"42d59814154e5803158537163e4580f1||{\\\"LitterId\\\":393774011,\\\"DateSubmitted\\\":{\\\"ticks\\\":636947712000000000},\\\"DateOfWhelping\\\":{\\\"ticks\\\":636862176000000000},\\\"LitterAddress\\\":null,\\\"LitterContact\\\":{\\\"Title\\\":\\\"Mr\\\",\\\"FirstName\\\":\\\"RONALD\\\",\\\"Surname\\\":\\\"MCCULLAGH\\\"},\\\"MatingResultType\\\":1,\\\"IsBreederAddress\\\":true,\\\"EarBranderId\\\":-1,\\\"VetClinicId\\\":0,\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailureDuplicatePayment\\\":null,\\\"FailedAmendment\\\":null,\\\"LoggedOnUserId\\\":-2926,\\\"ReceiptNumber\\\":null,\\\"Fee\\\":60.00,\\\"HasLateFeeIncluded\\\":true,\\\"LateFee\\\":60.00,\\\"IsWantingDetailsPublished\\\":false,\\\"IsImpersonating\\\":false,\\\"Pups\\\":[]}\",\n    \"PayWayDetails\": {\n        \"CreditCard\": null,\n        \"Cheque\": null,\n        \"PaymentMethod\": 1,\n        \"AmountToPay\": 60\n    }\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/{{FastTrack1 BreedingId}}/Pay",
+                "description": "Use to perform the payment.\n\n\n## Status Codes\n* 409 Conflict (This might be a duplicate payment)  \n* 401 Unauthorized (The user is not allowed to enter a result of mating.)  \n* 400 Bad Request (PayWayDetails.AuthorisationFailedText)\n* 400 Bad Request (PayWayDetails.PaymentDeclinedText)\n\n## Inputs  \nResultOfMatingPaymentGatewayInput\n\n## Returns \nBreedingPaymentGatewayResponse"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "b50790f6-4197-4dfb-862f-e669ff039f33",
+          "description": "*litter* *mating results*\r\n\r\nProvides capabilities to process the *mating results*  information.  \r\n",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "189f1373-a81a-415a-b748-2b3fb8bef878",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "000ac4b8-ddc8-420b-a5f9-13a56bc87bb3",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Breeding Registration",
+          "item": [
+            {
+              "name": "Breeding Registration",
+              "_postman_id": "0c32a169-78da-4a65-ab85-0eec169de58a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 Registered DamId For Breeding}}/Registration",
+                "description": "Save the breeding registration information by DAM.  \r\n\r\nThis requires the uploading of *BreedingExemption.VetCertificate*"
+              },
+              "response": [
+                {
+                  "id": "e20a525c-5fd8-4693-ab2c-c8329a33ebd1",
+                  "name": "Breeding Registration",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Certificate provided by Security/LoginAsUser",
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 Registered DamId For Breeding}}/Registration"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 29 May 2019 02:23:11 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "610"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"result\": {\n        \"arguments\": {\n            \"id\": -752747\n        },\n        \"dateCreated\": \"2019-05-29T02:23:08.7872515Z\",\n        \"error\": null,\n        \"result\": {\n            \"damId\": -752747,\n            \"damName\": \"POLLY'S GIRL\",\n            \"eligibleForBreeding\": [\n                \"The dog has a dam registration.\",\n                \"Unfortunately your greyhound does not currently qualify for registration as a Breeding Female due to its retirement status. Please contact GRV for assistance in resolving this matter.\"\n            ],\n            \"fee\": 0,\n            \"payWayDetails\": {\n                \"CreditCard\": null,\n                \"Cheque\": null,\n                \"PaymentMethod\": 1,\n                \"AmountToPay\": 0\n            },\n            \"retire\": false,\n            \"isCurrentlyRetiredForBreeding\": false,\n            \"breedingExemption\": null,\n            \"canUploadExemption\": false,\n            \"isMso\": false\n        }\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Breeding Registration(Dev)",
+              "_postman_id": "9f59c5f6-4353-4b9a-ae3c-8fca6c5df8fe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": " {\n            \"damId\": -752747,\n            \"damName\": \"POLLY'S GIRL\",\n            \"eligibleForBreeding\": [\n                \"The dog has a dam registration.\",\n                \"Unfortunately your greyhound does not currently qualify for registration as a Breeding Female due to its retirement status. Please contact GRV for assistance in resolving this matter.\"\n            ],\n            \"fee\": 0,\n            \"payWayDetails\": {\n                \"CreditCard\": null,\n                \"Cheque\": null,\n                \"PaymentMethod\": 1,\n                \"AmountToPay\": 0\n            },\n            \"retire\": false,\n            \"isCurrentlyRetiredForBreeding\": false,\n            \"breedingExemption\": null,\n            \"canUploadExemption\": false,\n            \"isMso\": false\n        }"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 Registered DamId For Breeding}}/Registration",
+                "description": "Save the breeding registration information.  \r\n\r\nThis requires the uploading of *BreedingExemption.VetCertificate* \r\nStatus codes returned 201 or 400.  \r\n\r\n\r\nOn success a ReceiptNumber is provided.  \r\n\r\n```\r\nexport interface BreedingRegistrationInput\r\n{\r\n    damId: number;\r\n    damName: string;\r\n    eligibleForBreeding: string[];\r\n    fee: number;\r\n    payWayDetails: PayWayDetails;\r\n    retire: boolean;\r\n    isCurrentlyRetiredForBreeding: boolean;\r\n    breedingExemption: BreedingExemption;\r\n    canUploadExemption: boolean;\r\n    isMso: boolean;\r\n}\r\n```\r\n"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "113b66f1-dcb3-441f-8084-699810071882",
+          "description": "*litter* *breeding regsitration*\r\n\r\nProvides capabilities to process the *breeding regsitration*  information.  \r\n",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "b926279c-1cb6-4f0d-91c0-247f9eccf46b",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "997c2ed0-81c9-4e22-9c33-3f00025f0727",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Service Registration",
+          "item": [
+            {
+              "name": "Get Sire",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "f61041a0-6984-4472-9278-61c8cfb9b114",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "9d5dcd6e-527b-4fab-874c-80cb67166dfd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/Sire",
+                "description": "Get details of sire and stud mater.\n\n## Status Code\n* 401 Unauthorised (Signed in person is not the the dog breeding authority)\n\n## Returns  \nServiceRegistrationInputOutput"
+              },
+              "response": [
+                {
+                  "id": "01b1fc03-bc21-4740-a418-8efc5af71a31",
+                  "name": "Get Sire",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "value": "{{FastTrack1 ApiKey}}",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/Sire"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 03 Jun 2019 04:30:55 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "594"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"result\": {\n        \"arguments\": {\n            \"id\": 1490820093\n        },\n        \"dateCreated\": \"2019-06-03T04:30:54.8953647Z\",\n        \"error\": null,\n        \"result\": {\n            \"studSireId\": 1490820093,\n            \"studSireName\": \"ASTON DEE BEE\",\n            \"studMasterName\": \"Mrs SEONA THOMPSON\",\n            \"serviceDetails\": [],\n            \"currentServiceDetail\": {\n                \"damId\": 0,\n                \"damName\": null,\n                \"damEarBrandNumber\": null,\n                \"damColor\": null,\n                \"damDNA\": null,\n                \"damBreederName\": null,\n                \"damState\": null,\n                \"serviceType\": null,\n                \"dateBitchArrived\": null,\n                \"dateBitchDeparted\": null,\n                \"serviceDate\": null,\n                \"thirdPartyWitness\": null,\n                \"possibleServiceType\": [\n                    \"\",\n                    \"Natural\",\n                    \"Artificial\"\n                ],\n                \"fee\": 0\n            },\n            \"isValidDam\": false,\n            \"errorMessage\": null,\n            \"fromList\": null\n        }\n    }\n}"
+                }
+              ]
+            },
+            {
+              "name": "Calculate Service Fee",
+              "_postman_id": "2bfd99a5-8b74-42d9-92a1-db60a9ee8524",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"serviceDate\":\"{{FastTrack1 Service Registration Service Date}}\"\r\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/CalculateServiceFee",
+                "description": "Get details of sire and stud mater.\n\n\n## Inputs\nService Date \n\n## Returns  \nDecimal"
+              },
+              "response": []
+            },
+            {
+              "name": "Validate Dam",
+              "_postman_id": "ab1a9962-7d03-4653-91ab-fc979e63ee76",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"damName\":\"{{FastTrack1 Dam Name}}\",\r\n    \"earBrand\":\"{{FastTrack1 Dam Ear Brand}}\"\r\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/ValidateDam",
+                "description": "Get details of sire and stud mater.\n\n## Status Code\n* 401 Unauthorised (Signed in person is not the the dog breeding authority)\n* 404 No Found (The dam could not be found check the ear brand and name match)\n* 403 Forbidden (The dam is retired)\n\n## Returns  \nServiceRegistrationInputOutput"
+              },
+              "response": []
+            },
+            {
+              "name": "Save",
+              "_postman_id": "8d863eb5-ab60-4060-84f8-8e47d443db8f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"studSireId\": 255840010,\n  \"studSireName\": \"FERNANDO BALE\",\n  \"studMasterName\": \"Mr PAUL WESTERVELD\",\n  \"isValidDam\": false,\n  \"errorMessage\": null,\n  \"fromList\": null,\n  \"currentServiceDetail\": \n    {\n      \"damId\": -627719,\n      \"damName\": \"MOTORETTE\",\n      \"damEarBrandNumber\": \"VGP 5057\",\n      \"damColor\": \"Black\",\n      \"damDNA\": \"Yes\",\n      \"damBreederName\": \"RONALD MCCULLAGH\",\n      \"damState\": \"VIC\",\n      \"serviceType\": \"Natural\",\n      \"dateBitchArrived\": \"2019-06-01T00:00:00.0000000Z\",\n      \"dateBitchDeparted\": \"2019-06-04T00:00:00.0000000Z\",\n      \"serviceDate\": \"2019-06-02T00:00:00.0000000Z\",\n      \"thirdPartyWitness\": \"James bond\",\n      \"fee\": 0\n    }\n  \n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/Save",
+                "description": "Register for a service\n\n\n## Status Codes\n* 401 Unauthorised (Not the stud master.)\n* 400 Bad request (See the input errors.)\n\n\n## Inputs\n\nServiceRegistrationInputOutput  \n\n\n## Returns\n\nRegisterServicePaymentGatewayInput"
+              },
+              "response": []
+            },
+            {
+              "name": "Payment",
+              "_postman_id": "01319130-bee7-4da9-ba67-18c2d30b62e1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n            \"RegisterService_ServiceDetailsInputSRZ\": \"7c9c1190611758bc775156addbc7f2e6||{\\\"StudSireId\\\":255840010,\\\"StudSireName\\\":\\\"FERNANDO BALE\\\",\\\"StudMasterName\\\":null,\\\"ServiceDetails\\\":[{\\\"DamId\\\":-627719,\\\"DamName\\\":\\\"MOTORETTE\\\",\\\"ServiceType\\\":\\\"Natural\\\",\\\"DateBitchArrived\\\":{\\\"ticks\\\":636949440000000000},\\\"DateBitchDeparted\\\":{\\\"ticks\\\":636952032000000000},\\\"ServiceDate\\\":{\\\"ticks\\\":636950304000000000},\\\"ThirdPartyWitness\\\":\\\"James bond\\\",\\\"Fee\\\":0.00,\\\"HasLateFeeIncluded\\\":false,\\\"LateFee\\\":0.0,\\\"BaseFee\\\":0.00}],\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailedAmendment\\\":null,\\\"AmendmentFailure\\\":false,\\\"FailureDuplicatePayment\\\":null,\\\"LoggedOnUserId\\\":0,\\\"ReceiptNumber\\\":null,\\\"IsImpersonating\\\":false}\",\n            \"PayWayDetails\": {\n                \"CreditCard\": null,\n                \"Cheque\": null,\n                \"PaymentMethod\": \"Postbillpay\",\n                \"AmountToPay\": 1000\n            }\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/Pay",
+                "description": "Register for a service\n\n\n## Status Codes\n* 409 Conflict (Possible duplicate payment.)\n* 400 Bad request (The service registration could not be completed. Please correct any errors before proceeding.)\n\n## Inputs\n\nServiceRegistrationInputOutput  \n\n\n## Returns\n\nRegisterServicePaymentGatewayInput"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "97742a53-6e80-449c-80f7-6956ae520def",
+          "description": "*litter* *service registration*\r\n\r\nProvides capabilities to process the *service registration*  information.  ",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Ear Branding",
+          "item": [
+            {
+              "name": "Ear Branders",
+              "_postman_id": "4e4bf74a-17e5-4624-8208-753a795f6fe7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/EarBranders?take=5&skip=0",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Breedings",
+                    "EarBranders"
+                  ],
+                  "query": [
+                    {
+                      "key": "take",
+                      "value": "5",
+                      "description": "The number of records to take from the scenario."
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0",
+                      "description": "The number of records to skip"
+                    }
+                  ]
+                },
+                "description": "Get a list of active ear branders.  \n\nOrdered by PostCode.  \n\n\n## Returns\nEarbranderItem[]"
+              },
+              "response": []
+            },
+            {
+              "name": "Ear Branders By Post Code",
+              "_postman_id": "5ff3714e-ae3b-4802-a055-38081b82eeb7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"postcode\":\"{{FastTrack1 EarBrander Postal Code}}\"\n}\n"
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/EarBrandersByCode?take=5&skip=0",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Breedings",
+                    "EarBrandersByCode"
+                  ],
+                  "query": [
+                    {
+                      "key": "take",
+                      "value": "5",
+                      "description": "The number of records to take from the scenario."
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0",
+                      "description": "The number of records to skip"
+                    }
+                  ]
+                },
+                "description": "Get a list of active ear branders by postcode.  \n\nOrdered by PostCode.  \n\nOne earbrander is allocated many postcodes.\n\n\n## Inputs  \n```\n{\n\t\"postcode\":\"{{FastTrack1 EarBrander Postal Code}}\"\n}\n```\n\n## Returns  \nEarbranderItem[]"
+              },
+              "response": []
+            },
+            {
+              "name": "Ear Brander",
+              "_postman_id": "bb70e19a-3996-45dd-8631-6fd9dcbf5add",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"id\": {{FastTrack1 EarBranderId}}\n}\n"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/EarBrander",
+                "description": "Get the ear brander by identifier\n\n\n\n## Inputs  \n```\n{\n\t\"id\": {{FastTrack1 EarBranderId}}\n}\n\n```\n\n## Returns  \nEarbranderItem"
+              },
+              "response": []
+            },
+            {
+              "name": "Ear Branding Form",
+              "_postman_id": "b17c0647-a599-4dff-9b74-c2c3ec69f8ca",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/EarBrandingForm",
+                "description": "Get data required to ear banding regitration form."
+              },
+              "response": [
+                {
+                  "id": "2853906d-6568-44c3-863a-6c645a3259e9",
+                  "name": "Ear Branding Form",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Certificate provided by Security/LoginAsUser",
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      }
+                    ],
+                    "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/EarBrandingForm"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 24 May 2019 00:04:56 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "4696"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-05-24T00:04:53.9415911Z\",\n        \"result\": {\n            \"pageTitle\": \"Ear Branding Form\",\n            \"coverSheet\": {\n                \"sireName\": \"KIOWA PRODUCER\",\n                \"sireColor\": \"Dark Brindle\",\n                \"sireWhelpedDate\": \"2011-04-02T00:00:00.0000000\",\n                \"damName\": \"PRINCESS GEMINI\",\n                \"damColor\": \"Brindle\",\n                \"damWhelpedDate\": \"2011-10-02T00:00:00.0000000\",\n                \"whelpedDate\": \"2017-04-07T00:00:00.0000000\",\n                \"isSyndicate\": false,\n                \"breederName\": \"Mr JOHN CARR \",\n                \"syndicateName\": \"\",\n                \"breederAddress\": {\n                    \"street\": \"1215 NORTH RD\",\n                    \"suburb\": \"DEVON MEADOWS\",\n                    \"state\": \"VIC\",\n                    \"postCode\": \"3977\",\n                    \"country\": \"Australia\"\n                },\n                \"grvAddressStreet\": \"46-50 Chetwynd Street\",\n                \"grvAddressSuburb\": \"West Melbourne\",\n                \"grvAddressPostcode\": \"3003\",\n                \"dateRegistered\": \"2017-07-25T00:00:00.0000000\",\n                \"gRVTelephone\": \"03 8329 1100\",\n                \"sireParentDam\": \"KAY V SWEETKAY\",\n                \"sireParentSire\": \"DRAGON FIRE\",\n                \"damParentDam\": \"WIND FIRE\",\n                \"damParentSire\": \"NITRO BURST\",\n                \"pupDetailsAfterEarBranding\": [\n                    {\n                        \"index\": 1,\n                        \"pupColor\": \"Brindle\",\n                        \"pupSex\": \"Dog\",\n                        \"pupEarBrandNumber\": \"VGEUW\",\n                        \"pupMicrochipNumber\": \"956000004507913\"\n                    },\n                    {\n                        \"index\": 2,\n                        \"pupColor\": \"Brindle\",\n                        \"pupSex\": \"Bitch\",\n                        \"pupEarBrandNumber\": \"VGEUX\",\n                        \"pupMicrochipNumber\": \"956000005423942\"\n                    },\n                    {\n                        \"index\": 3,\n                        \"pupColor\": \"Brindle\",\n                        \"pupSex\": \"Bitch\",\n                        \"pupEarBrandNumber\": \"VGEUY\",\n                        \"pupMicrochipNumber\": \"956000004512468\"\n                    },\n                    {\n                        \"index\": 4,\n                        \"pupColor\": \"Brindle\",\n                        \"pupSex\": \"Bitch\",\n                        \"pupEarBrandNumber\": \"VGEUZ\",\n                        \"pupMicrochipNumber\": \"956000004510851\"\n                    },\n                    {\n                        \"index\": 5,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    },\n                    {\n                        \"index\": 6,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    },\n                    {\n                        \"index\": 7,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    },\n                    {\n                        \"index\": 8,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    },\n                    {\n                        \"index\": 9,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    },\n                    {\n                        \"index\": 10,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    },\n                    {\n                        \"index\": 11,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    },\n                    {\n                        \"index\": 12,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    },\n                    {\n                        \"index\": 13,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    },\n                    {\n                        \"index\": 14,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    },\n                    {\n                        \"index\": 15,\n                        \"pupColor\": null,\n                        \"pupSex\": null,\n                        \"pupEarBrandNumber\": null,\n                        \"pupMicrochipNumber\": null\n                    }\n                ]\n            },\n            \"pupOwnerships\": [\n                {\n                    \"earBrandNumber\": \"VGEUW\",\n                    \"microchip\": \"956000004507913\",\n                    \"sire\": \"KIOWA PRODUCER\",\n                    \"dam\": \"PRINCESS GEMINI\",\n                    \"pupColor\": \"Brindle\",\n                    \"pupSex\": \"Dog\",\n                    \"isDesexed\": \"No\",\n                    \"isDeclaredDangerous\": \"No\",\n                    \"isRestrictedBreed\": false,\n                    \"isDeclaredMenacing\": false,\n                    \"litterNo\": null,\n                    \"whelpedDate\": {\n                        \"ticks\": 636271200000000000\n                    },\n                    \"implantDate\": {\n                        \"ticks\": 636353280000000000\n                    },\n                    \"secondaryMicrochips\": [],\n                    \"owner\": \"Mr JOHN CARR\",\n                    \"address\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n                    \"postalAddress\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n                    \"phoneNo\": null,\n                    \"gRVMemberNo\": null,\n                    \"dogName\": null\n                },\n                {\n                    \"earBrandNumber\": \"VGEUX\",\n                    \"microchip\": \"956000005423942\",\n                    \"sire\": \"KIOWA PRODUCER\",\n                    \"dam\": \"PRINCESS GEMINI\",\n                    \"pupColor\": \"Brindle\",\n                    \"pupSex\": \"Bitch\",\n                    \"isDesexed\": \"No\",\n                    \"isDeclaredDangerous\": \"No\",\n                    \"isRestrictedBreed\": false,\n                    \"isDeclaredMenacing\": false,\n                    \"litterNo\": null,\n                    \"whelpedDate\": {\n                        \"ticks\": 636271200000000000\n                    },\n                    \"implantDate\": {\n                        \"ticks\": 636353280000000000\n                    },\n                    \"secondaryMicrochips\": [],\n                    \"owner\": \"Mr JOHN CARR\",\n                    \"address\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n                    \"postalAddress\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n                    \"phoneNo\": null,\n                    \"gRVMemberNo\": null,\n                    \"dogName\": null\n                },\n                {\n                    \"earBrandNumber\": \"VGEUY\",\n                    \"microchip\": \"956000004512468\",\n                    \"sire\": \"KIOWA PRODUCER\",\n                    \"dam\": \"PRINCESS GEMINI\",\n                    \"pupColor\": \"Brindle\",\n                    \"pupSex\": \"Bitch\",\n                    \"isDesexed\": \"No\",\n                    \"isDeclaredDangerous\": \"No\",\n                    \"isRestrictedBreed\": false,\n                    \"isDeclaredMenacing\": false,\n                    \"litterNo\": null,\n                    \"whelpedDate\": {\n                        \"ticks\": 636271200000000000\n                    },\n                    \"implantDate\": {\n                        \"ticks\": 636353280000000000\n                    },\n                    \"secondaryMicrochips\": [],\n                    \"owner\": \"Mr JOHN CARR\",\n                    \"address\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n                    \"postalAddress\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n                    \"phoneNo\": null,\n                    \"gRVMemberNo\": null,\n                    \"dogName\": null\n                },\n                {\n                    \"earBrandNumber\": \"VGEUZ\",\n                    \"microchip\": \"956000004510851\",\n                    \"sire\": \"KIOWA PRODUCER\",\n                    \"dam\": \"PRINCESS GEMINI\",\n                    \"pupColor\": \"Brindle\",\n                    \"pupSex\": \"Bitch\",\n                    \"isDesexed\": \"No\",\n                    \"isDeclaredDangerous\": \"No\",\n                    \"isRestrictedBreed\": false,\n                    \"isDeclaredMenacing\": false,\n                    \"litterNo\": null,\n                    \"whelpedDate\": {\n                        \"ticks\": 636271200000000000\n                    },\n                    \"implantDate\": {\n                        \"ticks\": 636353280000000000\n                    },\n                    \"secondaryMicrochips\": [],\n                    \"owner\": \"Mr JOHN CARR\",\n                    \"address\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n                    \"postalAddress\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n                    \"phoneNo\": null,\n                    \"gRVMemberNo\": null,\n                    \"dogName\": null\n                }\n            ],\n            \"printCoverSheet\": true\n        }\n    }\n}"
+                }
+              ]
+            }
+          ],
+          "_postman_id": "923ab4c8-2e0f-4440-9bfa-f9a374773c2f",
+          "description": "*litter* *ear branding*\r\n\r\nProvides capabilities to process the *ear branding*  information.  \r\n",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "0c337063-6dbe-4999-8c5e-982f2ec7323e",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "366ed70c-cb62-4b7a-bca8-c24333b36a1c",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Breedings",
+          "_postman_id": "f9ff6843-1a92-4a2f-acc5-82eef778abc0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text",
+                "description": "Certificate provided by Security/LoginAsUser"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/List?fromYear={{FastTrack1 Litters From Year}}&toYear={{FastTrack1 Litters To Year}}&skip=0&take=10",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "Breedings",
+                "List"
+              ],
+              "query": [
+                {
+                  "key": "fromYear",
+                  "value": "{{FastTrack1 Litters From Year}}",
+                  "description": "If the value is excluded - year is ignored"
+                },
+                {
+                  "key": "toYear",
+                  "value": "{{FastTrack1 Litters To Year}}",
+                  "description": "If the value is excluded - year is ignored"
+                },
+                {
+                  "key": "skip",
+                  "value": "0",
+                  "description": "The record number to start at in the sample trims to sample size."
+                },
+                {
+                  "key": "take",
+                  "value": "10",
+                  "description": "The number of records to take from the scenario."
+                }
+              ]
+            },
+            "description": "Get a list of my litters.\n\nCan return emtpy results with Error text = \"Denied (S1)\"\nMeaning the user has no viewing permissions.  \nThis is the default method.  \n\n\nOrdered by DateServiced\n"
+          },
+          "response": [
+            {
+              "id": "54f0392f-eebf-429a-958d-c5e57db3b388",
+              "name": "Breedings",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/List?fromYear={{FastTrack1 Litters From Year}}&toYear={{FastTrack1 Litters To Year}}&skip=0&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Breedings",
+                    "List"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromYear",
+                      "value": "{{FastTrack1 Litters From Year}}",
+                      "description": "If the value is excluded - year is ignored"
+                    },
+                    {
+                      "key": "toYear",
+                      "value": "{{FastTrack1 Litters To Year}}",
+                      "description": "If the value is excluded - year is ignored"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0",
+                      "description": "The record number to start at in the sample trims to sample size."
+                    },
+                    {
+                      "key": "take",
+                      "value": "10",
+                      "description": "The number of records to take from the scenario."
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 27 May 2019 05:08:42 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "974"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-05-27T05:08:42.5432489Z\",\n        \"totalNumberOfRows\": 3,\n        \"returnedRows\": 3,\n        \"error\": null,\n        \"arguments\": {\n            \"fromYear\": 2017,\n            \"toYear\": 2019,\n            \"skip\": 0,\n            \"take\": 10,\n            \"id\": null,\n            \"mode\": 1\n        },\n        \"result\": [\n            {\n                \"id\": 433417112,\n                \"dateServiced\": \"2019-04-19T00:00:00.0000000\",\n                \"dateWhelped\": null,\n                \"sire\": \"FULLY LOADED\",\n                \"sireId\": 255840010,\n                \"dam\": \"PRINCESS GEMINI\",\n                \"damId\": -746920,\n                \"serviceStatus\": \"Pending\",\n                \"matingResult\": null,\n                \"canEnterMatingResult\": true\n            },\n            {\n                \"id\": 287618090,\n                \"dateServiced\": \"2018-01-01T00:00:00.0000000\",\n                \"dateWhelped\": \"2018-03-07T00:00:00.0000000\",\n                \"sire\": \"KILLER DILLER\",\n                \"sireId\": -165336,\n                \"dam\": \"CELTIC FIRE\",\n                \"damId\": -449015,\n                \"serviceStatus\": \"Completed\",\n                \"matingResult\": \"Whelped\",\n                \"canEnterMatingResult\": false\n            },\n            {\n                \"id\": 195352425,\n                \"dateServiced\": \"2017-02-01T00:00:00.0000000\",\n                \"dateWhelped\": \"2017-04-07T00:00:00.0000000\",\n                \"sire\": \"KIOWA PRODUCER\",\n                \"sireId\": -453931,\n                \"dam\": \"PRINCESS GEMINI\",\n                \"damId\": 1652880009,\n                \"serviceStatus\": \"Completed\",\n                \"matingResult\": \"Whelped\",\n                \"canEnterMatingResult\": false\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Breeding",
+          "_postman_id": "59926a73-88a1-42df-b2ed-2e8fc2d974de",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text",
+                "description": "Certificate provided by Security/LoginAsUser"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/List",
+            "description": "Get a list of my litters.\n\n\nId parameter must be included all other parmaters should be null or blank.  \n\n\nIf the id is not blank then the all other arguments are ignored.  \n"
+          },
+          "response": [
+            {
+              "id": "e0062d3d-bfbc-4aa4-a2fb-ae962d344f5e",
+              "name": "Breeding",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/List"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 27 May 2019 05:09:53 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "484"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-05-27T05:09:53.8721840Z\",\n        \"totalNumberOfRows\": 1,\n        \"returnedRows\": 1,\n        \"error\": null,\n        \"arguments\": {\n            \"fromYear\": null,\n            \"toYear\": null,\n            \"skip\": null,\n            \"take\": null,\n            \"id\": 195352425,\n            \"mode\": 0\n        },\n        \"result\": [\n            {\n                \"id\": 195352425,\n                \"dateServiced\": \"2017-02-01T00:00:00.0000000\",\n                \"dateWhelped\": \"2017-04-07T00:00:00.0000000\",\n                \"sire\": \"KIOWA PRODUCER\",\n                \"sireId\": -453931,\n                \"dam\": \"PRINCESS GEMINI\",\n                \"damId\": 1652880009,\n                \"serviceStatus\": \"Completed\",\n                \"matingResult\": \"Whelped\",\n                \"canEnterMatingResult\": false\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Microchip Clinics",
+          "_postman_id": "8446c533-1f58-48a5-be80-bcb083e58168",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/MicrochipClinics?take=10&skip=0",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "Breedings",
+                "MicrochipClinics"
+              ],
+              "query": [
+                {
+                  "key": "take",
+                  "value": "10",
+                  "description": "The number of records to take from the scenario."
+                },
+                {
+                  "key": "skip",
+                  "value": "0",
+                  "description": "The number of records to skip"
+                }
+              ]
+            },
+            "description": "Get a list of active microchip clinics.\n\nOrdered by Poplarity and post code.  \n"
+          },
+          "response": [
+            {
+              "id": "59e24960-2fb4-483a-80ce-a23936c55d9b",
+              "name": "MicroChipClinics",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/MicrochipClinics?take=10&skip=0",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Breedings",
+                    "MicrochipClinics"
+                  ],
+                  "query": [
+                    {
+                      "key": "take",
+                      "value": "10",
+                      "description": "The number of records to take from the scenario."
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0",
+                      "description": "The number of records to skip"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 May 2019 03:36:42 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1770"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-05-20T03:36:41.9017702Z\",\n        \"totalNumberOfRows\": 171,\n        \"returnedRows\": 10,\n        \"take\": 10,\n        \"skip\": 0,\n        \"error\": null,\n        \"result\": [\n            {\n                \"id\": -24,\n                \"name\": \"CRAIGIEBURN ANIMAL HOSPITAL\",\n                \"address\": \"9 CRAIGIEBURN ROAD WEST CRAIGIEBURN VIC 3064\",\n                \"suburb\": \"CRAIGIEBURN\",\n                \"phone\": \"03 9305 5855\",\n                \"isPopular\": true\n            },\n            {\n                \"id\": 111196950,\n                \"name\": \"Regional Greyhound Vet Services\",\n                \"address\": \"26 Creswick Street Hawthorn VIC 3122\",\n                \"suburb\": \"Hawthorn\",\n                \"phone\": \"0448 304 070\",\n                \"isPopular\": true\n            },\n            {\n                \"id\": -26,\n                \"name\": \"SANDOWN VET CLINIC\",\n                \"address\": \"PO BOX 13 SPRINGVALE VIC 3171\",\n                \"suburb\": \"SPRINGVALE\",\n                \"phone\": \"03 9547 6666\",\n                \"isPopular\": true\n            },\n            {\n                \"id\": -23,\n                \"name\": \"MCIVOR ROAD VET CLINIC\",\n                \"address\": \"PO BOX 991 BENDIGO VIC 3552\",\n                \"suburb\": \"BENDIGO\",\n                \"phone\": \"03 5443 7749\",\n                \"isPopular\": true\n            },\n            {\n                \"id\": -85,\n                \"name\": \"SHEPPARTON VETERINARY CLINIC\",\n                \"address\": \"2 WANGANUI ROAD SHEPPARTON NORTH VIC 3631\",\n                \"suburb\": \"SHEPPARTON NORTH\",\n                \"phone\": \"03 5821 3188\",\n                \"isPopular\": true\n            },\n            {\n                \"id\": 1729030000,\n                \"name\": \"SHEPPARTON GREYHOUNDS VETERINARY CLINIC\",\n                \"address\": \"7580 GOULBURN VALLEY HWY KIALLA VIC 3631\",\n                \"suburb\": \"KIALLA\",\n                \"phone\": \"03 5823 5577\",\n                \"isPopular\": true\n            },\n            {\n                \"id\": -96,\n                \"name\": \"Gippsland Veterinary Hospital (former Maffra vet clinic)\",\n                \"address\": \"10 JOHNSON STREET MAFFRA VIC 3860\",\n                \"suburb\": \"MAFFRA\",\n                \"phone\": \"03 5147 1177\",\n                \"isPopular\": true\n            },\n            {\n                \"id\": 256899774,\n                \"name\": \"LANGWARRIN VETERINARY CLINIC\",\n                \"address\": \"299 CRANBOURNE-FRANKSTON ROAD LANGWARRIN VIC 3910\",\n                \"suburb\": \"LANGWARRIN\",\n                \"phone\": \"03 9789 1682\",\n                \"isPopular\": true\n            },\n            {\n                \"id\": -27,\n                \"name\": \"WALNUT VET CLINIC\",\n                \"address\": \"84 CLARENDON STREET CRANBOURNE VIC 3977\",\n                \"suburb\": \"CRANBOURNE\",\n                \"phone\": \"03 5995 5255\",\n                \"isPopular\": true\n            },\n            {\n                \"id\": -45,\n                \"name\": \"ALLPETS ANIMAL HOSPITAL\",\n                \"address\": \"PO BOX 50 LAVINGTON VIC 2641\",\n                \"suburb\": \"LAVINGTON\",\n                \"phone\": \"02 6023 1444\",\n                \"isPopular\": false\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Litter Details",
+          "_postman_id": "9b2b2608-da6d-4f3d-8ba2-365476dabdc9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/LitterDetails/?skip=0&take=10",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "Breedings",
+                "{{FastTrack1 BreedingId}}",
+                "LitterDetails",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "0",
+                  "description": "The number of rows to skip"
+                },
+                {
+                  "key": "take",
+                  "value": "10",
+                  "description": "The number of rows to take"
+                }
+              ]
+            },
+            "description": "Get the details of the litter."
+          },
+          "response": [
+            {
+              "id": "0313ed75-b30e-4b01-b197-915399cb5748",
+              "name": "Litter Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/LitterDetails/?skip=0&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Breedings",
+                    "{{FastTrack1 BreedingId}}",
+                    "LitterDetails",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0",
+                      "description": "The number of rows to skip"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10",
+                      "description": "The number of rows to take"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 14 Jun 2019 01:10:39 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1515"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 0,\n            \"returnedRows\": 2,\n            \"take\": 10,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-06-14T01:10:40.1357374Z\",\n        \"error\": null,\n        \"result\": {\n            \"sireDetails\": {\n                \"id\": 1490820093,\n                \"dogName\": \"ASTON DEE BEE\",\n                \"sex\": \"Dog\",\n                \"colour\": \"BK\",\n                \"earBrand\": \"VELLQ\",\n                \"microchipNumber\": \"956000004060654\",\n                \"dateNamed\": \"2016-08-10T00:00:00.0000000\",\n                \"displayName\": \"ASTON DEE BEE\"\n            },\n            \"damDetails\": {\n                \"id\": -627719,\n                \"dogName\": \"MOTORETTE\",\n                \"sex\": \"Bitch\",\n                \"colour\": \"BK\",\n                \"earBrand\": \"VGP 5057\",\n                \"microchipNumber\": \"956000008259964\",\n                \"dateNamed\": \"2011-07-13T00:00:00.0000000\",\n                \"displayName\": \"MOTORETTE\"\n            },\n            \"hits\": 0,\n            \"id\": 393774011,\n            \"whelpDate\": \"2019-02-20T00:00:00.0000000\",\n            \"sireName\": \"ASTON DEE BEE\",\n            \"damName\": \"MOTORETTE\",\n            \"sireId\": 1490820093,\n            \"damId\": -627719,\n            \"numOfDogs\": 0,\n            \"canBeRegisteredForGOBIS\": false,\n            \"numOfBitches\": 2,\n            \"numOfH\": 0,\n            \"numOfUnknown\": 0,\n            \"numOfDeceased\": 0,\n            \"serviceStatus\": \"Completed\",\n            \"matingResult\": {\n                \"code\": 1\n            },\n            \"isWhelped\": true,\n            \"serviceDate\": \"2018-12-21T00:00:00.0000000\",\n            \"breederName\": \"RONALD MCCULLAGH\",\n            \"breederId\": -2926,\n            \"pups\": [\n                {\n                    \"id\": 439981707,\n                    \"dogName\": \"UNNAMED\",\n                    \"sex\": \"Bitch\",\n                    \"colour\": \"Black\",\n                    \"earBrand\": \"VIPOD\",\n                    \"microchipNumber\": \"956000006354272\",\n                    \"dateNamed\": null,\n                    \"displayName\": null\n                },\n                {\n                    \"id\": 439981708,\n                    \"dogName\": \"UNNAMED\",\n                    \"sex\": \"Bitch\",\n                    \"colour\": \"Black\",\n                    \"earBrand\": \"VIPOE\",\n                    \"microchipNumber\": \"956000006355411\",\n                    \"dateNamed\": null,\n                    \"displayName\": null\n                }\n            ],\n            \"canPrintOwnershipForms\": false,\n            \"canPrintLitterRegistrationForms\": false,\n            \"canUserTakeActions\": false,\n            \"owningAuthority\": \"VIC\",\n            \"isInterstateMating\": false,\n            \"canPrintSixToEightWeekVaccinationForms\": false\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Registration Form",
+          "_postman_id": "f64c5e82-11ae-4c2d-be75-4227f3f3db23",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/RegistrationForm",
+            "description": "Get data required to litter regitration form."
+          },
+          "response": [
+            {
+              "id": "a0f04043-f859-4ccd-acc5-1202bc122460",
+              "name": "Registration Form",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/RegistrationForm"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 24 May 2019 00:05:41 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1219"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-05-24T00:05:41.1012913Z\",\n        \"result\": {\n            \"sireName\": \"KIOWA PRODUCER\",\n            \"damName\": \"PRINCESS GEMINI\",\n            \"whelpedDate\": {\n                \"ticks\": 636271200000000000\n            },\n            \"microchipFromDate\": {\n                \"ticks\": 636331680000000000\n            },\n            \"microchipToDate\": {\n                \"ticks\": 636367968000000000\n            },\n            \"vetClinic\": \"CRAIGIEBURN ANIMAL HOSPITAL\",\n            \"breederName\": \"Mr JOHN CARR\",\n            \"breederAddress\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n            \"breederPhone\": null,\n            \"kennelAddress\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n            \"breederMobile\": null,\n            \"alternateContact\": \"\",\n            \"alternatePhone\": null,\n            \"email\": \"fasttrackbuild+19179@gmail.com\",\n            \"grvPhone\": \"03 8329 1100\",\n            \"litterLocation\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n            \"pupDetails\": [\n                {\n                    \"sex\": \"Dog\",\n                    \"entire\": true,\n                    \"color\": \"Brindle\",\n                    \"isDeceased\": false\n                },\n                {\n                    \"sex\": \"Bitch\",\n                    \"entire\": true,\n                    \"color\": \"Brindle\",\n                    \"isDeceased\": false\n                },\n                {\n                    \"sex\": \"Bitch\",\n                    \"entire\": true,\n                    \"color\": \"Brindle\",\n                    \"isDeceased\": false\n                },\n                {\n                    \"sex\": \"Bitch\",\n                    \"entire\": true,\n                    \"color\": \"Brindle\",\n                    \"isDeceased\": false\n                },\n                {\n                    \"sex\": \"Bitch\",\n                    \"entire\": true,\n                    \"color\": \"Brindle\",\n                    \"isDeceased\": true\n                },\n                {\n                    \"sex\": null,\n                    \"entire\": false,\n                    \"color\": null,\n                    \"isDeceased\": false\n                },\n                {\n                    \"sex\": null,\n                    \"entire\": false,\n                    \"color\": null,\n                    \"isDeceased\": false\n                },\n                {\n                    \"sex\": null,\n                    \"entire\": false,\n                    \"color\": null,\n                    \"isDeceased\": false\n                }\n            ]\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Microchip Form",
+          "_postman_id": "e58fbd2d-da47-4c52-b8fd-8c6e789e656f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/MicrochipForm/{{FastTrack1 Breeding Section}}",
+            "description": "Get data required for Microchip form.\n\n\n## Values For {{Section}}\n* 0 = View Breeders section\n* 1  = View Earbranders section\n* if signed in as the person responsible can view the earbrander section and breeders section."
+          },
+          "response": [
+            {
+              "id": "f46c41f2-3c13-4654-b476-5781962f3fe2",
+              "name": "Microchip Form",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/MicrochipForm/{{FastTrack1 Breeding Section}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 24 May 2019 05:02:20 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1852"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-05-24T05:02:19.8563944Z\",\n        \"totalNumberOfRows\": 1,\n        \"returnedRows\": 1,\n        \"take\": 0,\n        \"skip\": 0,\n        \"error\": null,\n        \"result\": {\n            \"breedersAdvice\": {\n                \"breedingId\": 195352425,\n                \"breederName\": \"Mr JOHN CARR\",\n                \"sireName\": \"KIOWA PRODUCER\",\n                \"damName\": \"PRINCESS GEMINI\",\n                \"earBranderName\": \"Geoff  Villinger\",\n                \"earBranderAddress\": {\n                    \"street\": \"135 Smiths Lane\",\n                    \"suburb\": \"Pearcedale\",\n                    \"state\": \"VIC\",\n                    \"postCode\": \"3912\",\n                    \"country\": \"Australia\"\n                },\n                \"earBranderPhone\": {\n                    \"number\": \"0417524632\"\n                }\n            },\n            \"earBrandingInput\": {\n                \"whelpedDate\": \"2017-04-07T00:00:00.0000000\",\n                \"sireName\": \"KIOWA PRODUCER\",\n                \"damName\": \"PRINCESS GEMINI\",\n                \"breederName\": \"Mr JOHN CARR\",\n                \"breederAddress\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n                \"pupLocation\": \"1215 NORTH RD DEVON MEADOWS, VIC, 3977, Australia\",\n                \"phone\": null,\n                \"mobilePhone\": null,\n                \"litterNo\": null,\n                \"earBranderName\": \"Geoff  Villinger\",\n                \"litterContact\": \"\",\n                \"pupEarBrandingDetails\": [\n                    {\n                        \"sex\": \"Dog\",\n                        \"microchipNo\": \"956000004507913\",\n                        \"color\": \"Brindle\",\n                        \"earBrandNumber\": \"VGEUW\"\n                    },\n                    {\n                        \"sex\": \"Bitch\",\n                        \"microchipNo\": \"956000005423942\",\n                        \"color\": \"Brindle\",\n                        \"earBrandNumber\": \"VGEUX\"\n                    },\n                    {\n                        \"sex\": \"Bitch\",\n                        \"microchipNo\": \"956000004512468\",\n                        \"color\": \"Brindle\",\n                        \"earBrandNumber\": \"VGEUY\"\n                    },\n                    {\n                        \"sex\": \"Bitch\",\n                        \"microchipNo\": \"956000004510851\",\n                        \"color\": \"Brindle\",\n                        \"earBrandNumber\": \"VGEUZ\"\n                    },\n                    {\n                        \"sex\": \"Bitch\",\n                        \"microchipNo\": null,\n                        \"color\": \"Brindle\",\n                        \"earBrandNumber\": null\n                    },\n                    {\n                        \"sex\": null,\n                        \"microchipNo\": null,\n                        \"color\": null,\n                        \"earBrandNumber\": null\n                    },\n                    {\n                        \"sex\": null,\n                        \"microchipNo\": null,\n                        \"color\": null,\n                        \"earBrandNumber\": null\n                    },\n                    {\n                        \"sex\": null,\n                        \"microchipNo\": null,\n                        \"color\": null,\n                        \"earBrandNumber\": null\n                    },\n                    {\n                        \"sex\": null,\n                        \"microchipNo\": null,\n                        \"color\": null,\n                        \"earBrandNumber\": null\n                    },\n                    {\n                        \"sex\": null,\n                        \"microchipNo\": null,\n                        \"color\": null,\n                        \"earBrandNumber\": null\n                    },\n                    {\n                        \"sex\": null,\n                        \"microchipNo\": null,\n                        \"color\": null,\n                        \"earBrandNumber\": null\n                    },\n                    {\n                        \"sex\": null,\n                        \"microchipNo\": null,\n                        \"color\": null,\n                        \"earBrandNumber\": null\n                    }\n                ]\n            },\n            \"canViewBreedersSection\": false,\n            \"canViewEarbrandersSection\": true\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "KennelAddress",
+          "_postman_id": "4f6d88d5-1f8c-47f9-9e2d-c27f04cd1bb9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/KennelAddress",
+            "description": "Get the kennel address of the breeder.\n\n\n## Retiurns\nAddress"
+          },
+          "response": [
+            {
+              "id": "b444fae0-b800-41dd-925f-a31b32eb5d8c",
+              "name": "KennelAddress",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/KennelAddress"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 31 May 2019 01:16:52 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "209"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"arguments\": {\n            \"id\": 393774011\n        },\n        \"dateCreated\": \"2019-05-31T01:16:53.0788310Z\",\n        \"error\": null,\n        \"result\": {\n            \"street\": \"85 COONAWARRA DVE\",\n            \"suburb\": \"LARA\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3212\",\n            \"country\": \"Australia\"\n        }\n    }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "9a91943d-2d8a-49a8-a3ba-8d46fe98797c",
+      "description": "Provides capabilities to fetch update and delete *litter* information.  \r\n\r\n## Status Codes  \r\n* 200 Ok\r\n* 403 Forbidden\r\n* 404 Not found\r\n* 500 Internal Server Error  \r\n\r\n",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "a307e4c3-71f3-402c-8210-c64973f2bee2",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "03e09374-eecc-4224-aef9-0d72baa7d4fb",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Summary",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "1b412d69-5fa9-44c4-9f2f-333da0f46189",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "5f53bfc5-5eba-46b5-bb56-7f6e3149e375",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}",
+                "warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman."
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/Dashboard/Summary?age=1000&take=5",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "Dashboard",
+                "Summary"
+              ],
+              "query": [
+                {
+                  "key": "age",
+                  "value": "1000",
+                  "description": "The max number of days to look back"
+                },
+                {
+                  "key": "take",
+                  "value": "5",
+                  "description": "The number of records to take from the scenario."
+                }
+              ]
+            },
+            "description": "Fetch summary data for a signed in user to dispaly on the client portal.  \n\nReturns a result with an \n\n* result.alters.result  \n* result.notifications.result  \n* result.meetingUpdates.result  \n"
+          },
+          "response": [
+            {
+              "id": "2784e47c-deae-4792-9a5b-efb210343926",
+              "name": "Summary",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman."
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Dashboard/Summary?age=1000&take=5",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Dashboard",
+                    "Summary"
+                  ],
+                  "query": [
+                    {
+                      "key": "age",
+                      "value": "1000",
+                      "description": "The max number of days to look back"
+                    },
+                    {
+                      "key": "take",
+                      "value": "5",
+                      "description": "The number of records to take from the scenario."
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 28 May 2019 06:45:20 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "3395"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"alerts\": {\n            \"summary\": {\n                \"totalNumberOfRows\": 0,\n                \"returnedRows\": 0,\n                \"take\": 5,\n                \"skip\": 0\n            },\n            \"result\": []\n        },\n        \"notifications\": {\n            \"summary\": {\n                \"totalNumberOfRows\": 1317,\n                \"returnedRows\": 5,\n                \"take\": 5,\n                \"skip\": 0\n            },\n            \"result\": [\n                {\n                    \"id\": 439884016,\n                    \"type\": \"Notification\",\n                    \"title\": \"Benalla Coursing - Sunday 2nd June \",\n                    \"description\": null,\n                    \"body\": \"Please see the below information when nominating for the upcoming coursing event at <strong>Benalla</strong> on <strong>Sunday 2nd June</strong>.&nbsp;<br /><br /><strong>McRae Holden Benalla Cup</strong> - For the best 8 all aged greyhounds. 1st Prize - $1,500. Trainers wishing to nominate for this event must select the <span style=\\\"color: #008000;\\\"><strong>Cup</strong></span> option. Greyhounds will be selected in order of coursing prize money. If insufficient nominations are received for the McRae Holden Benalla Cup, greyhounds with the best coursing form will be considered.&nbsp; &nbsp;<br /><br />Limit Stakes, Veterans, Maiden and Puppy Stakes will also be conducted dependent on nominations.\",\n                    \"url\": null,\n                    \"publishedTime\": \"2019-05-26T14:00:00.0000000Z\"\n                },\n                {\n                    \"id\": 439884014,\n                    \"type\": \"Notification\",\n                    \"title\": \"BRISBANE CUP - CONDITIONS OF ENTRY\",\n                    \"description\": null,\n                    \"body\": \"Please note that Racing Queensland have published conditions for the upcoming Group 1 Brisbane Cup (520m). Please&nbsp;<a href=\\\"https://www.racingqueensland.com.au/News-And-Guides/May-2019/2019-Group-1-Brisbane-Cup-520m-Conditions\\\" target=\\\"_blank\\\">click here</a>&nbsp;to view the conditions.&nbsp;&nbsp;\",\n                    \"url\": null,\n                    \"publishedTime\": \"2019-05-26T14:00:00.0000000Z\"\n                },\n                {\n                    \"id\": 439882010,\n                    \"type\": \"Notification\",\n                    \"title\": \"SHEPPARTON TRIAL INFORMATION - WEDNESDAY 29th May\",\n                    \"description\": null,\n                    \"body\": \"Please note that there will be <strong>NO TRIALS</strong> conducted at <strong>Shepparton GRC</strong> on <strong>Wednesday 29th May</strong> due to excavation works inside the track on Tuesday and Wednesday.\",\n                    \"url\": null,\n                    \"publishedTime\": \"2019-05-26T14:00:00.0000000Z\"\n                },\n                {\n                    \"id\": 439882009,\n                    \"type\": \"Notification\",\n                    \"title\": \"Healesville - Sunday 26th May Abandoned \",\n                    \"description\": null,\n                    \"body\": \"Please note that due to a mechanical lure issue, the Healesville meeting on Sunday 26th May has been abandoned. Participants will receive Travel and Starters fees and prize money will be split between greyhounds engaged at the meeting. <br /><br />Due to the abandonment of the meeting, the Grade 5 Heat series (Races 4, 9, 10, 11 and 12) has been abandoned entirely.&nbsp; &nbsp;&nbsp;<br /><br />The lure issue has been rectified and the meeting on Monday 27th May will proceed.\",\n                    \"url\": null,\n                    \"publishedTime\": \"2019-05-25T14:00:00.0000000Z\"\n                },\n                {\n                    \"id\": 439261269,\n                    \"type\": \"Notification\",\n                    \"title\": \"TIME AMENDMENT - GEELONG GRC TUESDAY MAY 28TH \",\n                    \"description\": null,\n                    \"body\": \"Please be advised the start time for <span style=\\\"color: #ff0000;\\\"><strong>Race 1</strong></span> at <strong>Geelong</strong> on <strong>Tuesday, May 28th</strong> has been amended.<br /><br /><span style=\\\"color: #ff0000;\\\"><strong>Race 1</strong></span> now <strong>3:37pm</strong> (Back 10 Mins) As a result of this time change kennels will now close 30 minutes prior at <strong>3:07pm<br /><br /><br /></strong><span style=\\\"font-size: xx-small;\\\"><em>*Amended 24/5/19 at 3:00pm</em></span>\",\n                    \"url\": null,\n                    \"publishedTime\": \"2019-05-23T14:00:00.0000000Z\"\n                }\n            ]\n        },\n        \"meetingupdates\": {\n            \"summary\": {\n                \"totalNumberOfRows\": 2171,\n                \"returnedRows\": 5,\n                \"take\": 5,\n                \"skip\": 0\n            },\n            \"result\": []\n        }\n    }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "7a9afc3d-4c28-4616-a879-fe319fc15d16",
+      "description": "Client Portal"
+    },
+    {
+      "name": "Dog",
+      "item": [
+        {
+          "name": "Dogs (Dev)",
+          "_postman_id": "61063f51-223a-482e-803d-85c8abece9d8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/Dogs/{{FastTrack1 Dog EarBrand}}/List",
+            "description": "Get a list of dogs"
+          },
+          "response": []
+        },
+        {
+          "name": "Dogs Search By Name",
+          "_postman_id": "1e1018ce-e90d-49b0-a32c-9c3509357d53",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/{{FastTrack1 Dog DogName}}/SearchByName?skip=10&take=10",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "Dogs",
+                "{{FastTrack1 Dog DogName}}",
+                "SearchByName"
+              ],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "10",
+                  "description": "The number of rows to skip"
+                },
+                {
+                  "key": "take",
+                  "value": "10",
+                  "description": "The number of rows to take"
+                }
+              ]
+            },
+            "description": "Get a list of dogs by name\n"
+          },
+          "response": [
+            {
+              "id": "8fc8c9f9-9120-4230-ae71-bea02ee8caba",
+              "name": "Dogs Search By Name (Next 10)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/{{FastTrack1 Dog DogName}}/SearchByName?skip=10&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Dogs",
+                    "{{FastTrack1 Dog DogName}}",
+                    "SearchByName"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "10",
+                      "description": "The number of rows to skip"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10",
+                      "description": "The number of rows to take"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 27 May 2019 07:09:52 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "925"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-05-27T07:09:52.7334972Z\",\n        \"totalNumberOfRows\": 0,\n        \"returnedRows\": 10,\n        \"take\": 10,\n        \"skip\": 10,\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogId\": -716932,\n                \"name\": \"HOMER ALLEN\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"03/08/2011\"\n            },\n            {\n                \"dogId\": -54093,\n                \"name\": \"HAY HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"30/08/1993\"\n            },\n            {\n                \"dogId\": -377289,\n                \"name\": \"UP HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"24/05/1997\"\n            },\n            {\n                \"dogId\": -364330,\n                \"name\": \"HOMER WINNE\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"01/01/1984\"\n            },\n            {\n                \"dogId\": -34549,\n                \"name\": \"JUST HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"04/11/2006\"\n            },\n            {\n                \"dogId\": -39071,\n                \"name\": \"HOMER HANCEY\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"01/07/2003\"\n            },\n            {\n                \"dogId\": -231269,\n                \"name\": \"WILD HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"01/05/1997\"\n            },\n            {\n                \"dogId\": -470927,\n                \"name\": \"HOMER'S LIGHT\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"13/09/1991\"\n            },\n            {\n                \"dogId\": -488613,\n                \"name\": \"BOLD HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"14/03/1994\"\n            },\n            {\n                \"dogId\": -599892,\n                \"name\": \"DANCING HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"25/04/2000\"\n            }\n        ]\n    }\n}"
+            },
+            {
+              "id": "edb70dae-54e4-42e4-8003-bc3732e5af1b",
+              "name": "Dogs Search By Name",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/{{FastTrack1 Dog DogName}}/SearchByName?skip=0&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Dogs",
+                    "{{FastTrack1 Dog DogName}}",
+                    "SearchByName"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0",
+                      "description": "The number of rows to skip"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10",
+                      "description": "The number of rows to take"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 27 May 2019 07:07:35 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "908"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-05-27T07:07:36.8186687Z\",\n        \"totalNumberOfRows\": 0,\n        \"returnedRows\": 10,\n        \"take\": 10,\n        \"skip\": 0,\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogId\": -5242,\n                \"name\": \"HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"12/11/1997\"\n            },\n            {\n                \"dogId\": 783330017,\n                \"name\": \"HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"20/01/2014\"\n            },\n            {\n                \"dogId\": -291670,\n                \"name\": \"RESTLESS HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": null\n            },\n            {\n                \"dogId\": -234129,\n                \"name\": \"LITTLE HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": null\n            },\n            {\n                \"dogId\": -344562,\n                \"name\": \"HOMER SIMPSON\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"18/01/1991\"\n            },\n            {\n                \"dogId\": -383241,\n                \"name\": \"COLONEL HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"06/07/2003\"\n            },\n            {\n                \"dogId\": -245234,\n                \"name\": \"EVIL HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"16/11/1993\"\n            },\n            {\n                \"dogId\": -615059,\n                \"name\": \"HOMER MULDOON\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"14/11/2007\"\n            },\n            {\n                \"dogId\": -186172,\n                \"name\": \"HOMER JAY\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"29/11/2001\"\n            },\n            {\n                \"dogId\": -394534,\n                \"name\": \"HOMER BEAR\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"14/10/2001\"\n            }\n        ]\n    }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "296beef5-41f3-4267-a6bb-538fd0c9bf61",
+      "description": "Provides capabilities to fetch update and delete *dog* information.  \r\n\r\n## Status Codes  \r\n* 200 Ok\r\n* 403 Forbidden\r\n* 404 Not found\r\n* 500 Internal Server Error\r\n"
+    },
+    {
+      "name": "Dog Naming",
+      "item": [
+        {
+          "name": "Unnamed",
+          "_postman_id": "a3e7e24f-b36d-4871-8833-84446f2e809e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://{{FastTrack1 Domain}}/FT19/DogsNaming/Unnamed",
+            "description": "Get my dogs for naming."
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "8a7e00ac-ab56-4874-b398-fad5b4d92a2c"
+    },
+    {
+      "name": "Meeting",
+      "item": [
+        {
+          "name": "Messages",
+          "_postman_id": "64cf025a-1b60-43d1-8162-500aba140056",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/Meeting/Messages?age=300&skip=0&take=6",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "Meeting",
+                "Messages"
+              ],
+              "query": [
+                {
+                  "key": "age",
+                  "value": "300",
+                  "description": "The number of days to go back to find the sample trims to a max {{Default Sample Age}}."
+                },
+                {
+                  "key": "skip",
+                  "value": "0",
+                  "description": "The record number to start at in the sample trims to sample size."
+                },
+                {
+                  "key": "take",
+                  "value": "6",
+                  "description": "The number of records to take from the scenario."
+                }
+              ]
+            },
+            "description": "Get a list of meeting related messages for signed in user."
+          },
+          "response": [
+            {
+              "id": "89d062ac-0564-457f-852b-7eb531515c4d",
+              "name": "GetMeetingUpdates (First 5)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Meeting/GetMeetingUpdates?age=300&skip=0&take=5",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Meeting",
+                    "GetMeetingUpdates"
+                  ],
+                  "query": [
+                    {
+                      "key": "age",
+                      "value": "300",
+                      "description": "The number of days to go back to find the sample trims to a max {{Default Sample Age}}."
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0",
+                      "description": "The record number to start at in the sample trims to sample size."
+                    },
+                    {
+                      "key": "take",
+                      "value": "5",
+                      "description": "The number of records to take from the scenario."
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 30 Apr 2019 22:27:22 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1166"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": null,\n        \"totalNumberOfRows\": 668,\n        \"returnedRows\": 5,\n        \"take\": 5,\n        \"skip\": 0,\n        \"result\": [\n            {\n                \"body\": \"Advertised Event Stage Box Draw -  Restricted Win 460 Final (3-6 Wins)(VICGREYS) to be drawn at 10:39 PM\",\n                \"publishedTime\": \"2018-10-23T10:59:17.0000000Z\",\n                \"url\": \"RaceField/ViewAdvertisedEventBoxDraw/349798708\",\n                \"id\": 374078165\n            },\n            {\n                \"body\": \"Advertised Event Stage Box Draw - Super VICGREYS Series - Grade 5 410 Final (Vic Bred Only)(VICGREYS) to be drawn at 7:22 PM\",\n                \"publishedTime\": \"2018-10-23T07:42:10.0000000Z\",\n                \"url\": \"RaceField/ViewAdvertisedEventBoxDraw/349801708\",\n                \"id\": 374078164\n            },\n            {\n                \"body\": \"Box Draw - Warragul 26/10. Meeting to be drawn at 2:45 PM.\",\n                \"publishedTime\": \"2018-10-23T03:39:02.0000000Z\",\n                \"url\": \"RaceField/ViewRaces/349248606\",\n                \"id\": 374111730\n            },\n            {\n                \"body\": \"Box Draw - Geelong 26/10. Meeting to be drawn at 12:30 PM.\",\n                \"publishedTime\": \"2018-10-23T01:20:55.0000000Z\",\n                \"url\": \"RaceField/ViewRaces/314365157\",\n                \"id\": 374090187\n            },\n            {\n                \"body\": \"Warragul nominations extended for the Provincial Half Stakes meeting on Friday 26/10/18. Nominations will now close at 2:00 PM on Tuesday 23/10/18 with GRV.\",\n                \"publishedTime\": \"2018-10-23T00:57:35.0000000Z\",\n                \"url\": \"\",\n                \"id\": 374080668\n            }\n        ]\n    }\n}"
+            },
+            {
+              "id": "d78b8e03-aa9e-4423-a0e8-16a02051c6af",
+              "name": "GetMeetingUpdates (Second 5)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Meeting/GetMeetingUpdates?age=300&skip=5&take=5",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Meeting",
+                    "GetMeetingUpdates"
+                  ],
+                  "query": [
+                    {
+                      "key": "age",
+                      "value": "300",
+                      "description": "The number of days to go back to find the sample trims to a max {{Default Sample Age}}."
+                    },
+                    {
+                      "key": "skip",
+                      "value": "5",
+                      "description": "The record number to start at in the sample trims to sample size."
+                    },
+                    {
+                      "key": "take",
+                      "value": "5",
+                      "description": "The number of records to take from the scenario."
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 30 Apr 2019 22:28:31 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1026"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": null,\n        \"totalNumberOfRows\": 668,\n        \"returnedRows\": 5,\n        \"take\": 5,\n        \"skip\": 5,\n        \"result\": [\n            {\n                \"body\": \"Box Draw - Bendigo 26/10. Meeting to be drawn at 11:45 AM.\",\n                \"publishedTime\": \"2018-10-23T00:38:30.0000000Z\",\n                \"url\": \"RaceField/ViewRaces/314365156\",\n                \"id\": 374078163\n            },\n            {\n                \"body\": \"Box Draw - Healesville 26/10. Meeting to be drawn at 10:15 AM.\",\n                \"publishedTime\": \"2018-10-22T23:02:59.0000000Z\",\n                \"url\": \"RaceField/ViewRaces/314365083\",\n                \"id\": 374017042\n            },\n            {\n                \"body\": \"Box Draw - Horsham 25/10. Meeting to be drawn at 9:30 AM.\",\n                \"publishedTime\": \"2018-10-22T22:19:07.0000000Z\",\n                \"url\": \"RaceField/ViewRaces/314365077\",\n                \"id\": 374017041\n            },\n            {\n                \"body\": \"Horsham nominations extended for the Provincial Full Stakes meeting on Thursday 25/10/18. Nominations will now close at 8:00 AM on Tuesday 23/10/18 with GRV.\",\n                \"publishedTime\": \"2018-10-22T02:58:53.0000000Z\",\n                \"url\": \"\",\n                \"id\": 373699908\n            },\n            {\n                \"body\": \"Box Draw - Shepparton 25/10. Meeting to be drawn at 2:15 PM.\",\n                \"publishedTime\": \"2018-10-22T02:58:45.0000000Z\",\n                \"url\": \"RaceField/ViewRaces/314365076\",\n                \"id\": 370468471\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Message",
+          "_postman_id": "062897df-36f0-4409-a5b9-5c958e6d2081",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://{{FastTrack1 Domain}}/FT19/Meeting/{{FastTrack1 MeetingId}}/Messages",
+            "description": "Get a messages for a specific meeting."
+          },
+          "response": [
+            {
+              "id": "8f1a93c1-976e-4ee0-b78c-2338673292cd",
+              "name": "GetMeetingUpdate",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Meeting/GetMeetingUpdate?id={{FastTrack1 MeetingId}}",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Meeting",
+                    "GetMeetingUpdate"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "{{FastTrack1 MeetingId}}",
+                      "description": "Meeting identifier"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Wed, 31 Dec 1969 13:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 30 Apr 2019 22:29:29 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "273"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": null,\n        \"totalNumberOfRows\": 1,\n        \"returnedRows\": 1,\n        \"take\": 0,\n        \"skip\": 0,\n        \"result\": [\n            {\n                \"body\": \"Box Draw - Healesville 08/07. Meeting to be drawn at 11:30 AM.\",\n                \"publishedTime\": \"2018-07-04T01:26:10.0000000Z\",\n                \"url\": \"RaceField/ViewRaces/314363983\",\n                \"id\": 338150451\n            }\n        ]\n    }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "bd751fb6-f035-4ee5-8308-2c2ffbdee58e",
+      "description": "Provides capabilities to fetch update and delete *meeting* information.  \r\n\r\n## Status Codes  \r\n* 200 Ok\r\n* 403 Forbidden\r\n* 404 Not found\r\n* 500 Internal Server Error\r\n",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "4f962c1c-073a-4399-8b05-0d9a113f9f23",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "d4150594-7345-464f-9b41-3fd24f243e77",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "My Dog",
+      "item": [
+        {
+          "name": "Actions For Dogs",
+          "_postman_id": "498a7cfa-7a17-4df9-b358-8b38527495e3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ids\": [\n        -719291,\n        -719288,\n        -729160,\n        -746900,\n        -746902,\n        -746903,\n        -715934,\n        -742427,\n        -742428,\n        -742429,\n        -735381,\n        -731189,\n        -731197,\n        -722870,\n        -719294,\n        -6185,\n        -19618,\n        -22556,\n        -40698\n    ]\n}"
+            },
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/actions?skip=0&take=10",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "mydogs",
+                "list",
+                "actions"
+              ],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "key": "take",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Get a list of actions for a dog.\r\n\r\n\r\n## Input\r\nids[] (list of dog identifiers of tpye int)\r\n\r\n```\r\n\"ids\" : [1,2,3]\r\n```\r\n\r\nor \r\n\r\n```\r\nhttps://{{FastTrack1 Domain}}/FT19/MyDogs/Actions/All?ids=1&ids=2&ids=3\r\n```\r\n\r\n\r\n## Returns\r\nDogInvolvementActionsOutput[]"
+          },
+          "response": [
+            {
+              "id": "44a0bf09-4ed4-4219-bba1-f09fdf5d0816",
+              "name": "Actions For Dogs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ids\": [\n        -719291,\n        -719288,\n        -729160,\n        -746900,\n        -746902,\n        -746903,\n        -715934,\n        -742427,\n        -742428,\n        -742429,\n        -735381,\n        -731189,\n        -731197,\n        -722870,\n        -719294,\n        -6185,\n        -19618,\n        -22556,\n        -40698\n    ]\n}"
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/actions?skip=0&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "mydogs",
+                    "list",
+                    "actions"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 05 Jul 2019 00:10:19 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "6254"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"arguments\": [\n            -719291,\n            -719288,\n            -729160,\n            -746900,\n            -746902,\n            -746903,\n            -715934,\n            -742427,\n            -742428,\n            -742429,\n            -735381,\n            -731189,\n            -731197,\n            -722870,\n            -719294,\n            -6185,\n            -19618,\n            -22556,\n            -40698\n        ],\n        \"summary\": {\n            \"totalNumberOfRows\": 19,\n            \"returnedRows\": 10,\n            \"take\": 10,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:10:19.4416937Z\",\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogName\": \"UNNAMED (VBPAN)\",\n                \"id\": -746903,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBPAM)\",\n                \"id\": -746902,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBPAK)\",\n                \"id\": -746900,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBISA)\",\n                \"id\": -742429,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBIRZ)\",\n                \"id\": -742428,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBIRY)\",\n                \"id\": -742427,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"STRADLIN\",\n                \"id\": -735381,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBIBP)\",\n                \"id\": -731197,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"TOP SECRET\",\n                \"id\": -731189,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"HAMMETT\",\n                \"id\": -729160,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "My Dog By ID",
+          "_postman_id": "6c4b11bd-19d0-40e4-9991-d93990e832ab",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/dog",
+            "description": "Get a dog.\n\n\n## Inputs\nid (identifier of the dog)\n\n\n\n## Returns\nMyDog[]  (Found in the MyDogsOutput namespace)"
+          },
+          "response": [
+            {
+              "id": "3e3d7f69-7f34-4258-b4ce-1232a20d9382",
+              "name": "My Dog By ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/dog"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 05 Jul 2019 00:14:53 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "695"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 1,\n            \"returnedRows\": 1,\n            \"take\": 1,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:14:53.1961518Z\",\n        \"error\": null,\n        \"result\": {\n            \"dogName\": \"FERNANDO BALE (AUT)\",\n            \"dogNameShort\": \"FERNANDO BALE\",\n            \"tooltip\": \"There is an active breeding authority for this dog for PAUL WESTERVELD (SUBURB) \",\n            \"id\": 255840010,\n            \"nextEngagement\": \"\",\n            \"currentNominations\": \"\",\n            \"previousEngagement\": \"Sandown Park 17/12/2015\",\n            \"involvement\": \"Studmaster\",\n            \"dateWhelped\": \"2013-03-12T00:00:00.0000000\",\n            \"colour\": \"WDKBD\",\n            \"ranking\": 108,\n            \"isActiveRacing\": false,\n            \"tier3Eligible\": \"No\",\n            \"aPM\": 12994,\n            \"sex\": \"Dog\",\n            \"microchipNumber\": \"956000008702387\",\n            \"earbrand\": \"NCCQF\",\n            \"dogStatus\": \"Racing\",\n            \"penalties\": [],\n            \"trackPenalties\": []\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "My Dog Actions",
+          "_postman_id": "bac5dcbd-0220-412a-8113-19926a753209",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/actions",
+            "description": "Get  actions for a dog.\n\n\n\n## Inputs\nid (of the dog integer)\n\n\n## Returns\nDogInvolvementActionsOutput"
+          },
+          "response": [
+            {
+              "id": "492c2d07-ea26-407c-9974-dc66e9c88ae3",
+              "name": "My Dog Actions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/actions"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 05 Jul 2019 00:09:35 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "673"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-07-05T00:09:35.2911679Z\",\n        \"error\": null,\n        \"result\": {\n            \"dogName\": \"FERNANDO BALE\",\n            \"id\": 255840010,\n            \"canRemoveFromKennel\": false,\n            \"canWithdrawFromNomination\": false,\n            \"canWithdrawFromCoursingNomination\": false,\n            \"canNominate\": false,\n            \"canScratchFromARace\": false,\n            \"canScratchFromCoursing\": false,\n            \"canTransferDog\": false,\n            \"canRetireDog\": false,\n            \"canBeUsedToRegisterAService\": true,\n            \"canIssueBreedingAuthority\": false,\n            \"canCancelBreedingAuthority\": false,\n            \"canUserTrackDogs\": true,\n            \"canApplyForBreedingRegistration\": false,\n            \"canNotifyIntentToEuthanase\": false,\n            \"canCancelNoticeOfIntentToEuthanase\": false,\n            \"noticeOfIntentToEuthanaseId\": 0,\n            \"isStudmasterSyndicate\": false,\n            \"fromList\": null\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "My Dogs Active",
+          "_postman_id": "66d3ba2d-8995-4a82-a0b1-786a3f565068",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/active?skip=0&take=10",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "mydogs",
+                "list",
+                "active"
+              ],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "key": "take",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Get a list of my involved dogs.\n\n\n## Inputs\nInvolvedDogsOutput (Optional)\n\n\n\n## Returns\nMyDog[]  (Found in the MyDogsOutput namespace)"
+          },
+          "response": [
+            {
+              "id": "1d737652-f333-4923-a9ea-38cbfd398ca8",
+              "name": "My Dogs Active",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/active?skip=0&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "mydogs",
+                    "list",
+                    "active"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 05 Jul 2019 00:07:28 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1503"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 3,\n            \"returnedRows\": 3,\n            \"take\": 10,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:07:28.1608581Z\",\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogName\": \"CON ROD\",\n                \"dogNameShort\": \"CON ROD\",\n                \"tooltip\": \"\",\n                \"id\": 121002025,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"Geelong 23/05/2019\",\n                \"involvement\": \"Owner, Trainer\",\n                \"dateWhelped\": \"2016-02-07T00:00:00.0000000\",\n                \"colour\": \"BD\",\n                \"ranking\": 213,\n                \"isActiveRacing\": true,\n                \"tier3Eligible\": \"No\",\n                \"aPM\": 7173,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"956000005390103\",\n                \"earbrand\": \"VFVXF\",\n                \"dogStatus\": \"Racing\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"SUMMER SKYE\",\n                \"dogNameShort\": \"SUMMER SKYE\",\n                \"tooltip\": \"\",\n                \"id\": 121002028,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"The Meadows 25/05/2019\",\n                \"involvement\": \"Owner, Trainer\",\n                \"dateWhelped\": \"2016-02-07T00:00:00.0000000\",\n                \"colour\": \"BD\",\n                \"ranking\": 150,\n                \"isActiveRacing\": true,\n                \"tier3Eligible\": \"No\",\n                \"aPM\": 13439,\n                \"sex\": \"Bitch\",\n                \"microchipNumber\": \"956000005414256\",\n                \"earbrand\": \"VFVXI\",\n                \"dogStatus\": \"Racing\",\n                \"penalties\": [\n                    121002028\n                ],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"BRAKE DRUM\",\n                \"dogNameShort\": \"BRAKE DRUM\",\n                \"tooltip\": \"\",\n                \"id\": 121002024,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"Geelong 23/05/2019\",\n                \"involvement\": \"Owner\",\n                \"dateWhelped\": \"2016-02-07T00:00:00.0000000\",\n                \"colour\": \"RBD\",\n                \"ranking\": 229,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"No\",\n                \"aPM\": 5541,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"956000005378721\",\n                \"earbrand\": \"VFVXE\",\n                \"dogStatus\": \"Racing\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "My Dogs Inactive",
+          "_postman_id": "5875d9ea-29c8-45d1-96f9-f13e58041d9c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/inactive?skip=0&take=10",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "mydogs",
+                "list",
+                "inactive"
+              ],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "0",
+                  "description": "Skip the specified number of rows"
+                },
+                {
+                  "key": "take",
+                  "value": "10",
+                  "description": "Take the specified number of rows"
+                }
+              ]
+            },
+            "description": "Get a list of my retired dogs.\n\n\n\n## Returns\nMyDog[]  (Found in the RetiredDogs namespace)"
+          },
+          "response": [
+            {
+              "id": "088e855d-65d2-425c-af1c-59e4fad51cba",
+              "name": "My Dogs Inactive",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/inactive?skip=0&take=3",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "mydogs",
+                    "list",
+                    "inactive"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0",
+                      "description": "Skip the specified number of rows"
+                    },
+                    {
+                      "key": "take",
+                      "value": "3",
+                      "description": "Take the specified number of rows"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 05 Jul 2019 00:08:14 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1470"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 39,\n            \"returnedRows\": 39,\n            \"take\": 3,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:08:11.8812393Z\",\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogName\": \"TANTARNI (RET)\",\n                \"dogNameShort\": \"TANTARNI\",\n                \"tooltip\": \"\",\n                \"id\": -541515,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"Angle Park 31/07/1989\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1986-11-09T00:00:00.0000000\",\n                \"colour\": \"F\",\n                \"ranking\": 181,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V76 545\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"IN HER PRIME (RET)\",\n                \"dogNameShort\": \"IN HER PRIME\",\n                \"tooltip\": \"\",\n                \"id\": -419609,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1986-11-09T00:00:00.0000000\",\n                \"colour\": \"F\",\n                \"ranking\": 400,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Bitch\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V76 546\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"DARRA'S MAGIC (RET)\",\n                \"dogNameShort\": \"DARRA'S MAGIC\",\n                \"tooltip\": \"\",\n                \"id\": -39612,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1985-09-20T00:00:00.0000000\",\n                \"colour\": \"BKW\",\n                \"ranking\": 1000,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V97 817\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            }\n        ]\n    }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "249fa11e-06e7-4b3e-8e39-18406087ea56",
+      "description": "Provides capabilities to fetch update and delete *my dog* information.  \r\n\r\n## Status Codes  \r\n* 200 Ok\r\n* 403 Forbidden\r\n* 404 Not found\r\n* 500 Internal Server Error\r\n",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "48be8e2c-3629-4135-9a77-7adf1f910c70",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "7ef6c82f-9c47-4547-beac-a8f3018c7c73",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Person",
+      "item": [
+        {
+          "name": "PersonDetails (Dev)",
+          "_postman_id": "4fa84eb8-2c15-4193-a89e-57fac2bbdb69",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/Persons/{{FastTrack1 Member Number}}/Person",
+            "description": "Fetch the details of the specified person.  \n\nThis does not include sensative data eg: Password.  \nReturns data even if person is disqualified or not."
+          },
+          "response": []
+        },
+        {
+          "name": "MyDetails (Dev)",
+          "_postman_id": "03a60f73-e203-4f2f-b0fd-a28afed1e181",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/Persons/MyDetails",
+            "description": "Get the details of the currently signed in person.  "
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "eee8291b-c99b-4b2e-81ee-f35a2717f5e7",
+      "description": "Provides capabilities to fetch update and delete *person* information.  \r\n\r\n## Status Codes  \r\n* 200 Ok\r\n* 403 Forbidden\r\n* 404 Not found\r\n* 500 Internal Server Error\r\n"
+    },
+    {
+      "name": "Payment",
+      "item": [],
+      "_postman_id": "9fe53300-b9d1-4079-8fc6-00f5323a5c26"
+    },
+    {
+      "name": "Security",
+      "item": [
+        {
+          "name": "LoginAsUser",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "9d374c44-95ec-467e-b796-dc5aa4783c6c",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "3f59847e-dde6-457e-a7fd-e70b07625c2f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": {
+                "password": "{{FastTrack1 BasicPassword}}",
+                "username": "{{FastTrack1 BasicDomain}}/{{FastTrack1 BasicUser}}"
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"id\": {{FastTrack1 Member Number}}\n}"
+            },
+            "url": "https://{{FastTrack1 Domain}}/FT19/Security/LoginAsUser",
+            "description": "## Login as a user.\r\n\r\n## Provide\r\n\r\nThe participant identifier in the body.  \r\n\r\n## Possible status codes  \r\n500 InternalServerError (Unable to create token)  \r\n401 Unauthorized (Cannot login as user)  \r\n201 Created (Success)  \r\n\r\n\r\n## Returns\r\nCertificate for the specified user.  \r\nThis certificate must be included in all user specific requests in the header **X-ApiKey** this is case sensitive.\r\n"
+          },
+          "response": []
+        },
+        {
+          "name": "LoginAsUser - For Testing",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "9d374c44-95ec-467e-b796-dc5aa4783c6c",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "35aa08ba-f6dc-456c-a0a8-5d92f25852cf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": {
+                "password": "{{FastTrack1 BasicPassword}}",
+                "username": "{{FastTrack1 BasicDomain}}/{{FastTrack1 BasicUser}}"
+              }
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"id\": {{FastTrack1 Breeding Authority Member Number}}\n}"
+            },
+            "url": "https://{{FastTrack1 Domain}}/FT19/Security/LoginAsUser",
+            "description": "## Login as a user.\r\n\r\n## Provide\r\n\r\nThe participant identifier in the body.  \r\n\r\n## Possible status codes  \r\n500 InternalServerError (Unable to create token)  \r\n401 Unauthorized (Cannot login as user)  \r\n201 Created (Success)  \r\n\r\n\r\n## Returns\r\nCertificate for the specified user.  \r\nThis certificate must be included in all user specific requests in the header **X-ApiKey** this is case sensitive.\r\n"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "75adbb77-7247-46de-8bf7-9292b32d04c0",
+      "description": "Application signin features.",
+      "auth": {
+        "type": "basic",
+        "basic": {
+          "password": "{{BasicPassword}}",
+          "username": "{{BasicUser}}"
+        }
+      }
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "7b77f7e6-b779-4794-aa85-bb08a1b6c9ff",
+        "type": "text/javascript",
+        "exec": [
+          "const API_KEY_VAR = 'FastTrack1 ApiKey';",
+          "const API_KEY_EXPIRY_VAR = `${API_KEY_VAR} Expiry`;",
+          "const DOMAIN_VAR = 'FastTrack1 Domain';",
+          "const USER_ID_VAR = 'FastTrack1 Member Number';",
+          "",
+          "function getNewToken() {",
+          "  const domain = pm.variables.get(DOMAIN_VAR);",
+          "  const id = pm.variables.get(USER_ID_VAR);",
+          "  const settings = {",
+          "    async: true,",
+          "    crossDomain: true,",
+          "    url: `https://${domain}/FT19/Security/LoginAsUser`,",
+          "    method: 'POST',",
+          "    header: {",
+          "      'authorization':",
+          "        'Basic UGFydGljaXBhbnRQb3J0YWwvZ3JleWhvdW5kcmVnaXN0cmF0aW9uOjc5OGYxNDFkLWIwMDktNGRiZC05OTQ1LWQwMjBmMWIxYThiMg==',",
+          "      'host': domain,",
+          "      'content-type': 'application/json',",
+          "    },",
+          "    processData: false,",
+          "    body: {",
+          "      mode: 'raw',",
+          "      raw: JSON.stringify({ id }),",
+          "    },",
+          "  };",
+          "",
+          "  pm.sendRequest(settings, (err, response) => {",
+          "    const res = response.json();",
+          "    if (res.result.message !== 'Success') {",
+          "      console.error('Authentication script did not work');",
+          "      return;",
+          "    }",
+          "    pm.environment.set(API_KEY_VAR, res.result.certificate);",
+          "    pm.environment.set(API_KEY_EXPIRY_VAR, res.result.expiry);",
+          "  });",
+          "}",
+          "",
+          "getNewToken();"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "2bd28517-7b47-447b-bc15-aed93362a897",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "e7f45903-9d71-4a9a-a38f-ee0a8d80c313",
+      "key": "FastTrack1 Registered DamId For Breeding",
+      "value": "-752747",
+      "type": "string"
+    },
+    {
+      "id": "0d4e42bb-0961-4097-80ff-cd9f4af5b66d",
+      "key": "FastTrack1 MeetingId",
+      "value": "-2926",
+      "type": "string"
+    },
+    {
+      "id": "df7f6e2b-b78d-43f7-bb5c-02c9b042f4fd",
+      "key": "FastTrack1 Member Number",
+      "value": "27292",
+      "type": "string"
+    },
+    {
+      "id": "d17316d3-9051-43cd-ac03-068c922dbbe5",
+      "key": "FastTrack1 BreedingId",
+      "value": "393774011",
+      "type": "string"
+    },
+    {
+      "id": "4354adbb-7ccc-4e63-9e44-9dbfdc920a5b",
+      "key": "Default Sample Age",
+      "value": "500",
+      "type": "string"
+    },
+    {
+      "id": "700bd1a3-6319-4868-828f-29cb9c9ab81a",
+      "key": "Default Sample Size",
+      "value": "500",
+      "type": "string"
+    },
+    {
+      "id": "37a08a62-41d9-48b3-800b-66c74ce9f644",
+      "key": "FastTrack1 Litters From Year",
+      "value": "2017",
+      "type": "string"
+    },
+    {
+      "id": "6a405ab2-df99-49f7-a371-04fdec95d5be",
+      "key": "FastTrack1 Litters To Year",
+      "value": "2019",
+      "type": "string"
+    },
+    {
+      "id": "382ea0ed-1d6a-40b3-9ecf-0ba140336661",
+      "key": "FastTrack1 Dog MicroChip",
+      "value": "AAAAA",
+      "type": "string"
+    },
+    {
+      "id": "6007c52b-6f57-4fc8-87df-fa85541ab56b",
+      "key": "FastTrack1 Dog EarBrand",
+      "value": "ZZZZZ",
+      "type": "string"
+    },
+    {
+      "id": "d0f21984-d78c-4086-90e8-92bc2d975bea",
+      "key": "FastTrack1 LitterId",
+      "value": "123",
+      "type": "string"
+    },
+    {
+      "id": "f60be723-2e70-469e-ad1d-fb779022e45d",
+      "key": "FastTrack1 Breeding Section",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "id": "8ee57100-9ed5-4bd5-be4c-555c5d980ff9",
+      "key": "FastTrack1 Dog DogName",
+      "value": "homer",
+      "type": "string"
+    },
+    {
+      "id": "3ae5fee5-c8f1-408e-b1c1-e93df80e1e0d",
+      "key": "FastTrack1 DogId",
+      "value": "255840010",
+      "type": "string"
+    },
+    {
+      "id": "e7e5f6a1-a99d-4394-90b1-7f0b62b8bd95",
+      "key": "FastTrack1 SireId",
+      "value": "1490820093",
+      "type": "string"
+    },
+    {
+      "id": "bf8653d7-b5eb-46f6-9df3-9159108a79e5",
+      "key": "FastTrack1 Dam Name",
+      "value": "MOTORETTE",
+      "type": "string"
+    },
+    {
+      "id": "f6d3593f-af57-40c7-b7a9-fc9ea70a729e",
+      "key": "FastTrack1 Dam Ear Brand",
+      "value": "VGP 5057",
+      "type": "string"
+    },
+    {
+      "id": "1a5bac57-2b4f-4078-97b7-f99baec4a6f5",
+      "key": "FastTrack1 Breeding Authority Member Number",
+      "value": "31205",
+      "type": "string"
+    },
+    {
+      "id": "defd5a3b-4a2e-4076-9c39-bb213218d6c4",
+      "key": "FastTrack1 Service Registration Service Date",
+      "value": "2019-06-06T01:56:30.7731909Z",
+      "type": "string"
+    },
+    {
+      "id": "0dc92c81-ba8b-4086-ac1f-869aa13d5aff",
+      "key": "FastTrack1 EarBranderId",
+      "value": "-11",
+      "type": "string"
+    },
+    {
+      "id": "fbaf9b0e-d54a-4c81-9391-7f29de4b749b",
+      "key": "FastTrack1 EarBrander Postal Code",
+      "value": "3101",
+      "type": "string"
+    }
+  ]
+}
