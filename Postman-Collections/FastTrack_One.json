@@ -2978,6 +2978,27 @@
               "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 39,\n            \"returnedRows\": 39,\n            \"take\": 3,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:08:11.8812393Z\",\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogName\": \"TANTARNI (RET)\",\n                \"dogNameShort\": \"TANTARNI\",\n                \"tooltip\": \"\",\n                \"id\": -541515,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"Angle Park 31/07/1989\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1986-11-09T00:00:00.0000000\",\n                \"colour\": \"F\",\n                \"ranking\": 181,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V76 545\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"IN HER PRIME (RET)\",\n                \"dogNameShort\": \"IN HER PRIME\",\n                \"tooltip\": \"\",\n                \"id\": -419609,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1986-11-09T00:00:00.0000000\",\n                \"colour\": \"F\",\n                \"ranking\": 400,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Bitch\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V76 546\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"DARRA'S MAGIC (RET)\",\n                \"dogNameShort\": \"DARRA'S MAGIC\",\n                \"tooltip\": \"\",\n                \"id\": -39612,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1985-09-20T00:00:00.0000000\",\n                \"colour\": \"BKW\",\n                \"ranking\": 1000,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V97 817\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            }\n        ]\n    }\n}"
             }
           ]
+        },
+        {
+          "name": "My Dogs Operations",
+          "_postman_id": "d37341ed-176d-41f4-bfa9-d812f8baec60",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/operations",
+            "description": "Get a list of operation I can carryout in my dogs.\n\n\n\n## Returns\nMyOperations"
+          },
+          "response": []
         }
       ],
       "_postman_id": "249fa11e-06e7-4b3e-8e39-18406087ea56",
@@ -3008,6 +3029,124 @@
     {
       "name": "Person",
       "item": [
+        {
+          "name": "Black Book",
+          "item": [
+            {
+              "name": "Get Black Book",
+              "_postman_id": "e5edc578-b625-4180-8f82-2520606294b6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "skip",
+                    "value": "0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "take",
+                    "value": "10",
+                    "type": "text"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/persons/list/blackbook",
+                "description": "Get black book.\n\n\n\n\n\n## Returns\n"
+              },
+              "response": [
+                {
+                  "id": "a0ae53dd-f61f-46bf-8560-11b8bc68227c",
+                  "name": "My Dog Actions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Certificate provided by Security/LoginAsUser",
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      }
+                    ],
+                    "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/actions"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 05 Jul 2019 00:09:35 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "673"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-07-05T00:09:35.2911679Z\",\n        \"error\": null,\n        \"result\": {\n            \"dogName\": \"FERNANDO BALE\",\n            \"id\": 255840010,\n            \"canRemoveFromKennel\": false,\n            \"canWithdrawFromNomination\": false,\n            \"canWithdrawFromCoursingNomination\": false,\n            \"canNominate\": false,\n            \"canScratchFromARace\": false,\n            \"canScratchFromCoursing\": false,\n            \"canTransferDog\": false,\n            \"canRetireDog\": false,\n            \"canBeUsedToRegisterAService\": true,\n            \"canIssueBreedingAuthority\": false,\n            \"canCancelBreedingAuthority\": false,\n            \"canUserTrackDogs\": true,\n            \"canApplyForBreedingRegistration\": false,\n            \"canNotifyIntentToEuthanase\": false,\n            \"canCancelNoticeOfIntentToEuthanase\": false,\n            \"noticeOfIntentToEuthanaseId\": 0,\n            \"isStudmasterSyndicate\": false,\n            \"fromList\": null\n        }\n    }\n}"
+                }
+              ]
+            }
+          ],
+          "_postman_id": "fba4ef6d-2bb8-41b1-b6fc-39886c609f59",
+          "description": "Provides capabilities to fetch update and delete *my black* information.  \r\n\r\n## Status Codes  \r\n* 200 Ok\r\n* 403 Forbidden\r\n* 404 Not found\r\n* 500 Internal Server Error\r\n",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "4d2a6062-3ff2-4865-b523-cf5b32e18f53",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "36e823cd-cd60-4e0c-aa23-7711910bb0a4",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
         {
           "name": "PersonDetails (Dev)",
           "_postman_id": "4fa84eb8-2c15-4193-a89e-57fac2bbdb69",
@@ -3221,127 +3360,127 @@
   ],
   "variable": [
     {
-      "id": "668929b6-a34e-43f9-80a5-7c6ca0109ea1",
+      "id": "3e770009-b84f-4350-8c60-d44441524ec1",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "6d39757a-487f-41b9-a8df-89050083f6dd",
+      "id": "af442a93-8954-4434-8564-379312d1538f",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "f6334043-3869-4d53-8ac1-8d274f61d295",
+      "id": "5d490e6f-4885-45ca-ab1d-0573a4da9e49",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "82d97ee6-6c12-4d7a-a630-949e496706e9",
+      "id": "52eeb956-4bbe-4d8b-8c3f-2743cd6b604a",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "a62459d6-f361-4611-a3ad-eaa2fe97203e",
+      "id": "0d3e5583-003a-4beb-9dc3-555dd28c0dfe",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "8f4510e3-0976-4778-9719-485d3960874c",
+      "id": "01ced539-45a4-45af-afd9-379433ff91cb",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "6a6789be-23fc-4c57-af49-31bcc06f3aef",
+      "id": "1cd4407b-e945-4c18-9158-4f1bd5b94355",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "248f9a04-fbad-481e-8eac-2b433cd62e56",
+      "id": "0f4ec25f-6f38-44ee-94b6-fe20f2a7cd5b",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "57b9e434-b1f6-4d69-8495-3ac9f6fc1650",
+      "id": "988714ba-1b0a-4634-b1dc-cf4123bfbd1f",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "82e1cd4b-75db-4b9d-ad4e-928fe8f66376",
+      "id": "e30fed32-8878-4ed5-bf11-28c129bdb3d0",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "41a7fccf-4966-414a-83db-ce19f9321910",
+      "id": "28890ff0-2d91-4f10-b5af-9ddd7f465f20",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "78b22b20-b625-458e-8f4a-e13581709e2c",
+      "id": "9be2a264-f794-4bd6-a8e6-8bad394f7b7f",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "8776ef90-2b26-4f84-8d47-ff7314717a00",
+      "id": "7a9e3c19-7369-4944-8183-679c0d06a586",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "f1c9455d-9896-4eee-b64b-99cedc54d8a0",
+      "id": "de5a8034-783f-4387-8323-8522010153f6",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "9ebf10d7-3ada-4717-8a94-72a48033f2cb",
+      "id": "d3c46357-4891-442d-9dd3-88b64aa2b3bf",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "730611f9-d83c-4c91-88eb-f8ef46a46e84",
+      "id": "16232297-5548-4766-a831-f701c691b4b4",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "fbdad249-66c8-46a4-84dd-0d373eacd168",
+      "id": "c924bd04-39b2-47ac-b0d0-d024359e6551",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "420b4538-fd33-40bc-8041-f34c8ab75778",
+      "id": "e5d665d7-d5ba-440b-9f2b-3c26827f93ec",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "9e7d400c-112a-4881-9551-5029e80c224d",
+      "id": "dff848b4-34a1-4de5-a7de-224e684c514c",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "8e516ebb-39ef-4c0a-8bfe-a45aa51d48e0",
+      "id": "651f9772-e851-495c-bd3a-0eddd12a93f0",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "91aaeed0-f3ef-41ad-b725-24cb0aabfb84",
+      "id": "6523372e-2203-47ac-89b4-d82bc32cbfa3",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
