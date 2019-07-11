@@ -2436,302 +2436,6 @@
       "name": "My Dog",
       "item": [
         {
-          "name": "Actions For Dogs",
-          "_postman_id": "498a7cfa-7a17-4df9-b358-8b38527495e3",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "description": "Certificate provided by Security/LoginAsUser",
-                "key": "X-ApiKey",
-                "type": "text",
-                "value": "{{FastTrack1 ApiKey}}"
-              },
-              {
-                "key": "Content-Type",
-                "type": "text",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"ids\": [\n        -719291,\n        -719288,\n        -729160,\n        -746900,\n        -746902,\n        -746903,\n        -715934,\n        -742427,\n        -742428,\n        -742429,\n        -735381,\n        -731189,\n        -731197,\n        -722870,\n        -719294,\n        -6185,\n        -19618,\n        -22556,\n        -40698\n    ]\n}"
-            },
-            "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/actions?skip=0&take=10",
-              "protocol": "https",
-              "host": [
-                "{{FastTrack1 Domain}}"
-              ],
-              "path": [
-                "FT19",
-                "mydogs",
-                "list",
-                "actions"
-              ],
-              "query": [
-                {
-                  "key": "skip",
-                  "value": "0"
-                },
-                {
-                  "key": "take",
-                  "value": "10"
-                }
-              ]
-            },
-            "description": "Get a list of actions for a dog.\r\n\r\n\r\n## Input\r\nids[] (list of dog identifiers of tpye int)\r\n\r\n```\r\n\"ids\" : [1,2,3]\r\n```\r\n\r\nor \r\n\r\n```\r\nhttps://{{FastTrack1 Domain}}/FT19/MyDogs/Actions/All?ids=1&ids=2&ids=3\r\n```\r\n\r\n\r\n## Returns\r\nDogInvolvementActionsOutput[]"
-          },
-          "response": [
-            {
-              "id": "44a0bf09-4ed4-4219-bba1-f09fdf5d0816",
-              "name": "Actions For Dogs",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "description": "Certificate provided by Security/LoginAsUser",
-                    "key": "X-ApiKey",
-                    "type": "text",
-                    "value": "{{FastTrack1 ApiKey}}"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"ids\": [\n        -719291,\n        -719288,\n        -729160,\n        -746900,\n        -746902,\n        -746903,\n        -715934,\n        -742427,\n        -742428,\n        -742429,\n        -735381,\n        -731189,\n        -731197,\n        -722870,\n        -719294,\n        -6185,\n        -19618,\n        -22556,\n        -40698\n    ]\n}"
-                },
-                "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/actions?skip=0&take=10",
-                  "protocol": "https",
-                  "host": [
-                    "{{FastTrack1 Domain}}"
-                  ],
-                  "path": [
-                    "FT19",
-                    "mydogs",
-                    "list",
-                    "actions"
-                  ],
-                  "query": [
-                    {
-                      "key": "skip",
-                      "value": "0"
-                    },
-                    {
-                      "key": "take",
-                      "value": "10"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "private,no-cache"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "nocache"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
-                },
-                {
-                  "key": "Expires",
-                  "value": "-1"
-                },
-                {
-                  "key": "Set-Cookie",
-                  "value": "__TempData=; path=/; secure; HttpOnly"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "DENY"
-                },
-                {
-                  "key": "Date",
-                  "value": "Fri, 05 Jul 2019 00:10:19 GMT"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "6254"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"result\": {\n        \"arguments\": [\n            -719291,\n            -719288,\n            -729160,\n            -746900,\n            -746902,\n            -746903,\n            -715934,\n            -742427,\n            -742428,\n            -742429,\n            -735381,\n            -731189,\n            -731197,\n            -722870,\n            -719294,\n            -6185,\n            -19618,\n            -22556,\n            -40698\n        ],\n        \"summary\": {\n            \"totalNumberOfRows\": 19,\n            \"returnedRows\": 10,\n            \"take\": 10,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:10:19.4416937Z\",\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogName\": \"UNNAMED (VBPAN)\",\n                \"id\": -746903,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBPAM)\",\n                \"id\": -746902,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBPAK)\",\n                \"id\": -746900,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBISA)\",\n                \"id\": -742429,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBIRZ)\",\n                \"id\": -742428,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBIRY)\",\n                \"id\": -742427,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"STRADLIN\",\n                \"id\": -735381,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBIBP)\",\n                \"id\": -731197,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"TOP SECRET\",\n                \"id\": -731189,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"HAMMETT\",\n                \"id\": -729160,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            }\n        ]\n    }\n}"
-            }
-          ]
-        },
-        {
-          "name": "My Dog By ID",
-          "_postman_id": "6c4b11bd-19d0-40e4-9991-d93990e832ab",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "description": "Certificate provided by Security/LoginAsUser",
-                "key": "X-ApiKey",
-                "type": "text",
-                "value": "{{FastTrack1 ApiKey}}"
-              }
-            ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/dog",
-            "description": "Get a dog.\n\n\n## Inputs\nid (identifier of the dog)\n\n\n\n## Returns\nMyDog[]  (Found in the MyDogsOutput namespace)"
-          },
-          "response": [
-            {
-              "id": "3e3d7f69-7f34-4258-b4ce-1232a20d9382",
-              "name": "My Dog By ID",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "description": "Certificate provided by Security/LoginAsUser",
-                    "key": "X-ApiKey",
-                    "type": "text",
-                    "value": "{{FastTrack1 ApiKey}}"
-                  }
-                ],
-                "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/dog"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "private,no-cache"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "nocache"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
-                },
-                {
-                  "key": "Expires",
-                  "value": "-1"
-                },
-                {
-                  "key": "Set-Cookie",
-                  "value": "__TempData=; path=/; secure; HttpOnly"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "DENY"
-                },
-                {
-                  "key": "Date",
-                  "value": "Fri, 05 Jul 2019 00:14:53 GMT"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "695"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 1,\n            \"returnedRows\": 1,\n            \"take\": 1,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:14:53.1961518Z\",\n        \"error\": null,\n        \"result\": {\n            \"dogName\": \"FERNANDO BALE (AUT)\",\n            \"dogNameShort\": \"FERNANDO BALE\",\n            \"tooltip\": \"There is an active breeding authority for this dog for PAUL WESTERVELD (SUBURB) \",\n            \"id\": 255840010,\n            \"nextEngagement\": \"\",\n            \"currentNominations\": \"\",\n            \"previousEngagement\": \"Sandown Park 17/12/2015\",\n            \"involvement\": \"Studmaster\",\n            \"dateWhelped\": \"2013-03-12T00:00:00.0000000\",\n            \"colour\": \"WDKBD\",\n            \"ranking\": 108,\n            \"isActiveRacing\": false,\n            \"tier3Eligible\": \"No\",\n            \"aPM\": 12994,\n            \"sex\": \"Dog\",\n            \"microchipNumber\": \"956000008702387\",\n            \"earbrand\": \"NCCQF\",\n            \"dogStatus\": \"Racing\",\n            \"penalties\": [],\n            \"trackPenalties\": []\n        }\n    }\n}"
-            }
-          ]
-        },
-        {
-          "name": "My Dog Actions",
-          "_postman_id": "bac5dcbd-0220-412a-8113-19926a753209",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "description": "Certificate provided by Security/LoginAsUser",
-                "key": "X-ApiKey",
-                "type": "text",
-                "value": "{{FastTrack1 ApiKey}}"
-              }
-            ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/actions",
-            "description": "Get  actions for a dog.\n\n\n\n## Inputs\nid (of the dog integer)\n\n\n## Returns\nDogInvolvementActionsOutput"
-          },
-          "response": [
-            {
-              "id": "492c2d07-ea26-407c-9974-dc66e9c88ae3",
-              "name": "My Dog Actions",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "description": "Certificate provided by Security/LoginAsUser",
-                    "key": "X-ApiKey",
-                    "type": "text",
-                    "value": "{{FastTrack1 ApiKey}}"
-                  }
-                ],
-                "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/actions"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "private,no-cache"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "nocache"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
-                },
-                {
-                  "key": "Expires",
-                  "value": "-1"
-                },
-                {
-                  "key": "Set-Cookie",
-                  "value": "__TempData=; path=/; secure; HttpOnly"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "DENY"
-                },
-                {
-                  "key": "Date",
-                  "value": "Fri, 05 Jul 2019 00:09:35 GMT"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "673"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-07-05T00:09:35.2911679Z\",\n        \"error\": null,\n        \"result\": {\n            \"dogName\": \"FERNANDO BALE\",\n            \"id\": 255840010,\n            \"canRemoveFromKennel\": false,\n            \"canWithdrawFromNomination\": false,\n            \"canWithdrawFromCoursingNomination\": false,\n            \"canNominate\": false,\n            \"canScratchFromARace\": false,\n            \"canScratchFromCoursing\": false,\n            \"canTransferDog\": false,\n            \"canRetireDog\": false,\n            \"canBeUsedToRegisterAService\": true,\n            \"canIssueBreedingAuthority\": false,\n            \"canCancelBreedingAuthority\": false,\n            \"canUserTrackDogs\": true,\n            \"canApplyForBreedingRegistration\": false,\n            \"canNotifyIntentToEuthanase\": false,\n            \"canCancelNoticeOfIntentToEuthanase\": false,\n            \"noticeOfIntentToEuthanaseId\": 0,\n            \"isStudmasterSyndicate\": false,\n            \"fromList\": null\n        }\n    }\n}"
-            }
-          ]
-        },
-        {
           "name": "My Dogs Active",
           "_postman_id": "66d3ba2d-8995-4a82-a0b1-786a3f565068",
           "protocolProfileBehavior": {
@@ -2976,6 +2680,302 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 39,\n            \"returnedRows\": 39,\n            \"take\": 3,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:08:11.8812393Z\",\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogName\": \"TANTARNI (RET)\",\n                \"dogNameShort\": \"TANTARNI\",\n                \"tooltip\": \"\",\n                \"id\": -541515,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"Angle Park 31/07/1989\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1986-11-09T00:00:00.0000000\",\n                \"colour\": \"F\",\n                \"ranking\": 181,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V76 545\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"IN HER PRIME (RET)\",\n                \"dogNameShort\": \"IN HER PRIME\",\n                \"tooltip\": \"\",\n                \"id\": -419609,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1986-11-09T00:00:00.0000000\",\n                \"colour\": \"F\",\n                \"ranking\": 400,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Bitch\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V76 546\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"DARRA'S MAGIC (RET)\",\n                \"dogNameShort\": \"DARRA'S MAGIC\",\n                \"tooltip\": \"\",\n                \"id\": -39612,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1985-09-20T00:00:00.0000000\",\n                \"colour\": \"BKW\",\n                \"ranking\": 1000,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V97 817\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "My Dog Actions",
+          "_postman_id": "bac5dcbd-0220-412a-8113-19926a753209",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/actions",
+            "description": "Get  actions for a dog.\n\n\n\n## Inputs\nid (of the dog integer)\n\n\n## Returns\nDogInvolvementActionsOutput"
+          },
+          "response": [
+            {
+              "id": "492c2d07-ea26-407c-9974-dc66e9c88ae3",
+              "name": "My Dog Actions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/actions"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 05 Jul 2019 00:09:35 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "673"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-07-05T00:09:35.2911679Z\",\n        \"error\": null,\n        \"result\": {\n            \"dogName\": \"FERNANDO BALE\",\n            \"id\": 255840010,\n            \"canRemoveFromKennel\": false,\n            \"canWithdrawFromNomination\": false,\n            \"canWithdrawFromCoursingNomination\": false,\n            \"canNominate\": false,\n            \"canScratchFromARace\": false,\n            \"canScratchFromCoursing\": false,\n            \"canTransferDog\": false,\n            \"canRetireDog\": false,\n            \"canBeUsedToRegisterAService\": true,\n            \"canIssueBreedingAuthority\": false,\n            \"canCancelBreedingAuthority\": false,\n            \"canUserTrackDogs\": true,\n            \"canApplyForBreedingRegistration\": false,\n            \"canNotifyIntentToEuthanase\": false,\n            \"canCancelNoticeOfIntentToEuthanase\": false,\n            \"noticeOfIntentToEuthanaseId\": 0,\n            \"isStudmasterSyndicate\": false,\n            \"fromList\": null\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Actions For Dogs",
+          "_postman_id": "498a7cfa-7a17-4df9-b358-8b38527495e3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"ids\": [\n        -719291,\n        -719288,\n        -729160,\n        -746900,\n        -746902,\n        -746903,\n        -715934,\n        -742427,\n        -742428,\n        -742429,\n        -735381,\n        -731189,\n        -731197,\n        -722870,\n        -719294,\n        -6185,\n        -19618,\n        -22556,\n        -40698\n    ]\n}"
+            },
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/actions?skip=0&take=10",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "mydogs",
+                "list",
+                "actions"
+              ],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "key": "take",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Get a list of actions for a dog.\r\n\r\n\r\n## Input\r\nids[] (list of dog identifiers of tpye int)\r\n\r\n```\r\n\"ids\" : [1,2,3]\r\n```\r\n\r\nor \r\n\r\n```\r\nhttps://{{FastTrack1 Domain}}/FT19/MyDogs/Actions/All?ids=1&ids=2&ids=3\r\n```\r\n\r\n\r\n## Returns\r\nDogInvolvementActionsOutput[]"
+          },
+          "response": [
+            {
+              "id": "44a0bf09-4ed4-4219-bba1-f09fdf5d0816",
+              "name": "Actions For Dogs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"ids\": [\n        -719291,\n        -719288,\n        -729160,\n        -746900,\n        -746902,\n        -746903,\n        -715934,\n        -742427,\n        -742428,\n        -742429,\n        -735381,\n        -731189,\n        -731197,\n        -722870,\n        -719294,\n        -6185,\n        -19618,\n        -22556,\n        -40698\n    ]\n}"
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/actions?skip=0&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "mydogs",
+                    "list",
+                    "actions"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 05 Jul 2019 00:10:19 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "6254"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"arguments\": [\n            -719291,\n            -719288,\n            -729160,\n            -746900,\n            -746902,\n            -746903,\n            -715934,\n            -742427,\n            -742428,\n            -742429,\n            -735381,\n            -731189,\n            -731197,\n            -722870,\n            -719294,\n            -6185,\n            -19618,\n            -22556,\n            -40698\n        ],\n        \"summary\": {\n            \"totalNumberOfRows\": 19,\n            \"returnedRows\": 10,\n            \"take\": 10,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:10:19.4416937Z\",\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogName\": \"UNNAMED (VBPAN)\",\n                \"id\": -746903,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBPAM)\",\n                \"id\": -746902,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBPAK)\",\n                \"id\": -746900,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBISA)\",\n                \"id\": -742429,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBIRZ)\",\n                \"id\": -742428,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBIRY)\",\n                \"id\": -742427,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"STRADLIN\",\n                \"id\": -735381,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"UNNAMED (VBIBP)\",\n                \"id\": -731197,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"TOP SECRET\",\n                \"id\": -731189,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            },\n            {\n                \"dogName\": \"HAMMETT\",\n                \"id\": -729160,\n                \"canRemoveFromKennel\": false,\n                \"canWithdrawFromNomination\": false,\n                \"canWithdrawFromCoursingNomination\": false,\n                \"canNominate\": false,\n                \"canScratchFromARace\": false,\n                \"canScratchFromCoursing\": false,\n                \"canTransferDog\": false,\n                \"canRetireDog\": false,\n                \"canBeUsedToRegisterAService\": false,\n                \"canIssueBreedingAuthority\": false,\n                \"canCancelBreedingAuthority\": false,\n                \"canUserTrackDogs\": false,\n                \"canApplyForBreedingRegistration\": false,\n                \"canNotifyIntentToEuthanase\": false,\n                \"canCancelNoticeOfIntentToEuthanase\": false,\n                \"noticeOfIntentToEuthanaseId\": 0,\n                \"isStudmasterSyndicate\": false,\n                \"fromList\": null\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "My Dog By ID",
+          "_postman_id": "6c4b11bd-19d0-40e4-9991-d93990e832ab",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/dog",
+            "description": "Get a dog.\n\n\n## Inputs\nid (identifier of the dog)\n\n\n\n## Returns\nMyDog[]  (Found in the MyDogsOutput namespace)"
+          },
+          "response": [
+            {
+              "id": "3e3d7f69-7f34-4258-b4ce-1232a20d9382",
+              "name": "My Dog By ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/dog"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 05 Jul 2019 00:14:53 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "695"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 1,\n            \"returnedRows\": 1,\n            \"take\": 1,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:14:53.1961518Z\",\n        \"error\": null,\n        \"result\": {\n            \"dogName\": \"FERNANDO BALE (AUT)\",\n            \"dogNameShort\": \"FERNANDO BALE\",\n            \"tooltip\": \"There is an active breeding authority for this dog for PAUL WESTERVELD (SUBURB) \",\n            \"id\": 255840010,\n            \"nextEngagement\": \"\",\n            \"currentNominations\": \"\",\n            \"previousEngagement\": \"Sandown Park 17/12/2015\",\n            \"involvement\": \"Studmaster\",\n            \"dateWhelped\": \"2013-03-12T00:00:00.0000000\",\n            \"colour\": \"WDKBD\",\n            \"ranking\": 108,\n            \"isActiveRacing\": false,\n            \"tier3Eligible\": \"No\",\n            \"aPM\": 12994,\n            \"sex\": \"Dog\",\n            \"microchipNumber\": \"956000008702387\",\n            \"earbrand\": \"NCCQF\",\n            \"dogStatus\": \"Racing\",\n            \"penalties\": [],\n            \"trackPenalties\": []\n        }\n    }\n}"
             }
           ]
         },
@@ -3360,127 +3360,127 @@
   ],
   "variable": [
     {
-      "id": "21ca8ab6-b16b-4592-a67b-387ee9617caa",
+      "id": "db3ee58d-8067-43f5-b056-558d1a387f74",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "51c01790-60b3-41bc-abb9-9c20bf3360bf",
+      "id": "79d2e1e1-b1d5-4641-b998-a39226ee706b",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "8ebb8410-6f29-42c5-9cfa-fe95fd99d73e",
+      "id": "cf39cb82-0bb2-4cf3-a4c9-8ca8d9d96995",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "be0419b8-79e8-4bd5-84ee-fb41aba0638f",
+      "id": "487d124e-6261-4abe-be47-1aa4fa6bba97",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "22ebec23-59d4-468f-8c49-4f04ba08d9f0",
+      "id": "2b18acae-142e-4f73-b48e-ed2e4735963f",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "26aa694c-1c25-4988-94e2-5101022676c8",
+      "id": "21062643-4a2a-4e97-9b5a-720574148f62",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "54d308a3-cede-4a52-8457-91b94d8b582d",
+      "id": "b0a29280-d17e-4cd4-aff2-27a3492eb5f0",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "ceb06aa6-5091-40b1-b563-3089550ea480",
+      "id": "b68d1f87-4ebc-4c04-84c4-618739637492",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "dfd626f1-a94b-4e13-b503-0f4abbb907e7",
+      "id": "e903f27e-c581-4a2e-80b7-e52d0cc5d853",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "597c2c6a-43f3-42d4-b99b-753137845d43",
+      "id": "784d6090-c8d7-4e2e-a911-7e9298334622",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "1dd4c834-27c4-4329-8ee0-38ae69347f9c",
+      "id": "b51cd3aa-fc09-49a7-a2f8-43ebfd652fed",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "41d0e49e-01d9-4b9d-bbdf-94d3cc007fd4",
+      "id": "56f41e51-392d-42c5-9f4d-a2d8370966af",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "7dbdd6ce-1d0e-4ea3-8442-74d13341f1b0",
+      "id": "ef1d3b96-aaff-484b-8957-c0830a9d9e8b",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "ea4f243f-9311-4eb3-a9ad-cd160b4969b9",
+      "id": "3fbae30d-5a87-4445-ac65-0770018b9fdf",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "31b13bba-97cb-4f74-8027-7f5541e61a38",
+      "id": "46cde2e8-733a-4f4b-ac9e-59a0123d41fb",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "15c5afb4-5d35-4490-9487-fb7b6e01a237",
+      "id": "06fd4fd1-2100-419d-9f1f-e9676f8b6136",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "1acc27c9-9938-49e5-ae5b-fadd28c78437",
+      "id": "4bf0e762-756f-488c-b063-389a67b7c85d",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "b21ed313-8509-4ffd-a30b-e161978c3be1",
+      "id": "67faf28f-1aa4-4528-876c-ff3f9be12ff8",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "322bfef2-c910-407c-ad16-ec43fb9f56c5",
+      "id": "28a0d087-4f44-4a73-a0b6-5bc9efadf9e8",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "66911f0c-6184-4cdb-b0bb-a2b3ad651e70",
+      "id": "dcabf3fa-931a-4339-9cac-6ffe77371582",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "ea19eaf4-cea1-48c3-99b4-f0074b24920e",
+      "id": "2d8bbb2a-d973-4e14-a5de-fc9db63e45df",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
