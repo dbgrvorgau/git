@@ -2039,37 +2039,6 @@
       "description": "Provides capabilities to fetch update and delete *dog* information.  \r\n\r\n## Status Codes  \r\n* 200 Ok\r\n* 403 Forbidden\r\n* 404 Not found\r\n* 500 Internal Server Error\r\n"
     },
     {
-      "name": "Dog Naming",
-      "item": [
-        {
-          "name": "Unnamed",
-          "_postman_id": "a3e7e24f-b36d-4871-8833-84446f2e809e",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "description": "Certificate provided by Security/LoginAsUser",
-                "key": "X-ApiKey",
-                "type": "text",
-                "value": "{{FastTrack1 ApiKey}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://{{FastTrack1 Domain}}/FT19/DogsNaming/Unnamed",
-            "description": "Get my dogs for naming."
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "8a7e00ac-ab56-4874-b398-fad5b4d92a2c"
-    },
-    {
       "name": "Meeting",
       "item": [
         {
@@ -2435,6 +2404,92 @@
     {
       "name": "My Dog",
       "item": [
+        {
+          "name": "Dog Naming",
+          "item": [
+            {
+              "name": "My Unnamed Dogs",
+              "_postman_id": "a3e7e24f-b36d-4871-8833-84446f2e809e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/list/unnamed?skip=0&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "dogsnaming",
+                    "list",
+                    "unnamed"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10"
+                    }
+                  ]
+                },
+                "description": "Get a list of my dogs that can be named.\n"
+              },
+              "response": []
+            },
+            {
+              "name": "Get Fee For Naming Dogs  (Dev)",
+              "_postman_id": "d2844067-e95b-4c08-b054-8acb7d61cf69",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"id\":1,\n\t\"applicationInput\": {\n\t\t\"selectedDog\":1,\n\t\t\"NamingRequests\": [\n\t\t\t{\n\t\t\t\t\"dogId\":1,\n\t\t\t\t\"earBrand\":\"XYZ\",\n\t\t\t\t\"names\":[\"name a\",\"name b\"]\n\t\t\t}\n\t\t\t]\n\t},\n\t\"what\":[\"fee\"]\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/validate/",
+                "description": "Get the fee for naming of my dogs.\n"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "8a7e00ac-ab56-4874-b398-fad5b4d92a2c",
+          "description": "Provides capabilities to fetch update and delete *dog naming* applications.  \r\n\r\n## Status Codes  \r\n* 200 Ok\r\n* 403 Forbidden\r\n* 404 Not found\r\n* 500 Internal Server Error\r\n",
+          "_postman_isSubFolder": true
+        },
         {
           "name": "My Dogs Active",
           "_postman_id": "66d3ba2d-8995-4a82-a0b1-786a3f565068",
@@ -3360,127 +3415,127 @@
   ],
   "variable": [
     {
-      "id": "db3ee58d-8067-43f5-b056-558d1a387f74",
+      "id": "f0ea83ac-e8ac-4ef2-b0dd-a225d232848d",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "79d2e1e1-b1d5-4641-b998-a39226ee706b",
+      "id": "a927f9ed-e831-43f4-94d5-fd3a5b0d5335",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "cf39cb82-0bb2-4cf3-a4c9-8ca8d9d96995",
+      "id": "e35455c7-5b7a-4019-a694-3ec104729052",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "487d124e-6261-4abe-be47-1aa4fa6bba97",
+      "id": "55b3b55e-a3d8-41ee-ae58-d0ac3ff3211e",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "2b18acae-142e-4f73-b48e-ed2e4735963f",
+      "id": "1621a619-c82d-4d1c-ab2f-3f4bc48e8a42",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "21062643-4a2a-4e97-9b5a-720574148f62",
+      "id": "0cfb5cfc-5e26-4e61-bd97-1a495d331cd3",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "b0a29280-d17e-4cd4-aff2-27a3492eb5f0",
+      "id": "25df6617-b40f-42d8-9ea8-98dd50c1062b",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "b68d1f87-4ebc-4c04-84c4-618739637492",
+      "id": "fdcd7cd5-3295-4226-ad20-98aa6e1e9810",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "e903f27e-c581-4a2e-80b7-e52d0cc5d853",
+      "id": "6cd635f2-3324-45ae-b769-18d793f1d8b0",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "784d6090-c8d7-4e2e-a911-7e9298334622",
+      "id": "b0b69671-9486-4271-b6c9-c455ff765682",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "b51cd3aa-fc09-49a7-a2f8-43ebfd652fed",
+      "id": "8f567e7b-a300-4d27-974a-5d940c1f21fa",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "56f41e51-392d-42c5-9f4d-a2d8370966af",
+      "id": "06ccde0c-fca5-4c5d-ac36-598dc32b38d0",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "ef1d3b96-aaff-484b-8957-c0830a9d9e8b",
+      "id": "62d5f24c-6f60-4bdf-8510-64742c3aa3a9",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "3fbae30d-5a87-4445-ac65-0770018b9fdf",
+      "id": "371c61be-8f92-478a-8342-d180aae8d7f1",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "46cde2e8-733a-4f4b-ac9e-59a0123d41fb",
+      "id": "93a3a24c-5816-422e-8093-5fa9ef3d6b6d",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "06fd4fd1-2100-419d-9f1f-e9676f8b6136",
+      "id": "9b515097-8c1a-4643-bafa-e7a942a7f5db",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "4bf0e762-756f-488c-b063-389a67b7c85d",
+      "id": "91238c69-d5cb-4c3a-918c-6956953fa3a6",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "67faf28f-1aa4-4528-876c-ff3f9be12ff8",
+      "id": "a12d5711-8f49-42c5-a95b-7c91a9003088",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "28a0d087-4f44-4a73-a0b6-5bc9efadf9e8",
+      "id": "6a4c062a-ce30-4391-993c-4f8c0954283a",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "dcabf3fa-931a-4339-9cac-6ffe77371582",
+      "id": "9c5e11d2-7a59-401c-81ea-3bf337c9e957",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "2d8bbb2a-d973-4e14-a5de-fc9db63e45df",
+      "id": "996642d6-b22d-4e59-932f-b5f75e563377",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
