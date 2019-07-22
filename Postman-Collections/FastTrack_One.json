@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "212d9f75-b645-4973-9f35-d97881a6f1c6",
-    "name": "FastTrack One#",
+    "name": "Master FastTrack One#",
     "description": "# Introduction\r\nProvides access to FastTrack One\r\n\r\n# Overview\r\nTo access any functionality in FastTrack One a user must be logged in\r\n\r\n# Authentication\r\nTo access any functionality in FastTrack One a user must be logged in\r\n\r\n# Error Codes\r\n\r\nPossible status codes\r\n500 InternalServerError\r\n401 Unauthorized\r\n201 Created\r\n200 Ok\r\n\r\n\r\n# Error Message\r\nThese are messages return in the meta data objkect \r\nThe error messages will have some text and code that is documented in the API its self.  \r\n\r\n\r\n\r\n# Sampling Parameters\r\n\r\nSome API return list of data and require sample size information.   \r\n\r\nThe sample size is used to determijne how many records are sampled and the sample age specifies how many units old the data can be that is sampled.\r\n\r\nA sample age type is determined by the method being called and the documentation should reflect if it is years, months, day, hours or minutes.\r\n\r\n\r\n# Result with Meta Data\r\n\r\nResults return the results and meta data\r\n\r\n```\r\ninterface Meta<T>: Wrap<T> {\r\n   error: string (nullable)\r\n   dateCreated: string\r\n   totalNumberRows: int\r\n   take: int\r\n   skip: int\r\n}\r\n```\r\n\r\n# Result Wrapper  \r\n\r\nResults are always wrapped  \r\n\r\n\r\n```\r\ninterface Wrap<T> {\r\n   result: T\r\n}\r\n```\r\n\r\nA result gets wrapped. The meta data provides meta information for the result.  \r\n\r\n---\r\n\r\n# API Exception Handler\r\n\r\nThe following error codes are known to the API Error Handler.  \r\n\r\n## ArgumentNullException  \r\n\r\n```\r\n{\r\n   ErrorCode = 400,\r\n   \"ErrorMessage\" : \"Bad Request (F1.2)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n\r\n\r\n## ArgumentOutOfRangeException  \r\n\r\n```\r\n{\r\n   ErrorCode = 400,\r\n   \"ErrorMessage\" : \"Bad Request (F1.3)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n\r\n\r\n## ArgumentOutOfRangeException  \r\n\r\n```\r\n{\r\n   ErrorCode = 400,\r\n   \"ErrorMessage\" : \"Bad Request (F1.1)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n\r\n## Catch all   \r\n\r\n```\r\n{\r\n   ErrorCode = 500,\r\n   \"ErrorMessage\" : \"Internal Server Error (F1)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n---\r\n\r\n# Payway Details\r\n```\r\n\r\n\r\nexport enum PaymentMethods {\r\n    Cheque,\r\n    Cash,\r\n    MoneyOrder,\r\n    CreditCard,\r\n    Postbillpay,\r\n    BankTransfer\r\n}\r\n\r\nexport interface PayWayDetails\r\n{\r\n\r\n    isMSO: boolean = false;\r\n    isFeeAmendmentDisabled: boolean;\r\n    creditCard: CardPaymentDetails;\r\n    cheque: ChequePaymentDetails;\r\n    moneyOrder: MoneyOrderDetails;\r\n    PaymentMethod:PaymentMethods;\r\n    amountToPay: number;\r\n    isFeeAmended: boolean;\r\n    authorisedPerson: string;\r\n    authorisationCode: string;\r\n    reason: string;\r\n    doDuplicateCheck: boolean;\r\n    isDuplicateDetected: boolean;\r\n    isDuplicateOverridden: boolean;\r\n    isPostbillpayDisabled: boolean;\r\n\r\n}\r\n\r\n\r\nexport interface CardPaymentDetails \r\n{\r\n    cardholder: string;\r\n    number: string;\r\n    expiryMonth: string;\r\n    expiryYear: string;\r\n    CCV: string;\r\n}\r\n\r\nexport interface ChequePaymentDetails{       \r\n    accountNumber: string;\r\n    bank: string;\r\n    BSB: string;\r\n    drawer: string;\r\n    chequeNumber: string;\r\n}\r\n\r\nexport interface MoneyOrderDetails \r\n{\r\n    drawer: string;\r\n    issuingOffice: string;\r\n    moneyOrderNo: string;\r\n}  \r\n\r\n```\r\n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
@@ -3498,127 +3498,127 @@
   ],
   "variable": [
     {
-      "id": "8b6b6441-5400-4673-a8bc-4bee9ec2fae0",
+      "id": "a07ecdac-03f9-4874-ac98-650948c34ca2",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "23dabc77-e8ba-4ae4-bbd5-81c32db77bc7",
+      "id": "a784714a-e598-4ed7-81d7-3a0e7c3978b3",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "30dc330d-c3b8-441a-b38c-9dfa887dba92",
+      "id": "871f8575-aa58-4903-b58e-d994f9ace91c",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "3959b6ab-cb4c-4f8d-b9d5-3e270301481a",
+      "id": "70792d2a-3987-4252-90f4-ef56a66c7e02",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "70e84dd7-5705-448f-8d66-5d77850b2a9b",
+      "id": "0a9111c3-b603-4165-9db3-4f64d5661a66",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "196cd5b6-a364-4570-85c8-fa0e52818d21",
+      "id": "695d3c65-b15c-4843-990f-3e798afa2f8c",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "e9a34750-98a3-430b-b381-0680d6f1ee0b",
+      "id": "30230f16-e271-44d1-9a67-4d681ff19c03",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "779c49b1-fc34-427b-b634-311d49d99360",
+      "id": "5c125f57-dfe3-4833-880f-eeb95e4e8761",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "6e10ae84-4d8f-4c0d-b24a-975583960444",
+      "id": "6935fe73-54eb-4a53-abb3-7bfb70dc176c",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "29c9be18-ba1d-416c-9bb8-c765bff5392d",
+      "id": "40df6d19-2461-4427-a198-07be6f6e5c17",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "e3ae8366-8174-4ccd-b20d-5403a8e1eb81",
+      "id": "aacc4a90-6903-49be-ab29-ea6d0097b0bf",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "523e784d-6aee-4e78-9b28-eb0df0eb0690",
+      "id": "6a4d6278-dc48-46c3-86ff-bec24ccf626f",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "0c21d1d3-57af-4560-b7ed-e76200f68c89",
+      "id": "5d705185-91df-41e2-a576-ac8d97d0f312",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "0f51387c-f649-44fa-a996-4b491e5049f4",
+      "id": "fa0f6afe-b2b0-4eab-9986-9da7ea288fea",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "fd5b6028-51c2-4b35-bf27-950777bbb162",
+      "id": "8aab8382-6bb3-4a76-aa8a-97dca7a96a50",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "e10c2929-d270-4c96-a327-46fab40640e9",
+      "id": "933dc5ee-04fa-4199-a79d-d23273af8e68",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "0b83cd76-37bc-4ed0-a8a9-e2db309bb3e4",
+      "id": "1d036a09-faf2-480a-b20a-352c91e151a8",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "d61a9ad9-61b9-4d05-ba7c-a5a53f819f43",
+      "id": "fceb5016-89b5-4251-82ee-0adb6e8c9bbc",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "19eb574f-25de-432a-aa10-dbab7d2545bc",
+      "id": "f86a18a6-49d9-4ebf-a009-580afcff3fdd",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "b3c2e981-e25a-4303-b298-97d9ed4182b3",
+      "id": "e543befc-9d46-47bb-aa91-1c72f68efe74",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "cd4774f7-5473-48c4-859f-e3685a008aa1",
+      "id": "8164e344-289b-4543-8f84-87c60d235971",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
