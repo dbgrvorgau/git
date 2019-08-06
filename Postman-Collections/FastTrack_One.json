@@ -2173,7 +2173,7 @@
           "response": []
         },
         {
-          "name": "Dogs Search By Name",
+          "name": "Dogs Search",
           "_postman_id": "1e1018ce-e90d-49b0-a32c-9c3509357d53",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2186,10 +2186,20 @@
                 "key": "X-ApiKey",
                 "type": "text",
                 "value": "{{FastTrack1 ApiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"generalDogSearchInput\": {\n        \"name\": \"homer\",\n        \"earbrand\": \"123123\"\n    }\n}"
+            },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/{{FastTrack1 Dog DogName}}/SearchByName?skip=10&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/search/byname?skip=10&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
@@ -2197,23 +2207,21 @@
               "path": [
                 "FT19",
                 "Dogs",
-                "{{FastTrack1 Dog DogName}}",
-                "SearchByName"
+                "search",
+                "byname"
               ],
               "query": [
                 {
                   "key": "skip",
-                  "value": "10",
-                  "description": "The number of rows to skip"
+                  "value": "10"
                 },
                 {
                   "key": "take",
-                  "value": "10",
-                  "description": "The number of rows to take"
+                  "value": "10"
                 }
               ]
             },
-            "description": "Get a list of dogs by name\n"
+            "description": "Search for dogs\n\nThe user needs to be signed in to utilise this API.\n\n\nThis method will be expanded to facilitate the more criteria as needed.\n\nCurrently implements by name only...\n\n\nNew commands to be included.\n\n\n## Inputs\nGeneralDogSearchInput\n\n## Returns  \nApiDogSearchResult"
           },
           "response": [
             {
@@ -2375,11 +2383,101 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-05-27T07:07:36.8186687Z\",\n        \"totalNumberOfRows\": 0,\n        \"returnedRows\": 10,\n        \"take\": 10,\n        \"skip\": 0,\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogId\": -5242,\n                \"name\": \"HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"12/11/1997\"\n            },\n            {\n                \"dogId\": 783330017,\n                \"name\": \"HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"20/01/2014\"\n            },\n            {\n                \"dogId\": -291670,\n                \"name\": \"RESTLESS HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": null\n            },\n            {\n                \"dogId\": -234129,\n                \"name\": \"LITTLE HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": null\n            },\n            {\n                \"dogId\": -344562,\n                \"name\": \"HOMER SIMPSON\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"18/01/1991\"\n            },\n            {\n                \"dogId\": -383241,\n                \"name\": \"COLONEL HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"06/07/2003\"\n            },\n            {\n                \"dogId\": -245234,\n                \"name\": \"EVIL HOMER\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"16/11/1993\"\n            },\n            {\n                \"dogId\": -615059,\n                \"name\": \"HOMER MULDOON\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"14/11/2007\"\n            },\n            {\n                \"dogId\": -186172,\n                \"name\": \"HOMER JAY\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"29/11/2001\"\n            },\n            {\n                \"dogId\": -394534,\n                \"name\": \"HOMER BEAR\",\n                \"trainer\": \"\",\n                \"whelpedDate\": \"14/10/2001\"\n            }\n        ]\n    }\n}"
+            },
+            {
+              "id": "5c81eca7-0b56-4129-89f0-923b4246569d",
+              "name": "Dogs Search V1",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"generalDogSearchInput\":{\n\t\t\"name\":\"homer\",\n\t\t\"earbrand\":\"123123\"\n\t\t\n\t}\n}"
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/search/byname?skip=10&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "Dogs",
+                    "search",
+                    "byname"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "10",
+                      "description": "The number of rows to skip"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10",
+                      "description": "The number of rows to take"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Aug 2019 01:25:16 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1874"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-08-06T01:25:17.2923093Z\",\n        \"length\": 1,\n        \"success\": true,\n        \"status\": 200,\n        \"messages\": [\n            {\n                \"status\": 200,\n                \"message\": \"Ok\"\n            }\n        ],\n        \"messageContext\": [\n            [\n                \"HttpStatus\",\n                {\n                    \"status\": 200,\n                    \"message\": \"Ok\"\n                }\n            ]\n        ],\n        \"data\": [\n            [\n                {\n                    \"dogId\": -5242,\n                    \"name\": \"HOMER\",\n                    \"trainer\": \"\",\n                    \"whelpedDate\": \"12/11/1997\"\n                },\n                {\n                    \"dogId\": 783330017,\n                    \"name\": \"HOMER\",\n                    \"trainer\": \"\",\n                    \"whelpedDate\": \"20/01/2014\"\n                },\n                {\n                    \"dogId\": -291670,\n                    \"name\": \"RESTLESS HOMER\",\n                    \"trainer\": \"\",\n                    \"whelpedDate\": null\n                },\n                {\n                    \"dogId\": -234129,\n                    \"name\": \"LITTLE HOMER\",\n                    \"trainer\": \"\",\n                    \"whelpedDate\": null\n                },\n                {\n                    \"dogId\": -344562,\n                    \"name\": \"HOMER SIMPSON\",\n                    \"trainer\": \"\",\n                    \"whelpedDate\": \"18/01/1991\"\n                },\n                {\n                    \"dogId\": -383241,\n                    \"name\": \"COLONEL HOMER\",\n                    \"trainer\": \"\",\n                    \"whelpedDate\": \"06/07/2003\"\n                },\n                {\n                    \"dogId\": -245234,\n                    \"name\": \"EVIL HOMER\",\n                    \"trainer\": \"\",\n                    \"whelpedDate\": \"16/11/1993\"\n                },\n                {\n                    \"dogId\": -615059,\n                    \"name\": \"HOMER MULDOON\",\n                    \"trainer\": \"\",\n                    \"whelpedDate\": \"14/11/2007\"\n                },\n                {\n                    \"dogId\": -186172,\n                    \"name\": \"HOMER JAY\",\n                    \"trainer\": \"\",\n                    \"whelpedDate\": \"29/11/2001\"\n                },\n                {\n                    \"dogId\": -394534,\n                    \"name\": \"HOMER BEAR\",\n                    \"trainer\": \"\",\n                    \"whelpedDate\": \"14/10/2001\"\n                }\n            ]\n        ],\n        \"dataContext\": [\n            [\n                \"ApiDogSearchResult[]\",\n                [\n                    {\n                        \"dogId\": -5242,\n                        \"name\": \"HOMER\",\n                        \"trainer\": \"\",\n                        \"whelpedDate\": \"12/11/1997\"\n                    },\n                    {\n                        \"dogId\": 783330017,\n                        \"name\": \"HOMER\",\n                        \"trainer\": \"\",\n                        \"whelpedDate\": \"20/01/2014\"\n                    },\n                    {\n                        \"dogId\": -291670,\n                        \"name\": \"RESTLESS HOMER\",\n                        \"trainer\": \"\",\n                        \"whelpedDate\": null\n                    },\n                    {\n                        \"dogId\": -234129,\n                        \"name\": \"LITTLE HOMER\",\n                        \"trainer\": \"\",\n                        \"whelpedDate\": null\n                    },\n                    {\n                        \"dogId\": -344562,\n                        \"name\": \"HOMER SIMPSON\",\n                        \"trainer\": \"\",\n                        \"whelpedDate\": \"18/01/1991\"\n                    },\n                    {\n                        \"dogId\": -383241,\n                        \"name\": \"COLONEL HOMER\",\n                        \"trainer\": \"\",\n                        \"whelpedDate\": \"06/07/2003\"\n                    },\n                    {\n                        \"dogId\": -245234,\n                        \"name\": \"EVIL HOMER\",\n                        \"trainer\": \"\",\n                        \"whelpedDate\": \"16/11/1993\"\n                    },\n                    {\n                        \"dogId\": -615059,\n                        \"name\": \"HOMER MULDOON\",\n                        \"trainer\": \"\",\n                        \"whelpedDate\": \"14/11/2007\"\n                    },\n                    {\n                        \"dogId\": -186172,\n                        \"name\": \"HOMER JAY\",\n                        \"trainer\": \"\",\n                        \"whelpedDate\": \"29/11/2001\"\n                    },\n                    {\n                        \"dogId\": -394534,\n                        \"name\": \"HOMER BEAR\",\n                        \"trainer\": \"\",\n                        \"whelpedDate\": \"14/10/2001\"\n                    }\n                ]\n            ]\n        ],\n        \"summary\": {\n            \"data\": {},\n            \"totalNumberOfRows\": 0,\n            \"returnedRows\": 10,\n            \"take\": 10,\n            \"skip\": 0\n        }\n    }\n}"
             }
           ]
         },
         {
-          "name": "Dogs Search",
+          "name": "Composite Dogs Search",
           "_postman_id": "f290542e-84a8-4324-b44e-9d48ee14928a",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
@@ -2405,7 +2503,7 @@
               "raw": "{\n    \"compositeDogSearchInput\": {\n        \"name\": \"HOMER\",\n        \"earBrand\": \"VDVXB\",\n        \"microchipNumber\": \"956000003252311\"\n    }\n}"
             },
             "url": "https://{{FastTrack1 Domain}}/FT19/dogs/search/composite/withname",
-            "description": "Get a list of dogs by name\n"
+            "description": "Get a dog by **name, earbrand and microchip number**"
           },
           "response": [
             {
@@ -2473,6 +2571,72 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-08-02T05:20:28.0259542Z\",\n        \"length\": 1,\n        \"success\": true,\n        \"status\": 200,\n        \"messages\": [\n            {\n                \"status\": 200,\n                \"message\": \"Ok\"\n            }\n        ],\n        \"messageContext\": [\n            [\n                \"HttpStatus\",\n                {\n                    \"status\": 200,\n                    \"message\": \"Ok\"\n                }\n            ]\n        ],\n        \"data\": [\n            {\n                \"name\": \"HOMER\",\n                \"earBrand\": \"VDVXB\",\n                \"microchipNumber\": \"956000003252311\",\n                \"etc\": \"....\"\n            }\n        ],\n        \"dataContext\": [\n            [\n                \"Dog\",\n                {\n                    \"name\": \"HOMER\",\n                    \"earBrand\": \"VDVXB\",\n                    \"microchipNumber\": \"956000003252311\",\n                    \"etc\": \"....\"\n                }\n            ]\n        ],\n        \"notes\": [\n            \"This is an incomplete api\"\n        ],\n        \"summary\": {\n            \"data\": {},\n            \"totalNumberOfRows\": 0,\n            \"returnedRows\": 1,\n            \"take\": 0,\n            \"skip\": 0\n        },\n        \"arguments\": {\n            \"name\": \"HOMER\",\n            \"earBrand\": \"VDVXB\",\n            \"microchipNumber\": \"956000003252311\"\n        }\n    }\n}"
+            },
+            {
+              "id": "1842e519-3e68-482a-b11a-000c02b6c534",
+              "name": "Composite Dogs Search V1",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"compositeDogSearchInput\": {\n        \"name\": \"HOMER\",\n        \"earBrand\": \"VDVXB\",\n        \"microchipNumber\": \"956000003252311\"\n    }\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/dogs/search/composite/withname"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 06 Aug 2019 01:22:59 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "607"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-08-06T01:22:59.6363947Z\",\n        \"length\": 1,\n        \"success\": true,\n        \"status\": 200,\n        \"messages\": [\n            {\n                \"status\": 200,\n                \"message\": \"Ok\"\n            }\n        ],\n        \"messageContext\": [\n            [\n                \"HttpStatus\",\n                {\n                    \"status\": 200,\n                    \"message\": \"Ok\"\n                }\n            ]\n        ],\n        \"data\": [\n            {\n                \"name\": \"HOMER\",\n                \"earBrand\": \"VDVXB\",\n                \"microchipNumber\": \"956000003252311\",\n                \"etc\": \"....\"\n            }\n        ],\n        \"dataContext\": [\n            [\n                \"Dog\",\n                {\n                    \"name\": \"HOMER\",\n                    \"earBrand\": \"VDVXB\",\n                    \"microchipNumber\": \"956000003252311\",\n                    \"etc\": \"....\"\n                }\n            ]\n        ],\n        \"notes\": [\n            \"This is an incomplete api\"\n        ],\n        \"summary\": {\n            \"data\": {},\n            \"totalNumberOfRows\": 0,\n            \"returnedRows\": 1,\n            \"take\": 0,\n            \"skip\": 0\n        },\n        \"arguments\": {\n            \"name\": \"HOMER\",\n            \"earBrand\": \"VDVXB\",\n            \"microchipNumber\": \"956000003252311\"\n        }\n    }\n}"
             }
           ]
         }
@@ -3918,127 +4082,127 @@
   ],
   "variable": [
     {
-      "id": "07f3062c-091e-486a-9aea-979d8d7aa03f",
+      "id": "4ed7bcc4-f528-46ca-a88f-659a2ab180af",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "6bcfdbe3-1b5c-4ed3-b24a-64b583def32a",
+      "id": "480d7ecb-d517-43d6-9425-cfb22a921a4a",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "b58689d7-dcb7-4abf-addb-43475af88662",
+      "id": "63c2b1b3-ae3f-4ad7-9f4c-815dbd693a22",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "7e8f6b5b-d3b0-48bd-8fb8-dc79df79f840",
+      "id": "4c9818c7-27b9-45b8-912f-45c730f16e6a",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "f80bfdea-9ee8-4fd8-90d9-b74edb16a58f",
+      "id": "0ffcd123-b931-4d3d-a1ae-e5cf3edf6fbc",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "6f878afa-21f0-48d7-a58f-e097ba9fb539",
+      "id": "6f7a771e-9277-4fdf-bc51-92245afb934c",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "9213ed29-e8fa-4ffe-bc71-271547af4c86",
+      "id": "b344174e-5dee-4bd5-8c83-9bbb3de6d87a",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "b9100c16-e5ef-49d3-84b4-41bdfe3a02e1",
+      "id": "4fd4025b-8425-4032-aa63-eb1477db43a1",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "670f4114-f0ba-4e53-bf93-84f65307ef4c",
+      "id": "1e28da35-9b24-409f-a922-7ca0a08f8c83",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "ad008997-a461-4a59-87c9-45878ffd1a26",
+      "id": "d3eb9f72-be1b-425e-85f0-b86144f2ed61",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "45bd7687-ae8a-4f91-a802-b16e2b525387",
+      "id": "f3dc6f79-c674-48a8-ab4e-b81dd200bccf",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "0ab948d1-4ab2-4c59-a6b5-977b1c219896",
+      "id": "deb43019-35b0-418b-9b5c-06c613fd809a",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "02b97d85-a74e-4e25-9b1e-003e641dec41",
+      "id": "02c3cd42-7948-424b-92a0-43d0506ae900",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "3933ac26-033e-4115-8744-06beaec0b996",
+      "id": "cb8dee19-3bed-405c-a324-8680b16a6d3f",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "c170f00e-163f-4587-a35e-0e41c3f46f37",
+      "id": "e2630a36-2f3a-4cb6-8171-33223fff4aa0",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "cd3e2ed9-0fae-4d7f-a54e-f417451a5638",
+      "id": "b2de9919-f15e-4511-9b24-205a9e48d478",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "481efefd-2462-4866-9d63-f42e7279839f",
+      "id": "b546f51a-1fd1-40bd-b86a-62346a29ff7e",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "9d1f5e5d-1e98-433d-a516-0c9c4e450990",
+      "id": "6d0b9f34-907c-4ce5-8334-4f58b2765077",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "2384ddec-3838-4e8b-aa8c-ab0bc1e9ada0",
+      "id": "6550ba87-1b72-4f82-bfa5-c6e926be9318",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "eb2e8076-03da-4130-b916-ccbe07e1f093",
+      "id": "351287cf-394e-4c35-9c80-2867312c19fa",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "0dbf6cf3-d308-42f7-9df8-ff786fd3d451",
+      "id": "a644af3a-6ad0-475a-bb46-a6f5365be348",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
