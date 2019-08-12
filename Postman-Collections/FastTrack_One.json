@@ -175,8 +175,18 @@
                 "key": "take",
                 "type": "text",
                 "value": "10"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"dogBlackBookInput\": {\n\t\t\"dogId\": \"{{FasTrack1 BlackBook Dog Id}}\",\n\t\t\"comments\":\"This is a very important dog. This is a very important dog This is a very important dog This is a very important dog This is a very important dog This is a very important dog\",\n\t\t\"isTracking\":true\n\t}\n}"
+            },
             "url": {
               "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/save/blackbook?skip=0&take=10",
               "protocol": "https",
@@ -290,6 +300,104 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-08-04T23:54:49.1704279Z\",\n        \"length\": 1,\n        \"success\": true,\n        \"status\": 200,\n        \"messages\": [\n            {\n                \"status\": 200,\n                \"message\": \"Ok\"\n            }\n        ],\n        \"messageContext\": [\n            [\n                \"HttpStatus\",\n                {\n                    \"status\": 200,\n                    \"message\": \"Ok\"\n                }\n            ]\n        ],\n        \"data\": [\n            [\n                {\n                    \"dogName\": \"FLAT TWIN\",\n                    \"id\": 1241510011,\n                    \"nextEngagement\": \"Wagga 19/05/2017\",\n                    \"previousEngagement\": \"Angle Park 18/02/2019\",\n                    \"comment\": null\n                }\n            ]\n        ],\n        \"dataContext\": [\n            [\n                \"DogTrackingOutput[]\",\n                [\n                    {\n                        \"dogName\": \"FLAT TWIN\",\n                        \"id\": 1241510011,\n                        \"nextEngagement\": \"Wagga 19/05/2017\",\n                        \"previousEngagement\": \"Angle Park 18/02/2019\",\n                        \"comment\": null\n                    }\n                ]\n            ]\n        ],\n        \"summary\": {\n            \"data\": {},\n            \"totalNumberOfRows\": 1,\n            \"returnedRows\": 1,\n            \"take\": 10,\n            \"skip\": 0\n        }\n    }\n}"
+            },
+            {
+              "id": "38b0ebf5-2584-4d79-a751-520f533909e8",
+              "name": "Update Black Book",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "skip",
+                    "type": "text",
+                    "value": "0"
+                  },
+                  {
+                    "key": "take",
+                    "type": "text",
+                    "value": "10"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"dogBlackBookInput\": {\n\t\t\"dogId\": \"{{FasTrack1 BlackBook Dog Id}}\",\n\t\t\"comment\":\"This is a very important dog.\",\n\t\t\"isTracking\":true\n\t}\n}"
+                },
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/save/blackbook?skip=0&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "myaccount",
+                    "save",
+                    "blackbook"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 08 Aug 2019 01:52:59 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "267"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"length\": 0,\n        \"success\": true,\n        \"status\": 200,\n        \"messages\": [\n            {\n                \"status\": 200,\n                \"message\": \"FERNANDO BALE has been successfully tracked\"\n            }\n        ],\n        \"messageContext\": [\n            [\n                \"HttpStatus\",\n                {\n                    \"status\": 200,\n                    \"message\": \"FERNANDO BALE has been successfully tracked\"\n                }\n            ]\n        ],\n        \"data\": [],\n        \"dataContext\": []\n    }\n}"
             }
           ]
         }
@@ -351,7 +459,7 @@
                   "mode": "raw",
                   "raw": "{\n    \"ResultOfMatingWhelpedOutput\": {\n        \"pups\": null,\n        \"whelpedDate\": \"2019-02-20T00:00:00.0000000\",\n        \"whelpingDateMin\": \"2019-02-17T00:00:00.0000000\",\n        \"whelpingDateMax\": \"2019-02-27T00:00:00.0000000\",\n        \"breederName\": \"RONALD MCCULLAGH\",\n        \"isWantingDetailsPublished\": false,\n        \"kennelAddress\": \"85 COONAWARRA DVE\",\n        \"kennelSuburb\": \"LARA\",\n        \"kennelState\": \"VIC\",\n        \"kennelPostcode\": \"3212\",\n        \"litterAddress\": null,\n        \"litterContact\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"RONALD\",\n            \"surname\": \"MCCULLAGH\"\n        },\n        \"isOtherAddress\": false,\n        \"earBranderName\": \"Brian  Jones\",\n        \"earBranderPhone\": \"03-52821130\",\n        \"earBranderSuburb\": \"Lara\",\n        \"earBranderId\": -1,\n        \"clinicName\": null,\n        \"clinicPhone\": null,\n        \"clinicAddress\": null,\n        \"clinicId\": 0,\n        \"id\": 393774011,\n        \"selectedMatingResult\": \"Whelped\",\n        \"sire\": \"ASTON DEE BEE\",\n        \"sireId\": 1490820093,\n        \"sireColour\": \"Black\",\n        \"isDamDNARegistered\": true,\n        \"dam\": \"MOTORETTE\",\n        \"damColour\": \"BK\",\n        \"serviceDate\": \"2018-12-21T00:00:00.0000000\",\n        \"damId\": -627719,\n        \"numberOfDogs\": 0,\n        \"numberOfBitches\": 0,\n        \"isEligibleToBreed\": true\n    }\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/check/fee",
+                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/check/result",
                 "description": "Validate and save the breeding.  \n\nThe data is validated and returns a payment gateway object with a result of the charges.  \n\n## Other Status Codes\n* 400 Not Found (Breeding not found)\n* 401 Unauthorised (Not permitted to enter matting details)\n\n## Inputs\nResultOfMatingWhelpedOutput\n\n## Returns  \nResultOfMatingPaymentGatewayInput"
               },
               "response": [
@@ -639,9 +747,9 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"ResultOfMating_PaymentGatewayInput\": {\n        \"ResultOfMating_ServiceDetailsInputSRZ\": \"42d59814154e5803158537163e4580f1||{\\\"LitterId\\\":393774011,\\\"DateSubmitted\\\":{\\\"ticks\\\":636947712000000000},\\\"DateOfWhelping\\\":{\\\"ticks\\\":636862176000000000},\\\"LitterAddress\\\":null,\\\"LitterContact\\\":{\\\"Title\\\":\\\"Mr\\\",\\\"FirstName\\\":\\\"RONALD\\\",\\\"Surname\\\":\\\"MCCULLAGH\\\"},\\\"MatingResultType\\\":1,\\\"IsBreederAddress\\\":true,\\\"EarBranderId\\\":-1,\\\"VetClinicId\\\":0,\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailureDuplicatePayment\\\":null,\\\"FailedAmendment\\\":null,\\\"LoggedOnUserId\\\":-2926,\\\"ReceiptNumber\\\":null,\\\"Fee\\\":60.00,\\\"HasLateFeeIncluded\\\":true,\\\"LateFee\\\":60.00,\\\"IsWantingDetailsPublished\\\":false,\\\"IsImpersonating\\\":false,\\\"Pups\\\":[]}\",\n        \"PayWayDetails\": {\n            \"CreditCard\": null,\n            \"Cheque\": null,\n            \"PaymentMethod\": 1,\n            \"AmountToPay\": 60\n        }\n    }\n}"
+                  "raw": "{\n    \"resultOfMatingPaymentGatewayInput\": {\n        \"ResultOfMating_ServiceDetailsInputSRZ\": \"42d59814154e5803158537163e4580f1||{\\\"LitterId\\\":393774011,\\\"DateSubmitted\\\":{\\\"ticks\\\":636947712000000000},\\\"DateOfWhelping\\\":{\\\"ticks\\\":636862176000000000},\\\"LitterAddress\\\":null,\\\"LitterContact\\\":{\\\"Title\\\":\\\"Mr\\\",\\\"FirstName\\\":\\\"RONALD\\\",\\\"Surname\\\":\\\"MCCULLAGH\\\"},\\\"MatingResultType\\\":1,\\\"IsBreederAddress\\\":true,\\\"EarBranderId\\\":-1,\\\"VetClinicId\\\":0,\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailureDuplicatePayment\\\":null,\\\"FailedAmendment\\\":null,\\\"LoggedOnUserId\\\":-2926,\\\"ReceiptNumber\\\":null,\\\"Fee\\\":60.00,\\\"HasLateFeeIncluded\\\":true,\\\"LateFee\\\":60.00,\\\"IsWantingDetailsPublished\\\":false,\\\"IsImpersonating\\\":false,\\\"Pups\\\":[]}\",\n        \"PayWayDetails\": {\n            \"CreditCard\": null,\n            \"Cheque\": null,\n            \"PaymentMethod\": 1,\n            \"AmountToPay\": 60\n        },\n        \"PaymentDiscount\": {\n        \t\"FastTrackPaymentDiscountPercentage\":0,\n        \t\"IsImpersonating\":false,\n        \t\"HasPenaltyFee\":false,\n        \t\"FastTrackPaymentDiscountTotal\":0\n        },\n        \"TransactionAmount\":0,\n        \"LateFee\":0,\n        \"BaseFee\":0\n    }\n}\n"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/{{FastTrack1 BreedingId}}/save/pay",
+                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/{{FastTrack1 BreedingId}}/save/payment",
                 "description": "Use to perform the payment.\n\n\n## Status Codes\n* 409 Conflict (This might be a duplicate payment)  \n* 401 Unauthorized (The user is not allowed to enter a result of mating.)  \n* 400 Bad Request (PayWayDetails.AuthorisationFailedText)\n* 400 Bad Request (PayWayDetails.PaymentDeclinedText)\n\n## Inputs  \nResultOfMatingPaymentGatewayInput\n\n## Returns \nBreedingPaymentGatewayResponse"
               },
               "response": []
@@ -1826,7 +1934,7 @@
                 "value": "{{FastTrack1 ApiKey}}"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/MicrochipForm/{{FastTrack1 Breeding Section}}",
+            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/get/microchip/{{FastTrack1 Breeding Section}}",
             "description": "Get data required for Microchip form.\n\n\n## Values For {{Section}}\n* 0 = View Breeders section\n* 1  = View Earbranders section\n* if signed in as the person responsible can view the earbrander section and breeders section."
           },
           "response": [
@@ -2213,11 +2321,13 @@
               "query": [
                 {
                   "key": "skip",
-                  "value": "10"
+                  "value": "10",
+                  "description": "The number of rows to skip"
                 },
                 {
                   "key": "take",
-                  "value": "10"
+                  "value": "10",
+                  "description": "The number of rows to take"
                 }
               ]
             },
@@ -2500,7 +2610,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"compositeDogSearchInput\": {\n        \"name\": \"HOMER\",\n        \"earBrand\": \"VDVXB\",\n        \"microchipNumber\": \"956000003252311\"\n    }\n}"
+              "raw": "{\r\n    \"compositeDogSearchInput\": {\r\n        \"name\": \"HOMER\",\r\n        \"earBrand\": \"VDVXB\",\r\n        \"microchipNumber\": \"956000003252311\"\r\n    }\r\n}"
             },
             "url": "https://{{FastTrack1 Domain}}/FT19/dogs/search/composite/withname",
             "description": "Get a dog by **name, earbrand and microchip number**"
@@ -4082,129 +4192,135 @@
   ],
   "variable": [
     {
-      "id": "4ed7bcc4-f528-46ca-a88f-659a2ab180af",
+      "id": "584a1dc3-3cfe-47d6-ae29-08f2f1302f5b",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "480d7ecb-d517-43d6-9425-cfb22a921a4a",
+      "id": "aaf28306-0f20-4066-a250-5376d7b628b6",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "63c2b1b3-ae3f-4ad7-9f4c-815dbd693a22",
+      "id": "1d88e650-a56e-4b18-aa62-493eb72346a7",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "4c9818c7-27b9-45b8-912f-45c730f16e6a",
+      "id": "8726f19a-753d-443f-ad17-399306601706",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "0ffcd123-b931-4d3d-a1ae-e5cf3edf6fbc",
+      "id": "bc6f8b17-12f0-4658-b1e5-67b60d50fc96",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "6f7a771e-9277-4fdf-bc51-92245afb934c",
+      "id": "289180c5-de10-48d0-bef3-57ff924ad9f5",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "b344174e-5dee-4bd5-8c83-9bbb3de6d87a",
+      "id": "ad50b480-c1d7-432f-8240-04a409880c13",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "4fd4025b-8425-4032-aa63-eb1477db43a1",
+      "id": "87a8bc4d-ef16-4f56-bb21-9d67f642c6e8",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "1e28da35-9b24-409f-a922-7ca0a08f8c83",
+      "id": "bac55574-0d5b-4d93-a257-f6c7e621773a",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "d3eb9f72-be1b-425e-85f0-b86144f2ed61",
+      "id": "18e124a9-a94e-42cd-82f8-03562b5cd360",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "f3dc6f79-c674-48a8-ab4e-b81dd200bccf",
+      "id": "6c072cb1-b255-4d41-b48c-f67b08d68155",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "deb43019-35b0-418b-9b5c-06c613fd809a",
+      "id": "fe3f8264-cab4-48ca-9cfc-b711cb7826d0",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "02c3cd42-7948-424b-92a0-43d0506ae900",
+      "id": "1e2a56fd-9b4f-4ac8-a6a4-88c412289e51",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "cb8dee19-3bed-405c-a324-8680b16a6d3f",
+      "id": "c28aca67-650c-449e-ad23-f4846d09423a",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "e2630a36-2f3a-4cb6-8171-33223fff4aa0",
+      "id": "9828195d-76eb-495c-b291-9ad5987faf38",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "b2de9919-f15e-4511-9b24-205a9e48d478",
+      "id": "fdc26962-ec42-4a10-b2f3-31469f93f423",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "b546f51a-1fd1-40bd-b86a-62346a29ff7e",
+      "id": "99edbe3d-1804-424f-beea-ee60692f08aa",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "6d0b9f34-907c-4ce5-8334-4f58b2765077",
+      "id": "f6e803f3-ac23-4ca3-a56c-86fb205a658d",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "6550ba87-1b72-4f82-bfa5-c6e926be9318",
+      "id": "189d3336-f58a-4fa6-86c3-100a88ca1183",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "351287cf-394e-4c35-9c80-2867312c19fa",
+      "id": "b8df3e51-9b38-4fa0-8d58-c659694d177a",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "a644af3a-6ad0-475a-bb46-a6f5365be348",
+      "id": "a86cbca2-3e47-43ef-bc54-e2d3afbc7f90",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
+      "type": "string"
+    },
+    {
+      "id": "c4ffe995-6a86-4c6c-b04b-6f0c280b47a6",
+      "key": "FasTrack1 BlackBook Dog Id",
+      "value": "255840010",
       "type": "string"
     }
   ]
