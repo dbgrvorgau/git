@@ -1356,14 +1356,20 @@
                 "value": "{{FastTrack1 ApiKey}}",
                 "type": "text",
                 "description": "Certificate provided by Security/LoginAsUser"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": ""
+              "raw": "{\n    \"breedingInput\": {\n        \"fromYear\": \"{{FastTrack1 Litters From Year}}\",\n        \"toYear\": \"{{FastTrack1 Litters To Year}}\"\n    }\n}"
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/List?fromYear={{FastTrack1 Litters From Year}}&toYear={{FastTrack1 Litters To Year}}&skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/list/breeding?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
@@ -1371,28 +1377,19 @@
               "path": [
                 "FT19",
                 "Breedings",
-                "List"
+                "list",
+                "breeding"
               ],
               "query": [
                 {
-                  "key": "fromYear",
-                  "value": "{{FastTrack1 Litters From Year}}",
-                  "description": "If the value is excluded - year is ignored"
-                },
-                {
-                  "key": "toYear",
-                  "value": "{{FastTrack1 Litters To Year}}",
-                  "description": "If the value is excluded - year is ignored"
-                },
-                {
                   "key": "skip",
                   "value": "0",
-                  "description": "The record number to start at in the sample trims to sample size."
+                  "description": "If the value is excluded - year is ignored"
                 },
                 {
                   "key": "take",
                   "value": "10",
-                  "description": "The number of records to take from the scenario."
+                  "description": "If the value is excluded - year is ignored"
                 }
               ]
             },
@@ -1508,13 +1505,15 @@
                 "value": "{{FastTrack1 ApiKey}}",
                 "type": "text",
                 "description": "Certificate provided by Security/LoginAsUser"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/List",
+            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/get/breeding",
             "description": "Get a list of my litters.\n\n\nId parameter must be included all other parmaters should be null or blank.  \n\n\nIf the id is not blank then the all other arguments are ignored.  \n"
           },
           "response": [
@@ -3162,7 +3161,7 @@
                     }
                   ]
                 },
-                "description": "Get a list of my dogs that can be named.\n"
+                "description": "Get a list of my dogs that can be named.\r\n\r\n## Status Code  \r\n* 200 None of your dogs are eligible for naming.\r\n* 200 Ok\r\n\r\n\r\n**Returns** ApplicationInputOutput"
               },
               "response": []
             },
@@ -3190,14 +3189,76 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"commands\":[\"fee\",\"payment\"],\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}"
+                  "raw": "{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}"
                 },
                 "url": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/check/fee",
+                "description": "Get the fee for naming of my dogs.\r\n\r\nCheck and return the fee only  \r\nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check/fee  \r\n\r\nSample body \r\n\r\n```\r\n{\r\n    \"namingRequests\": {\r\n        \"dogNameRequests\": [\r\n            {\r\n                \"dogId\": 439981707,\r\n                \"earBrand\": \"VIPOD\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            },\r\n            {\r\n                \"dogId\": 439981708,\r\n                \"earBrand\": \"VIPOE\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}\r\n\r\n```\r\n**Returns** NamingRequestInput"
+              },
+              "response": []
+            },
+            {
+              "name": "Get Proforma Invoice",
+              "_postman_id": "6117751a-7ac3-4a9c-a9b9-e5a1bec18221",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/check/proforma",
+                "description": "Get the serialized proforma invoice for naming of my dogs.\r\n\r\nCheck and return the payment only  \r\nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check/payment  \r\n\r\nSample body \r\n```\r\n{\r\n    \"namingRequests\": {\r\n        \"dogNameRequests\": [\r\n            {\r\n                \"dogId\": 439981707,\r\n                \"earBrand\": \"VIPOD\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            },\r\n            {\r\n                \"dogId\": 439981708,\r\n                \"earBrand\": \"VIPOE\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}\r\n\r\n```\r\n**Returns** PaymentInput"
+              },
+              "response": []
+            },
+            {
+              "name": "Make Payment",
+              "_postman_id": "53c813b3-b0b3-4a09-9663-f2fa81ccb9eb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"paymentInput\":\r\n            {\r\n                \"stateApplicationDetails\": \"cbaf4759d92e1ff6b00c21729caef2ce||{\\\"DogNameRequests\\\":[{\\\"DogId\\\":439981707,\\\"EarBrand\\\":\\\"VIPOD\\\",\\\"Relationship\\\":\\\"Owner\\\",\\\"Fee\\\":0.0000,\\\"BaseFee\\\":0.00,\\\"Names\\\":[\\\"name a\\\",\\\"name b\\\"]},{\\\"DogId\\\":439981708,\\\"EarBrand\\\":\\\"VIPOE\\\",\\\"Relationship\\\":\\\"Owner\\\",\\\"Fee\\\":0.0000,\\\"BaseFee\\\":0.00,\\\"Names\\\":[\\\"name a\\\",\\\"name b\\\"]}]}\",\r\n                \"totalFee\": 0.0000,\r\n                \"baseTotalFee\": 0.00,\r\n                \"payWayDetails\": {\r\n                    \"CreditCard\": null,\r\n                    \"Cheque\": null,\r\n                    \"PaymentMethod\": \"Cash\",\r\n                    \"AmountToPay\": 0.0000\r\n                },\r\n                \"paymentDiscount\": {\r\n                    \"fastTrackPaymentDiscountPercentage\": 0.0,\r\n                    \"isImpersonating\": false,\r\n                    \"hasPenaltyFee\": false,\r\n                    \"fastTrackPaymentDiscountTotal\": 0.0000\r\n                }\r\n            }\r\n            \r\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/save/payment",
                 "description": "Get the fee for naming of my dogs.\n\nCheck and return the fee only  \nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check/fee  \n\nSample body \n\n```\n{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}\n\n```\n*Returns* NamingRequestInput  \n\n\n\nCheck and return the payment only  \nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check/payment  \n\nSample body \n```\n{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}\n\n```\n*Returns* PaymentInput  \n\n\n\nCheck and return the fee and payment.  \nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check  \n\nSample body \n```\n{\n\t\"commands\":[\"fee\",\"payment\"],\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}\n```\n\n*Returns* NamingRequestInput and PaymentInput"
               },
               "response": [
                 {
-                  "id": "fad6d454-5067-4e04-8417-336e06f72e03",
+                  "id": "741e8820-9c0b-4e25-a1e6-c63fee65f069",
                   "name": "Get Fee For Naming Dogs (\"fee\",\"payment\")",
                   "originalRequest": {
                     "method": "POST",
@@ -3339,86 +3400,7 @@
             },
             "description": "Get a list of my involved dogs.\n\n\n## Inputs\nInvolvedDogsOutput (Optional)\n\n\n\n## Returns\nMyDog[]  (Found in the MyDogsOutput namespace)"
           },
-          "response": [
-            {
-              "id": "1d737652-f333-4923-a9ea-38cbfd398ca8",
-              "name": "My Dogs Active",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "description": "Certificate provided by Security/LoginAsUser",
-                    "key": "X-ApiKey",
-                    "type": "text",
-                    "value": "{{FastTrack1 ApiKey}}"
-                  }
-                ],
-                "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/active?skip=0&take=10",
-                  "protocol": "https",
-                  "host": [
-                    "{{FastTrack1 Domain}}"
-                  ],
-                  "path": [
-                    "FT19",
-                    "mydogs",
-                    "list",
-                    "active"
-                  ],
-                  "query": [
-                    {
-                      "key": "skip",
-                      "value": "0"
-                    },
-                    {
-                      "key": "take",
-                      "value": "10"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "private,no-cache"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "nocache"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
-                },
-                {
-                  "key": "Expires",
-                  "value": "-1"
-                },
-                {
-                  "key": "Set-Cookie",
-                  "value": "__TempData=; path=/; secure; HttpOnly"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "DENY"
-                },
-                {
-                  "key": "Date",
-                  "value": "Fri, 05 Jul 2019 00:07:28 GMT"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "1503"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 3,\n            \"returnedRows\": 3,\n            \"take\": 10,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:07:28.1608581Z\",\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogName\": \"CON ROD\",\n                \"dogNameShort\": \"CON ROD\",\n                \"tooltip\": \"\",\n                \"id\": 121002025,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"Geelong 23/05/2019\",\n                \"involvement\": \"Owner, Trainer\",\n                \"dateWhelped\": \"2016-02-07T00:00:00.0000000\",\n                \"colour\": \"BD\",\n                \"ranking\": 213,\n                \"isActiveRacing\": true,\n                \"tier3Eligible\": \"No\",\n                \"aPM\": 7173,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"956000005390103\",\n                \"earbrand\": \"VFVXF\",\n                \"dogStatus\": \"Racing\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"SUMMER SKYE\",\n                \"dogNameShort\": \"SUMMER SKYE\",\n                \"tooltip\": \"\",\n                \"id\": 121002028,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"The Meadows 25/05/2019\",\n                \"involvement\": \"Owner, Trainer\",\n                \"dateWhelped\": \"2016-02-07T00:00:00.0000000\",\n                \"colour\": \"BD\",\n                \"ranking\": 150,\n                \"isActiveRacing\": true,\n                \"tier3Eligible\": \"No\",\n                \"aPM\": 13439,\n                \"sex\": \"Bitch\",\n                \"microchipNumber\": \"956000005414256\",\n                \"earbrand\": \"VFVXI\",\n                \"dogStatus\": \"Racing\",\n                \"penalties\": [\n                    121002028\n                ],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"BRAKE DRUM\",\n                \"dogNameShort\": \"BRAKE DRUM\",\n                \"tooltip\": \"\",\n                \"id\": 121002024,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"Geelong 23/05/2019\",\n                \"involvement\": \"Owner\",\n                \"dateWhelped\": \"2016-02-07T00:00:00.0000000\",\n                \"colour\": \"RBD\",\n                \"ranking\": 229,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"No\",\n                \"aPM\": 5541,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"956000005378721\",\n                \"earbrand\": \"VFVXE\",\n                \"dogStatus\": \"Racing\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            }\n        ]\n    }\n}"
-            }
-          ]
+          "response": []
         },
         {
           "name": "My Dogs Inactive",
@@ -3437,7 +3419,7 @@
               }
             ],
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/inactive?skip=0&take=100",
+              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/inactive?skip=0&take=3",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
@@ -3456,95 +3438,14 @@
                 },
                 {
                   "key": "take",
-                  "value": "100",
+                  "value": "3",
                   "description": "Take the specified number of rows"
                 }
               ]
             },
             "description": "Get a list of my retired dogs.\n\n\n\n## Returns\nMyDog[]  (Found in the RetiredDogs namespace)"
           },
-          "response": [
-            {
-              "id": "088e855d-65d2-425c-af1c-59e4fad51cba",
-              "name": "My Dogs Inactive",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "description": "Certificate provided by Security/LoginAsUser",
-                    "key": "X-ApiKey",
-                    "type": "text",
-                    "value": "{{FastTrack1 ApiKey}}"
-                  }
-                ],
-                "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/inactive?skip=0&take=3",
-                  "protocol": "https",
-                  "host": [
-                    "{{FastTrack1 Domain}}"
-                  ],
-                  "path": [
-                    "FT19",
-                    "mydogs",
-                    "list",
-                    "inactive"
-                  ],
-                  "query": [
-                    {
-                      "key": "skip",
-                      "value": "0",
-                      "description": "Skip the specified number of rows"
-                    },
-                    {
-                      "key": "take",
-                      "value": "3",
-                      "description": "Take the specified number of rows"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "private,no-cache"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "nocache"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
-                },
-                {
-                  "key": "Expires",
-                  "value": "-1"
-                },
-                {
-                  "key": "Set-Cookie",
-                  "value": "__TempData=; path=/; secure; HttpOnly"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "DENY"
-                },
-                {
-                  "key": "Date",
-                  "value": "Fri, 05 Jul 2019 00:08:14 GMT"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "1470"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 39,\n            \"returnedRows\": 39,\n            \"take\": 3,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:08:11.8812393Z\",\n        \"error\": null,\n        \"result\": [\n            {\n                \"dogName\": \"TANTARNI (RET)\",\n                \"dogNameShort\": \"TANTARNI\",\n                \"tooltip\": \"\",\n                \"id\": -541515,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"Angle Park 31/07/1989\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1986-11-09T00:00:00.0000000\",\n                \"colour\": \"F\",\n                \"ranking\": 181,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V76 545\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"IN HER PRIME (RET)\",\n                \"dogNameShort\": \"IN HER PRIME\",\n                \"tooltip\": \"\",\n                \"id\": -419609,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1986-11-09T00:00:00.0000000\",\n                \"colour\": \"F\",\n                \"ranking\": 400,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Bitch\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V76 546\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            },\n            {\n                \"dogName\": \"DARRA'S MAGIC (RET)\",\n                \"dogNameShort\": \"DARRA'S MAGIC\",\n                \"tooltip\": \"\",\n                \"id\": -39612,\n                \"nextEngagement\": \"\",\n                \"currentNominations\": \"\",\n                \"previousEngagement\": \"\",\n                \"involvement\": \"Owner - Syndicate Manager\",\n                \"dateWhelped\": \"1985-09-20T00:00:00.0000000\",\n                \"colour\": \"BKW\",\n                \"ranking\": 1000,\n                \"isActiveRacing\": false,\n                \"tier3Eligible\": \"\",\n                \"aPM\": 0,\n                \"sex\": \"Dog\",\n                \"microchipNumber\": \"\",\n                \"earbrand\": \"V97 817\",\n                \"dogStatus\": \"Retired\",\n                \"penalties\": [],\n                \"trackPenalties\": []\n            }\n        ]\n    }\n}"
-            }
-          ]
+          "response": []
         },
         {
           "name": "My Dog Actions",
@@ -3870,64 +3771,7 @@
             "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/dog",
             "description": "Get a dog.\n\n\n## Inputs\nid (identifier of the dog)\n\n\n\n## Returns\nMyDog[]  (Found in the MyDogsOutput namespace)"
           },
-          "response": [
-            {
-              "id": "3e3d7f69-7f34-4258-b4ce-1232a20d9382",
-              "name": "My Dog By ID",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "description": "Certificate provided by Security/LoginAsUser",
-                    "key": "X-ApiKey",
-                    "type": "text",
-                    "value": "{{FastTrack1 ApiKey}}"
-                  }
-                ],
-                "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/dog"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Cache-Control",
-                  "value": "private,no-cache"
-                },
-                {
-                  "key": "Pragma",
-                  "value": "nocache"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8"
-                },
-                {
-                  "key": "Expires",
-                  "value": "-1"
-                },
-                {
-                  "key": "Set-Cookie",
-                  "value": "__TempData=; path=/; secure; HttpOnly"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "DENY"
-                },
-                {
-                  "key": "Date",
-                  "value": "Fri, 05 Jul 2019 00:14:53 GMT"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "695"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": "{\n    \"result\": {\n        \"summary\": {\n            \"totalNumberOfRows\": 1,\n            \"returnedRows\": 1,\n            \"take\": 1,\n            \"skip\": 0\n        },\n        \"dateCreated\": \"2019-07-05T00:14:53.1961518Z\",\n        \"error\": null,\n        \"result\": {\n            \"dogName\": \"FERNANDO BALE (AUT)\",\n            \"dogNameShort\": \"FERNANDO BALE\",\n            \"tooltip\": \"There is an active breeding authority for this dog for PAUL WESTERVELD (SUBURB) \",\n            \"id\": 255840010,\n            \"nextEngagement\": \"\",\n            \"currentNominations\": \"\",\n            \"previousEngagement\": \"Sandown Park 17/12/2015\",\n            \"involvement\": \"Studmaster\",\n            \"dateWhelped\": \"2013-03-12T00:00:00.0000000\",\n            \"colour\": \"WDKBD\",\n            \"ranking\": 108,\n            \"isActiveRacing\": false,\n            \"tier3Eligible\": \"No\",\n            \"aPM\": 12994,\n            \"sex\": \"Dog\",\n            \"microchipNumber\": \"956000008702387\",\n            \"earbrand\": \"NCCQF\",\n            \"dogStatus\": \"Racing\",\n            \"penalties\": [],\n            \"trackPenalties\": []\n        }\n    }\n}"
-            }
-          ]
+          "response": []
         },
         {
           "name": "My Dogs Operations",
@@ -4192,133 +4036,133 @@
   ],
   "variable": [
     {
-      "id": "afb9e0a2-4c39-4450-85ca-ba1da68ef2e8",
+      "id": "63f175f4-9502-4a30-9e34-2ad7cece8efa",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "f89a11c9-a049-49ab-8e66-6005412e336c",
+      "id": "c6dbf0bf-771d-4d45-a397-f510719143eb",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "e3dad522-cfe3-4139-a92e-a70efe8c604c",
+      "id": "468751bf-76f4-44b8-a0fa-7e22a27b44f7",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "197b298e-926f-4019-b55b-d824a6126491",
+      "id": "35e3ae38-d1e6-45ad-90bc-d5c92cdfcf1d",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "074cdf11-918a-41db-ba44-e9afd9aede4a",
+      "id": "c3336637-c2f8-4242-8875-7b5896b8602f",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "2344bd30-3d60-407f-ba80-6d49a7d5e9e1",
+      "id": "3469a384-f3bf-4e8a-8c68-210f8098b45f",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "cd615551-e428-4a6a-9808-cd98136c82c7",
+      "id": "f47f4493-d57e-4ccd-ad7a-f90d0c8656fd",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "04dca75d-1739-4fc5-a987-7931ed3ed666",
+      "id": "cd30c7f7-9004-43c7-a07e-327c581c3292",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "ff203dc4-4fcb-48bf-bab7-07ec4a4f671b",
+      "id": "dc824b12-9084-4b49-b2d3-3ad664141823",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "2ad39366-eb6d-43aa-a8d9-5b71f499c664",
+      "id": "fa086a05-b013-47ec-8c3f-61c3b982a4e8",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "060b643d-926f-4d1e-8252-14e667a08248",
+      "id": "220e49f7-22f4-40b0-9ff8-9979bae3ebb9",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "e3154f9e-9c22-4d6a-93f1-a1de8160528a",
+      "id": "fa0f9265-b214-4bf9-84c3-f2aaf17078f2",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "f2c6b7a5-9c92-4ab2-a565-c285d75089d7",
+      "id": "8e24e933-aaa2-4c96-9fb9-d6d5e8b93033",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "76254042-ed39-445e-b1de-3d9d0dfb449d",
+      "id": "301ad8ba-2136-4cab-8c08-8834057c0b1b",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "8f4ef079-f940-4a63-aa48-604ca45ea7ec",
+      "id": "451eef67-63d9-4e87-a7bc-822c07a9dcb9",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "62d528f4-1919-4b00-8e00-06dbdee5617c",
+      "id": "bc8fbd7c-7dad-4093-999b-49d2560494cc",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "22beede0-5919-437a-a197-30adaebad104",
+      "id": "0bfe4b1b-16d8-489f-97b7-746d74a07cff",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "585182e1-a7a5-427d-9438-0583b82b5fda",
+      "id": "f5451054-869c-4a83-9d9c-801474750f01",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "d379eeb5-16c7-48df-8908-5f7650a653af",
+      "id": "7aa1f579-a287-4bd6-89af-2dfa91aa76da",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "e37823aa-bf78-4fd8-ad33-e9efc67b62b1",
+      "id": "c9a34e1e-2626-436f-8add-c5585c0ecd90",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "e775852b-e3c5-4380-ae04-5e68a495a6bd",
+      "id": "bc11a8ba-441d-4c1d-ae56-d9fe9ef5d448",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
     },
     {
-      "id": "3d4c1468-f4cb-404e-9df4-0edfc32c39ba",
+      "id": "b735fb90-df30-490f-85cd-4bd19e711841",
       "key": "FasTrack1 BlackBook Dog Id",
       "value": "255840010",
       "type": "string"
