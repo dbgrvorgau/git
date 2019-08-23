@@ -36,7 +36,7 @@
               }
             ],
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/listblackbook?skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/list/blackbook?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
@@ -44,7 +44,8 @@
               "path": [
                 "FT19",
                 "myaccount",
-                "listblackbook"
+                "list",
+                "blackbook"
               ],
               "query": [
                 {
@@ -95,10 +96,10 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"dogBlackBookInput\": {\n\t\t\"dogId\": \"{{FasTrack1 BlackBook Dog Id}}\",\n\t\t\"comments\":\"This is a very important dog. This is a very important dog This is a very important dog This is a very important dog This is a very important dog This is a very important dog\",\n\t\t\"isTracking\":true\n\t}\n}"
+              "raw": "{\n\t\"dogBlackBookInput\": {\n\t\t\"dogId\": {{FasTrack1 BlackBook Dog Id}},\n\t\t\"comments\":\"This is a very important dog.derek\",\n\t\t\"isTracking\":true\n\t}\n}\n"
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/saveblackbook?skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/save/blackbook?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
@@ -106,7 +107,8 @@
               "path": [
                 "FT19",
                 "myaccount",
-                "saveblackbook"
+                "save",
+                "blackbook"
               ],
               "query": [
                 {
@@ -2212,7 +2214,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"generalDogSearchInput\": {\n        \"name\": \"homer\",\n        \"earbrand\": \"123123\"\n    }\n}"
+              "raw": "{\n    \"generalDogSearchInput\": {\n        \"name\": \"homer\",\n     \n    }\n}"
             },
             "url": {
               "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/search/byname?skip=10&take=10",
@@ -3098,7 +3100,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}"
+                  "raw": "{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 407833038,\n                \"earBrand\": \"VHJNQ\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 407833039,\n                \"earBrand\": \"VHJNR\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}"
                 },
                 "url": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/check/fee",
                 "description": "Get the fee for naming of my dogs.\r\n\r\nCheck and return the fee only  \r\nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check/fee  \r\n\r\nSample body \r\n\r\n```\r\n{\r\n    \"namingRequests\": {\r\n        \"dogNameRequests\": [\r\n            {\r\n                \"dogId\": 439981707,\r\n                \"earBrand\": \"VIPOD\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            },\r\n            {\r\n                \"dogId\": 439981708,\r\n                \"earBrand\": \"VIPOE\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}\r\n\r\n```\r\n**Returns** NamingRequestInput"
@@ -3129,7 +3131,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}"
+                  "raw": "{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 407833038,\n                \"earBrand\": \"VHJNQ\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 407833039,\n                \"earBrand\": \"VHJNR\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}"
                 },
                 "url": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/check/proforma",
                 "description": "Get the serialized proforma invoice for naming of my dogs.\r\n\r\nCheck and return the payment only  \r\nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check/payment  \r\n\r\nSample body \r\n```\r\n{\r\n    \"namingRequests\": {\r\n        \"dogNameRequests\": [\r\n            {\r\n                \"dogId\": 439981707,\r\n                \"earBrand\": \"VIPOD\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            },\r\n            {\r\n                \"dogId\": 439981708,\r\n                \"earBrand\": \"VIPOE\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}\r\n\r\n```\r\n**Returns** PaymentInput"
@@ -3285,7 +3287,7 @@
               }
             ],
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/active?skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/ActiveDogs?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
@@ -3293,8 +3295,7 @@
               "path": [
                 "FT19",
                 "mydogs",
-                "list",
-                "active"
+                "ActiveDogs"
               ],
               "query": [
                 {
@@ -3328,7 +3329,7 @@
               }
             ],
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/inactive?skip=0&take=117",
+              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/InactiveDogs?skip=0&take=117",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
@@ -3336,19 +3337,16 @@
               "path": [
                 "FT19",
                 "mydogs",
-                "list",
-                "inactive"
+                "InactiveDogs"
               ],
               "query": [
                 {
                   "key": "skip",
-                  "value": "0",
-                  "description": "Skip the specified number of rows"
+                  "value": "0"
                 },
                 {
                   "key": "take",
-                  "value": "117",
-                  "description": "Take the specified number of rows"
+                  "value": "117"
                 }
               ]
             },
@@ -3372,7 +3370,24 @@
                 "value": "{{FastTrack1 ApiKey}}"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/actions",
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/Actions?id={{FastTrack1 DogId}}",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "mydogs",
+                "Actions"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "{{FastTrack1 DogId}}"
+                }
+              ]
+            },
             "description": "Get  actions for a dog.\n\n\n\n## Inputs\nid (of the dog integer)\n\n\n## Returns\nDogInvolvementActionsOutput"
           },
           "response": [
@@ -3457,10 +3472,10 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"ids\": [\n        -719291,\n        -719288,\n        -729160,\n        -746900,\n        -746902,\n        -746903,\n        -715934,\n        -742427,\n        -742428,\n        -742429,\n        -735381,\n        -731189,\n        -731197,\n        -722870,\n        -719294,\n        -6185,\n        -19618,\n        -22556,\n        -40698\n    ]\n}"
+              "raw": "{\n    \"ids\": [\n315843932\n    ]\n}"
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/actions?skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/AllActions?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
@@ -3468,8 +3483,7 @@
               "path": [
                 "FT19",
                 "mydogs",
-                "list",
-                "actions"
+                "AllActions"
               ],
               "query": [
                 {
@@ -3677,7 +3691,24 @@
                 "value": "{{FastTrack1 ApiKey}}"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/dog",
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/GetDogById?id={{FastTrack1 DogId}}",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "mydogs",
+                "GetDogById"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "{{FastTrack1 DogId}}"
+                }
+              ]
+            },
             "description": "Get a dog.\n\n\n## Inputs\nid (identifier of the dog)\n\n\n\n## Returns\nMyDog[]  (Found in the MyDogsOutput namespace)"
           },
           "response": []
@@ -3698,7 +3729,7 @@
                 "value": "{{FastTrack1 ApiKey}}"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/operations",
+            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/GetOperations",
             "description": "Get a list of operation I can carryout in my dogs.\n\n\n\n## Returns\nMyOperations"
           },
           "response": []
@@ -3896,63 +3927,30 @@
             "method": "POST",
             "header": [
               {
-                "description": "Certificate provided by Security/LoginAsUser",
                 "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
                 "type": "text",
-                "value": "{{FastTrack1 ApiKey}}"
-              },
-              {
-                "key": "skip",
-                "type": "text",
-                "value": "0"
-              },
-              {
-                "key": "take",
-                "type": "text",
-                "value": "10"
+                "description": "Certificate provided by Security/LoginAsUser"
               },
               {
                 "key": "Content-Type",
-                "name": "Content-Type",
-                "type": "text",
-                "value": "application/json"
+                "value": "application/json",
+                "type": "text"
               }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"dogBlackBookInput\": {\n\t\t\"dogId\": \"{{FasTrack1 BlackBook Dog Id}}\",\n\t\t\"comments\":\"This is a very important dog. This is a very important dog This is a very important dog This is a very important dog This is a very important dog This is a very important dog\",\n\t\t\"isTracking\":true\n\t}\n}"
+              "raw": "{\n    \"input\": {\n        \"memberNumber\": \"27292\",\n        \"personName\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"PAUL\",\n            \"surname\": \"WESTERVELD\"\n        },\n        \"personId\": -27292,\n        \"email\": \"fasttrackbuild+27292@gmail.com\",\n        \"dateOfBirth\": \"2000-08-21T05:29:01Z\",\n        \"gender\": \"Male\",\n        \"residentialAddress\": {\n            \"street\": \"4 CANTERBURY COURT\",\n            \"suburb\": \"SUBURB\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3808\",\n            \"country\": \"Australia\"\n        },\n        \"postalAddress\": {\n            \"street\": \"PO BOX 663\",\n            \"suburb\": \"BERWICK\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3806\",\n            \"country\": \"Australia\"\n        },\n        \"homePhone\": {\n            \"number\": null\n        },\n        \"mobilePhone\": {\n            \"number\": null\n        },\n        \"businessPhone\": {\n            \"number\": null\n        },\n        \"occupation\": \"Fertility and Reproduction/Studmaster\",\n        \"marketingOptIn\": true,\n        \"interstateRegistration\": null,\n        \"isAbleToUpload\": true,\n        \"isAbleToAssociateInterstateAcount\": false,\n        \"photoFile\": null,\n        \"isPostalAddressDifferent\": true,\n        \"isInterstateUser\": false,\n        \"photoImageUrl\": \"https://fasttracktestb.blob.core.windows.net/fasttrackresources/Photos/-27292.jpg?st=2019-08-21T03%3A31%3A38Z&se=2019-08-21T03%3A37%3A38Z&sr=b&sp=r&sig=pGhoozYzNjcs3Pdx1B5qndArCLwCcDe04WfkbG%2FzcZM%3D\",\n        \"personPhotoId\": null,\n        \"personPhotoDateAdded\": \"2019-08-21T05:29:01Z\",\n        \"requiresNewPhoto\": true,\n        \"isParticipant\": true,\n        \"canUpdateAllDetailsInThisRelease\": true,\n        \"hasOptedOutOfReceivingSMSNotifications\": false,\n        \"isParticipantNameOnPublicTrainersList\": false,\n        \"isEligibleForPublicTrainersList\": false\n    }\n}"
             },
-            "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/save/account?skip=0&take=10",
-              "protocol": "https",
-              "host": [
-                "{{FastTrack1 Domain}}"
-              ],
-              "path": [
-                "FT19",
-                "myaccount",
-                "save",
-                "account"
-              ],
-              "query": [
-                {
-                  "key": "skip",
-                  "value": "0"
-                },
-                {
-                  "key": "take",
-                  "value": "10"
-                }
-              ]
-            },
+            "url": "https://{{FastTrack1 Domain}}/FT19/myaccount/SaveMyAccountDetails",
             "description": "Update Black Book\n\n\n\n\n\n## Returns\n"
           },
           "response": [
             {
-              "id": "492826b1-f814-459a-b993-7e9d761f096f",
-              "name": "Get Black Book",
+              "id": "82564d80-0e87-47fe-babf-6d8720ec8a47",
+              "name": "Save MyAccount",
               "originalRequest": {
-                "method": "GET",
+                "method": "POST",
                 "header": [
                   {
                     "description": "Certificate provided by Security/LoginAsUser",
@@ -3962,38 +3960,26 @@
                   },
                   {
                     "key": "skip",
-                    "value": "0",
-                    "type": "text"
+                    "type": "text",
+                    "value": "0"
                   },
                   {
                     "key": "take",
-                    "value": "10",
-                    "type": "text"
+                    "type": "text",
+                    "value": "10"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
                   }
                 ],
-                "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/persons/list/blackbook?skip=0&take=10",
-                  "protocol": "https",
-                  "host": [
-                    "{{FastTrack1 Domain}}"
-                  ],
-                  "path": [
-                    "FT19",
-                    "persons",
-                    "list",
-                    "blackbook"
-                  ],
-                  "query": [
-                    {
-                      "key": "skip",
-                      "value": "0"
-                    },
-                    {
-                      "key": "take",
-                      "value": "10"
-                    }
-                  ]
-                }
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"input\": {\n        \"memberNumber\": \"27292\",\n        \"personName\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"PAUL\",\n            \"surname\": \"WESTERVELD\"\n        },\n        \"personId\": -27292,\n        \"email\": \"fasttrackbuild+27292@gmail.com\",\n        \"dateOfBirth\": \"2000-08-21T05:29:01Z\",\n        \"gender\": \"Male\",\n        \"residentialAddress\": {\n            \"street\": \"4 CANTERBURY COURT\",\n            \"suburb\": \"SUBURB\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3808\",\n            \"country\": \"Australia\"\n        },\n        \"postalAddress\": {\n            \"street\": \"PO BOX 663\",\n            \"suburb\": \"BERWICK\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3806\",\n            \"country\": \"Australia\"\n        },\n        \"homePhone\": {\n            \"number\": null\n        },\n        \"mobilePhone\": {\n            \"number\": null\n        },\n        \"businessPhone\": {\n            \"number\": null\n        },\n        \"occupation\": \"Fertility and Reproduction/Studmaster\",\n        \"marketingOptIn\": false,\n        \"interstateRegistration\": null,\n        \"isAbleToUpload\": true,\n        \"isAbleToAssociateInterstateAcount\": false,\n        \"photoFile\": null,\n        \"isPostalAddressDifferent\": true,\n        \"isInterstateUser\": false,\n        \"photoImageUrl\": \"https://fasttracktestb.blob.core.windows.net/fasttrackresources/Photos/-27292.jpg?st=2019-08-21T03%3A31%3A38Z&se=2019-08-21T03%3A37%3A38Z&sr=b&sp=r&sig=pGhoozYzNjcs3Pdx1B5qndArCLwCcDe04WfkbG%2FzcZM%3D\",\n        \"personPhotoId\": null,\n        \"personPhotoDateAdded\": \"2019-08-21T05:29:01Z\",\n        \"requiresNewPhoto\": true,\n        \"isParticipant\": true,\n        \"canUpdateAllDetailsInThisRelease\": true,\n        \"hasOptedOutOfReceivingSMSNotifications\": false,\n        \"isParticipantNameOnPublicTrainersList\": false,\n        \"isEligibleForPublicTrainersList\": true\n    }\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/FT19/myaccount/SaveMyAccountDetails"
               },
               "status": "OK",
               "code": 200,
@@ -4025,19 +4011,61 @@
                 },
                 {
                   "key": "Date",
-                  "value": "Sun, 04 Aug 2019 23:54:48 GMT"
+                  "value": "Wed, 21 Aug 2019 06:15:48 GMT"
                 },
                 {
                   "key": "Content-Length",
-                  "value": "608"
+                  "value": "258"
                 }
               ],
               "cookie": [],
               "responseTime": null,
-              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-08-04T23:54:49.1704279Z\",\n        \"length\": 1,\n        \"success\": true,\n        \"status\": 200,\n        \"messages\": [\n            {\n                \"status\": 200,\n                \"message\": \"Ok\"\n            }\n        ],\n        \"messageContext\": [\n            [\n                \"HttpStatus\",\n                {\n                    \"status\": 200,\n                    \"message\": \"Ok\"\n                }\n            ]\n        ],\n        \"data\": [\n            [\n                {\n                    \"dogName\": \"FLAT TWIN\",\n                    \"id\": 1241510011,\n                    \"nextEngagement\": \"Wagga 19/05/2017\",\n                    \"previousEngagement\": \"Angle Park 18/02/2019\",\n                    \"comment\": null\n                }\n            ]\n        ],\n        \"dataContext\": [\n            [\n                \"DogTrackingOutput[]\",\n                [\n                    {\n                        \"dogName\": \"FLAT TWIN\",\n                        \"id\": 1241510011,\n                        \"nextEngagement\": \"Wagga 19/05/2017\",\n                        \"previousEngagement\": \"Angle Park 18/02/2019\",\n                        \"comment\": null\n                    }\n                ]\n            ]\n        ],\n        \"summary\": {\n            \"data\": {},\n            \"totalNumberOfRows\": 1,\n            \"returnedRows\": 1,\n            \"take\": 10,\n            \"skip\": 0\n        }\n    }\n}"
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-08-21T06:15:43.7928450Z\",\n        \"length\": 0,\n        \"messages\": [],\n        \"messageContext\": [\n            [\n                0,\n                200,\n                \"Your account details have been updated.\"\n            ]\n        ],\n        \"data\": [],\n        \"dataContext\": [],\n        \"message\": \"Your account details have been updated.\",\n        \"status\": 200,\n        \"success\": true\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Save MyFinance (Dev)",
+          "_postman_id": "819fd7be-ad3a-48d6-8656-31840817716d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              },
+              {
+                "key": "skip",
+                "type": "text",
+                "value": "0"
+              },
+              {
+                "key": "take",
+                "type": "text",
+                "value": "10"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": {\n    \t\"partyId\":-27292,\n    \t\"bankAccount\":{\n    \t\t\n    \t},\n    \t\"lastUpdatedBy\":\"\"\n   }\n}"
             },
+            "url": "https://{{FastTrack1 Domain}}/FT19/myaccount/SaveBankingDetails",
+            "description": "Update Black Book\n\n\n\n\n\n## Returns\n"
+          },
+          "response": [
             {
-              "id": "df49b117-b238-45c6-9ea3-27144603b68f",
+              "id": "4a7261de-5c02-4169-b619-70a8b072a677",
               "name": "Update Black Book",
               "originalRequest": {
                 "method": "POST",
@@ -4133,6 +4161,94 @@
               "cookie": [],
               "responseTime": null,
               "body": "{\n    \"result\": {\n        \"length\": 0,\n        \"success\": true,\n        \"status\": 200,\n        \"messages\": [\n            {\n                \"status\": 200,\n                \"message\": \"FERNANDO BALE has been successfully tracked\"\n            }\n        ],\n        \"messageContext\": [\n            [\n                \"HttpStatus\",\n                {\n                    \"status\": 200,\n                    \"message\": \"FERNANDO BALE has been successfully tracked\"\n                }\n            ]\n        ],\n        \"data\": [],\n        \"dataContext\": []\n    }\n}"
+            },
+            {
+              "id": "c1757fea-bc3a-4368-8a11-8bd9234ea1da",
+              "name": "Get Black Book",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "skip",
+                    "value": "0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "take",
+                    "value": "10",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/FT19/persons/list/blackbook?skip=0&take=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "FT19",
+                    "persons",
+                    "list",
+                    "blackbook"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 04 Aug 2019 23:54:48 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "608"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-08-04T23:54:49.1704279Z\",\n        \"length\": 1,\n        \"success\": true,\n        \"status\": 200,\n        \"messages\": [\n            {\n                \"status\": 200,\n                \"message\": \"Ok\"\n            }\n        ],\n        \"messageContext\": [\n            [\n                \"HttpStatus\",\n                {\n                    \"status\": 200,\n                    \"message\": \"Ok\"\n                }\n            ]\n        ],\n        \"data\": [\n            [\n                {\n                    \"dogName\": \"FLAT TWIN\",\n                    \"id\": 1241510011,\n                    \"nextEngagement\": \"Wagga 19/05/2017\",\n                    \"previousEngagement\": \"Angle Park 18/02/2019\",\n                    \"comment\": null\n                }\n            ]\n        ],\n        \"dataContext\": [\n            [\n                \"DogTrackingOutput[]\",\n                [\n                    {\n                        \"dogName\": \"FLAT TWIN\",\n                        \"id\": 1241510011,\n                        \"nextEngagement\": \"Wagga 19/05/2017\",\n                        \"previousEngagement\": \"Angle Park 18/02/2019\",\n                        \"comment\": null\n                    }\n                ]\n            ]\n        ],\n        \"summary\": {\n            \"data\": {},\n            \"totalNumberOfRows\": 1,\n            \"returnedRows\": 1,\n            \"take\": 10,\n            \"skip\": 0\n        }\n    }\n}"
             }
           ]
         },
@@ -4162,29 +4278,7 @@
                 "type": "text"
               }
             ],
-            "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/list/blackbook?skip=0&take=10",
-              "protocol": "https",
-              "host": [
-                "{{FastTrack1 Domain}}"
-              ],
-              "path": [
-                "FT19",
-                "myaccount",
-                "list",
-                "blackbook"
-              ],
-              "query": [
-                {
-                  "key": "skip",
-                  "value": "0"
-                },
-                {
-                  "key": "take",
-                  "value": "10"
-                }
-              ]
-            },
+            "url": "https://{{FastTrack1 Domain}}/FT19/myaccount/GetMyDetails",
             "description": "Get my account details\n\n\n\n\n\n## Returns\n"
           },
           "response": []
@@ -4225,7 +4319,24 @@
               "mode": "raw",
               "raw": "{\n\t\"TransactionSearchInput\":{\n\t\t\"IsClientPortal\": false\n\t}\n}"
             },
-            "url": "https://{{FastTrack1 Domain}}/FT19/myaccount/GetMyTransactions",
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/GetMyTransactions?submit=saved",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "FT19",
+                "myaccount",
+                "GetMyTransactions"
+              ],
+              "query": [
+                {
+                  "key": "submit",
+                  "value": "saved"
+                }
+              ]
+            },
             "description": "Get my account details\n\n\n\n\n\n## Returns\n"
           },
           "response": []
@@ -4295,133 +4406,133 @@
   ],
   "variable": [
     {
-      "id": "6fb065d5-442a-4882-bfe5-702b3e089f42",
+      "id": "159bfff2-4a80-437b-b1d0-dae88892557f",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "cb2ee9b0-fd11-44d3-a7ca-d9822454f4a6",
+      "id": "864f36f3-126c-4e25-b81a-02b5df4828a0",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "1cb7237f-35ee-499e-b28a-aa4d2b09ba67",
+      "id": "8bfa9c8a-cd1a-49bf-87ac-1ff835c98e56",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "22e908cd-19cf-4bed-be53-05057451286e",
+      "id": "38c28476-cd6b-4e64-b0ae-07c8801d8e5b",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "848b9e9c-03d5-4113-b981-db258341ca02",
+      "id": "43b78d94-bd3c-45f4-b62f-ce67e3aa5209",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "2e8edfd9-f856-4c10-b432-3b868f2ab74b",
+      "id": "68e74734-dd26-4d64-91b2-ef7923c63dbd",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "ad3977f4-eb89-467f-b048-d11b596a649e",
+      "id": "83754338-53f0-495a-bf97-127d21eec85c",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "5dec9ed7-daec-43c4-8773-99f64552344e",
+      "id": "22111439-7d03-4478-b7ca-1ab194094dc1",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "57465b58-1e8b-4eca-bc60-f1078e93ae7c",
+      "id": "2dc16d1f-2d53-464a-9886-0f15b2cf5c5d",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "c9d354aa-e9bd-4e45-9eec-965d41f0dd12",
+      "id": "4d4ea5a9-c028-4fe5-be60-c736b2b20f99",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "68e2493d-050b-4376-a462-e48ee8d307cf",
+      "id": "a361a781-dbc0-48b0-9d69-556ce091c256",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "1f9d876b-7bbc-4707-ac13-8af4e0c981c8",
+      "id": "26f92db0-aac0-4a17-a265-d318cb0e2fe4",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "50b679d5-27b6-4137-b50b-6f686b71f4e6",
+      "id": "90f5b031-a278-40ea-8465-311c13fb6040",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "a406aa0b-ca3d-4b18-a77a-0e3435b1646a",
+      "id": "fefa331b-2b56-4290-b174-961e2db0cce6",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "b961f758-e158-49de-8b9f-91757bbd2e2b",
+      "id": "d67a6677-c72c-4ad2-8e6f-9d2e96511f31",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "25e97887-394b-4347-9e97-796092c9aded",
+      "id": "8eda4e6d-e40a-47fc-b97a-d5c780e59c7e",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "0482b5de-867f-4a59-9c68-469d2820065b",
+      "id": "ba5aecf7-c468-4ff3-a37a-3f31d0064f69",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "d7fa1676-9194-4e6f-b5c8-919e2bc9a3aa",
+      "id": "eba840e8-f529-4d67-a831-0b47f4b39631",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "fa76e525-cabb-4dcc-9082-15cd8619518f",
+      "id": "5d412374-aec3-4352-b49a-be56a927621a",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "f0176169-3730-4e27-8999-c95930bd301b",
+      "id": "40f13692-2963-4e4e-9940-344e76937db2",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "448fa1f6-d928-49cf-8dfd-7ac7d0339617",
+      "id": "d21c6a3d-937e-4095-b08b-4b429016c761",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
     },
     {
-      "id": "10c4b8b0-0b81-4f23-abea-dd20d3fa27a8",
+      "id": "23420512-e7bb-467d-bc01-3e7c90282903",
       "key": "FasTrack1 BlackBook Dog Id",
       "value": "255840010",
       "type": "string"
