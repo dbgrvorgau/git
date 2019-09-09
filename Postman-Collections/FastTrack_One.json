@@ -36,13 +36,13 @@
               }
             ],
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/list/blackbook?skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/list/blackbook?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "myaccount",
                 "list",
                 "blackbook"
@@ -99,13 +99,13 @@
               "raw": "{\n\t\"dogBlackBookInput\": {\n\t\t\"dogId\": {{FasTrack1 BlackBook Dog Id}},\n\t\t\"comments\":\"This is a very important dog.derek\",\n\t\t\"isTracking\":true\n\t}\n}\n"
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/save/blackbook?skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/save/blackbook?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "myaccount",
                 "save",
                 "blackbook"
@@ -148,13 +148,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/persons/list/blackbook?skip=0&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/persons/list/blackbook?skip=0&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "persons",
                     "list",
                     "blackbook"
@@ -246,13 +246,13 @@
                   "raw": "{\n\t\"dogBlackBookInput\": {\n\t\t\"dogId\": \"{{FasTrack1 BlackBook Dog Id}}\",\n\t\t\"comment\":\"This is a very important dog.\",\n\t\t\"isTracking\":true\n\t}\n}"
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/save/blackbook?skip=0&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/save/blackbook?skip=0&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "myaccount",
                     "save",
                     "blackbook"
@@ -370,7 +370,7 @@
                   "mode": "raw",
                   "raw": "{\n    \"ResultOfMatingWhelpedOutput\": {\n        \"pups\": null,\n        \"whelpedDate\": \"2019-02-20T00:00:00.0000000\",\n        \"whelpingDateMin\": \"2019-02-17T00:00:00.0000000\",\n        \"whelpingDateMax\": \"2019-02-27T00:00:00.0000000\",\n        \"breederName\": \"RONALD MCCULLAGH\",\n        \"isWantingDetailsPublished\": false,\n        \"kennelAddress\": \"85 COONAWARRA DVE\",\n        \"kennelSuburb\": \"LARA\",\n        \"kennelState\": \"VIC\",\n        \"kennelPostcode\": \"3212\",\n        \"litterAddress\": null,\n        \"litterContact\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"RONALD\",\n            \"surname\": \"MCCULLAGH\"\n        },\n        \"isOtherAddress\": false,\n        \"earBranderName\": \"Brian  Jones\",\n        \"earBranderPhone\": \"03-52821130\",\n        \"earBranderSuburb\": \"Lara\",\n        \"earBranderId\": -1,\n        \"clinicName\": null,\n        \"clinicPhone\": null,\n        \"clinicAddress\": null,\n        \"clinicId\": 0,\n        \"id\": 393774011,\n        \"selectedMatingResult\": \"Whelped\",\n        \"sire\": \"ASTON DEE BEE\",\n        \"sireId\": 1490820093,\n        \"sireColour\": \"Black\",\n        \"isDamDNARegistered\": true,\n        \"dam\": \"MOTORETTE\",\n        \"damColour\": \"BK\",\n        \"serviceDate\": \"2018-12-21T00:00:00.0000000\",\n        \"damId\": -627719,\n        \"numberOfDogs\": 0,\n        \"numberOfBitches\": 0,\n        \"isEligibleToBreed\": true\n    }\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/check/result",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/MatingResults/check/result",
                 "description": "Validate and save the breeding.  \n\nThe data is validated and returns a payment gateway object with a result of the charges.  \n\n## Other Status Codes\n* 400 Not Found (Breeding not found)\n* 401 Unauthorised (Not permitted to enter matting details)\n\n## Inputs\nResultOfMatingWhelpedOutput\n\n## Returns  \nResultOfMatingPaymentGatewayInput"
               },
               "response": [
@@ -397,7 +397,7 @@
                       "mode": "raw",
                       "raw": "{\n    \"ResultOfMatingWhelpedOutput\": {\n        \"pups\": null,\n        \"whelpedDate\": \"2019-02-20T00:00:00.0000000\",\n        \"whelpingDateMin\": \"2019-02-17T00:00:00.0000000\",\n        \"whelpingDateMax\": \"2019-02-27T00:00:00.0000000\",\n        \"breederName\": \"RONALD MCCULLAGH\",\n        \"isWantingDetailsPublished\": false,\n        \"kennelAddress\": \"85 COONAWARRA DVE\",\n        \"kennelSuburb\": \"LARA\",\n        \"kennelState\": \"VIC\",\n        \"kennelPostcode\": \"3212\",\n        \"litterAddress\": null,\n        \"litterContact\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"RONALD\",\n            \"surname\": \"MCCULLAGH\"\n        },\n        \"isOtherAddress\": false,\n        \"earBranderName\": \"Brian  Jones\",\n        \"earBranderPhone\": \"03-52821130\",\n        \"earBranderSuburb\": \"Lara\",\n        \"earBranderId\": -1,\n        \"clinicName\": null,\n        \"clinicPhone\": null,\n        \"clinicAddress\": null,\n        \"clinicId\": 0,\n        \"id\": 393774011,\n        \"selectedMatingResult\": \"Whelped\",\n        \"sire\": \"ASTON DEE BEE\",\n        \"sireId\": 1490820093,\n        \"sireColour\": \"Black\",\n        \"isDamDNARegistered\": true,\n        \"dam\": \"MOTORETTE\",\n        \"damColour\": \"BK\",\n        \"serviceDate\": \"2018-12-21T00:00:00.0000000\",\n        \"damId\": -627719,\n        \"numberOfDogs\": 0,\n        \"numberOfBitches\": 0,\n        \"isEligibleToBreed\": true\n    }\n}"
                     },
-                    "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/check/fee"
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/MatingResults/check/fee"
                   },
                   "status": "OK",
                   "code": 200,
@@ -468,7 +468,7 @@
                   "mode": "raw",
                   "raw": "{\n    \"ResultOfMatingWhelpedOutput\": {\n        \"pups\": null,\n        \"whelpedDate\": \"2019-02-20T00:00:00.0000000\",\n        \"whelpingDateMin\": \"2019-02-17T00:00:00.0000000\",\n        \"whelpingDateMax\": \"2019-02-27T00:00:00.0000000\",\n        \"breederName\": \"RONALD MCCULLAGH\",\n        \"isWantingDetailsPublished\": false,\n        \"kennelAddress\": \"85 COONAWARRA DVE\",\n        \"kennelSuburb\": \"LARA\",\n        \"kennelState\": \"VIC\",\n        \"kennelPostcode\": \"3212\",\n        \"litterAddress\": null,\n        \"litterContact\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"RONALD\",\n            \"surname\": \"MCCULLAGH\"\n        },\n        \"isOtherAddress\": false,\n        \"earBranderName\": \"Brian  Jones\",\n        \"earBranderPhone\": \"03-52821130\",\n        \"earBranderSuburb\": \"Lara\",\n        \"earBranderId\": -1,\n        \"clinicName\": null,\n        \"clinicPhone\": null,\n        \"clinicAddress\": null,\n        \"clinicId\": 0,\n        \"id\": 393774011,\n        \"selectedMatingResult\": \"Whelped\",\n        \"sire\": \"ASTON DEE BEE\",\n        \"sireId\": 1490820093,\n        \"sireColour\": \"Black\",\n        \"isDamDNARegistered\": true,\n        \"dam\": \"MOTORETTE\",\n        \"damColour\": \"BK\",\n        \"serviceDate\": \"2018-12-21T00:00:00.0000000\",\n        \"damId\": -627719,\n        \"numberOfDogs\": 0,\n        \"numberOfBitches\": 0,\n        \"isEligibleToBreed\": true\n    }\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/{{FastTrack1 BreedingId}}/save/result",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/MatingResults/{{FastTrack1 BreedingId}}/save/result",
                 "description": "Validate and save the breeding.  \n\n## Other Status Codes\n* 400 Not Found (Breeding not found)\n* 401 Unauthorised (Not permitted to enter matting details)\n* 403 UUnable to update, the litter must be whelped.\n\n## Inputs\nResultOfMatingWhelpedOutput\n\n## Returns  \nStatus code and message"
               },
               "response": [
@@ -495,7 +495,7 @@
                       "mode": "raw",
                       "raw": "{\n    \"ResultOfMatingWhelpedOutput\": {\n        \"pups\": null,\n        \"whelpedDate\": \"2019-02-20T00:00:00.0000000\",\n        \"whelpingDateMin\": \"2019-02-17T00:00:00.0000000\",\n        \"whelpingDateMax\": \"2019-02-27T00:00:00.0000000\",\n        \"breederName\": \"RONALD MCCULLAGH\",\n        \"isWantingDetailsPublished\": false,\n        \"kennelAddress\": \"85 COONAWARRA DVE\",\n        \"kennelSuburb\": \"LARA\",\n        \"kennelState\": \"VIC\",\n        \"kennelPostcode\": \"3212\",\n        \"litterAddress\": null,\n        \"litterContact\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"RONALD\",\n            \"surname\": \"MCCULLAGH\"\n        },\n        \"isOtherAddress\": false,\n        \"earBranderName\": \"Brian  Jones\",\n        \"earBranderPhone\": \"03-52821130\",\n        \"earBranderSuburb\": \"Lara\",\n        \"earBranderId\": -1,\n        \"clinicName\": null,\n        \"clinicPhone\": null,\n        \"clinicAddress\": null,\n        \"clinicId\": 0,\n        \"id\": 393774011,\n        \"selectedMatingResult\": \"Whelped\",\n        \"sire\": \"ASTON DEE BEE\",\n        \"sireId\": 1490820093,\n        \"sireColour\": \"Black\",\n        \"isDamDNARegistered\": true,\n        \"dam\": \"MOTORETTE\",\n        \"damColour\": \"BK\",\n        \"serviceDate\": \"2018-12-21T00:00:00.0000000\",\n        \"damId\": -627719,\n        \"numberOfDogs\": 0,\n        \"numberOfBitches\": 0,\n        \"isEligibleToBreed\": true\n    }\n}"
                     },
-                    "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/{{FastTrack1 BreedingId}}/save/result"
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/MatingResults/{{FastTrack1 BreedingId}}/save/result"
                   },
                   "status": "OK",
                   "code": 200,
@@ -562,7 +562,7 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/{{FastTrack1 BreedingId}}/get/outcome",
+                "url": "https://{{FastTrack1 Domain}}/FT19/1c/MatingResults/{{FastTrack1 BreedingId}}/get/outcome",
                 "description": "Get the outcomes as a result of mating.\n\n\n## Status Codes\n* 404 Not found (Breeding not found)\n* 401 Unauthorised (Not permitted to enter matting details)\n\n\n\n## Returns  \nResultOfMatingWhelpedOutput"
               },
               "response": [
@@ -589,7 +589,7 @@
                       "mode": "raw",
                       "raw": "{\n\t\"BreedingId\":\"{{FastTrack1 BreedingId}}\",\n\t\"breeding\":\"details to be defined\"\n}\n"
                     },
-                    "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/Outcome"
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/Outcome"
                   },
                   "status": "OK",
                   "code": 200,
@@ -660,7 +660,7 @@
                   "mode": "raw",
                   "raw": "{\n    \"resultOfMatingPaymentGatewayInput\": {\n        \"ResultOfMating_ServiceDetailsInputSRZ\": \"42d59814154e5803158537163e4580f1||{\\\"LitterId\\\":393774011,\\\"DateSubmitted\\\":{\\\"ticks\\\":636947712000000000},\\\"DateOfWhelping\\\":{\\\"ticks\\\":636862176000000000},\\\"LitterAddress\\\":null,\\\"LitterContact\\\":{\\\"Title\\\":\\\"Mr\\\",\\\"FirstName\\\":\\\"RONALD\\\",\\\"Surname\\\":\\\"MCCULLAGH\\\"},\\\"MatingResultType\\\":1,\\\"IsBreederAddress\\\":true,\\\"EarBranderId\\\":-1,\\\"VetClinicId\\\":0,\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailureDuplicatePayment\\\":null,\\\"FailedAmendment\\\":null,\\\"LoggedOnUserId\\\":-2926,\\\"ReceiptNumber\\\":null,\\\"Fee\\\":60.00,\\\"HasLateFeeIncluded\\\":true,\\\"LateFee\\\":60.00,\\\"IsWantingDetailsPublished\\\":false,\\\"IsImpersonating\\\":false,\\\"Pups\\\":[]}\",\n        \"PayWayDetails\": {\n            \"CreditCard\": null,\n            \"Cheque\": null,\n            \"PaymentMethod\": 1,\n            \"AmountToPay\": 60\n        },\n        \"PaymentDiscount\": {\n        \t\"FastTrackPaymentDiscountPercentage\":0,\n        \t\"IsImpersonating\":false,\n        \t\"HasPenaltyFee\":false,\n        \t\"FastTrackPaymentDiscountTotal\":0\n        },\n        \"TransactionAmount\":0,\n        \"LateFee\":0,\n        \"BaseFee\":0\n    }\n}\n"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/MatingResults/{{FastTrack1 BreedingId}}/save/payment",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/MatingResults/{{FastTrack1 BreedingId}}/save/payment",
                 "description": "Use to perform the payment.\n\n\n## Status Codes\n* 409 Conflict (This might be a duplicate payment)  \n* 401 Unauthorized (The user is not allowed to enter a result of mating.)  \n* 400 Bad Request (PayWayDetails.AuthorisationFailedText)\n* 400 Bad Request (PayWayDetails.PaymentDeclinedText)\n\n## Inputs  \nResultOfMatingPaymentGatewayInput\n\n## Returns \nBreedingPaymentGatewayResponse"
               },
               "response": []
@@ -721,7 +721,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 Registered DamId For Breeding}}/Registration",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 Registered DamId For Breeding}}/Registration",
                 "description": "Save the breeding registration information by DAM.  \r\n\r\nThis requires the uploading of *BreedingExemption.VetCertificate*"
               },
               "response": []
@@ -752,7 +752,7 @@
                   "mode": "raw",
                   "raw": " {\n            \"damId\": -752747,\n            \"damName\": \"POLLY'S GIRL\",\n            \"eligibleForBreeding\": [\n                \"The dog has a dam registration.\",\n                \"Unfortunately your greyhound does not currently qualify for registration as a Breeding Female due to its retirement status. Please contact GRV for assistance in resolving this matter.\"\n            ],\n            \"fee\": 0,\n            \"payWayDetails\": {\n                \"CreditCard\": null,\n                \"Cheque\": null,\n                \"PaymentMethod\": 1,\n                \"AmountToPay\": 0\n            },\n            \"retire\": false,\n            \"isCurrentlyRetiredForBreeding\": false,\n            \"breedingExemption\": null,\n            \"canUploadExemption\": false,\n            \"isMso\": false\n        }"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 Registered DamId For Breeding}}/Registration",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 Registered DamId For Breeding}}/Registration",
                 "description": "Save the breeding registration information.  \r\n\r\nThis requires the uploading of *BreedingExemption.VetCertificate* \r\nStatus codes returned 201 or 400.  \r\n\r\n\r\nOn success a ReceiptNumber is provided.  \r\n\r\n```\r\nexport interface BreedingRegistrationInput\r\n{\r\n    damId: number;\r\n    damName: string;\r\n    eligibleForBreeding: string[];\r\n    fee: number;\r\n    payWayDetails: PayWayDetails;\r\n    retire: boolean;\r\n    isCurrentlyRetiredForBreeding: boolean;\r\n    breedingExemption: BreedingExemption;\r\n    canUploadExemption: boolean;\r\n    isMso: boolean;\r\n}\r\n```\r\n"
               },
               "response": []
@@ -819,7 +819,7 @@
                     "type": "text"
                   }
                 ],
-                "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/Sire",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/ServicesRegistration/{{FastTrack1 SireId}}/Sire",
                 "description": "Get details of sire and stud mater.\n\n## Status Code\n* 401 Unauthorised (Signed in person is not the the dog breeding authority)\n\n## Returns  \nServiceRegistrationInputOutput"
               },
               "response": [
@@ -840,7 +840,7 @@
                         "type": "text"
                       }
                     ],
-                    "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/Sire"
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/ServicesRegistration/{{FastTrack1 SireId}}/Sire"
                   },
                   "status": "OK",
                   "code": 200,
@@ -909,7 +909,7 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"serviceDate\":\"{{FastTrack1 Service Registration Service Date}}\"\r\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/CalculateServiceFee",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/ServicesRegistration/{{FastTrack1 SireId}}/CalculateServiceFee",
                 "description": "Get details of sire and stud mater.\n\n\n## Inputs\nService Date \n\n## Returns  \nDecimal"
               },
               "response": []
@@ -938,7 +938,7 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"damName\":\"{{FastTrack1 Dam Name}}\",\r\n    \"earBrand\":\"{{FastTrack1 Dam Ear Brand}}\"\r\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/ValidateDam",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/ServicesRegistration/{{FastTrack1 SireId}}/ValidateDam",
                 "description": "Get details of sire and stud mater.\n\n## Status Code\n* 401 Unauthorised (Signed in person is not the the dog breeding authority)\n* 404 No Found (The dam could not be found check the ear brand and name match)\n* 403 Forbidden (The dam is retired)\n\n## Returns  \nServiceRegistrationInputOutput"
               },
               "response": []
@@ -967,7 +967,7 @@
                   "mode": "raw",
                   "raw": "{\n  \"studSireId\": 255840010,\n  \"studSireName\": \"FERNANDO BALE\",\n  \"studMasterName\": \"Mr PAUL WESTERVELD\",\n  \"isValidDam\": false,\n  \"errorMessage\": null,\n  \"fromList\": null,\n  \"currentServiceDetail\": \n    {\n      \"damId\": -627719,\n      \"damName\": \"MOTORETTE\",\n      \"damEarBrandNumber\": \"VGP 5057\",\n      \"damColor\": \"Black\",\n      \"damDNA\": \"Yes\",\n      \"damBreederName\": \"RONALD MCCULLAGH\",\n      \"damState\": \"VIC\",\n      \"serviceType\": \"Natural\",\n      \"dateBitchArrived\": \"2019-06-01T00:00:00.0000000Z\",\n      \"dateBitchDeparted\": \"2019-06-04T00:00:00.0000000Z\",\n      \"serviceDate\": \"2019-06-02T00:00:00.0000000Z\",\n      \"thirdPartyWitness\": \"James bond\",\n      \"fee\": 0\n    }\n  \n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/Save",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/ServicesRegistration/{{FastTrack1 SireId}}/Save",
                 "description": "Register for a service\n\n\n## Status Codes\n* 401 Unauthorised (Not the stud master.)\n* 400 Bad request (See the input errors.)\n\n\n## Inputs\n\nServiceRegistrationInputOutput  \n\n\n## Returns\n\nRegisterServicePaymentGatewayInput"
               },
               "response": []
@@ -996,7 +996,7 @@
                   "mode": "raw",
                   "raw": "{\n            \"RegisterService_ServiceDetailsInputSRZ\": \"7c9c1190611758bc775156addbc7f2e6||{\\\"StudSireId\\\":255840010,\\\"StudSireName\\\":\\\"FERNANDO BALE\\\",\\\"StudMasterName\\\":null,\\\"ServiceDetails\\\":[{\\\"DamId\\\":-627719,\\\"DamName\\\":\\\"MOTORETTE\\\",\\\"ServiceType\\\":\\\"Natural\\\",\\\"DateBitchArrived\\\":{\\\"ticks\\\":636949440000000000},\\\"DateBitchDeparted\\\":{\\\"ticks\\\":636952032000000000},\\\"ServiceDate\\\":{\\\"ticks\\\":636950304000000000},\\\"ThirdPartyWitness\\\":\\\"James bond\\\",\\\"Fee\\\":0.00,\\\"HasLateFeeIncluded\\\":false,\\\"LateFee\\\":0.0,\\\"BaseFee\\\":0.00}],\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailedAmendment\\\":null,\\\"AmendmentFailure\\\":false,\\\"FailureDuplicatePayment\\\":null,\\\"LoggedOnUserId\\\":0,\\\"ReceiptNumber\\\":null,\\\"IsImpersonating\\\":false}\",\n            \"PayWayDetails\": {\n                \"CreditCard\": null,\n                \"Cheque\": null,\n                \"PaymentMethod\": \"Postbillpay\",\n                \"AmountToPay\": 1000\n            }\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/ServicesRegistration/{{FastTrack1 SireId}}/Pay",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/ServicesRegistration/{{FastTrack1 SireId}}/Pay",
                 "description": "Register for a service\n\n\n## Status Codes\n* 409 Conflict (Possible duplicate payment.)\n* 400 Bad request (The service registration could not be completed. Please correct any errors before proceeding.)\n\n## Inputs\n\nServiceRegistrationInputOutput  \n\n\n## Returns\n\nRegisterServicePaymentGatewayInput"
               },
               "response": []
@@ -1036,13 +1036,13 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/EarBranders?take=5&skip=0",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/EarBranders?take=5&skip=0",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Breedings",
                     "EarBranders"
                   ],
@@ -1090,13 +1090,13 @@
                   "raw": "{\n\t\"postcode\":\"{{FastTrack1 EarBrander Postal Code}}\"\n}\n"
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/EarBrandersByCode?take=5&skip=0",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/EarBrandersByCode?take=5&skip=0",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Breedings",
                     "EarBrandersByCode"
                   ],
@@ -1143,7 +1143,7 @@
                   "mode": "raw",
                   "raw": "{\n\t\"id\": {{FastTrack1 EarBranderId}}\n}\n"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/EarBrander",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/EarBrander",
                 "description": "Get the ear brander by identifier\n\n\n\n## Inputs  \n```\n{\n\t\"id\": {{FastTrack1 EarBranderId}}\n}\n\n```\n\n## Returns  \nEarbranderItem"
               },
               "response": []
@@ -1164,7 +1164,7 @@
                     "value": "{{FastTrack1 ApiKey}}"
                   }
                 ],
-                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/EarBrandingForm",
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/EarBrandingForm",
                 "description": "Get data required to ear banding regitration form."
               },
               "response": [
@@ -1181,7 +1181,7 @@
                         "value": "{{FastTrack1 ApiKey}}"
                       }
                     ],
-                    "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/EarBrandingForm"
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/EarBrandingForm"
                   },
                   "status": "OK",
                   "code": 200,
@@ -1280,13 +1280,13 @@
               "raw": "{\n    \"breedingInput\": {\n        \"fromYear\": \"{{FastTrack1 Litters From Year}}\",\n        \"toYear\": \"{{FastTrack1 Litters To Year}}\"\n    }\n}"
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/list/breeding?skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/list/breeding?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "Breedings",
                 "list",
                 "breeding"
@@ -1325,13 +1325,13 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/List?fromYear={{FastTrack1 Litters From Year}}&toYear={{FastTrack1 Litters To Year}}&skip=0&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/List?fromYear={{FastTrack1 Litters From Year}}&toYear={{FastTrack1 Litters To Year}}&skip=0&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Breedings",
                     "List"
                   ],
@@ -1424,7 +1424,7 @@
                 "type": "text"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/get/breeding",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/list",
             "description": "Get a list of my litters.\n\n\nId parameter must be included all other parmaters should be null or blank.  \n\n\nIf the id is not blank then the all other arguments are ignored.  \n"
           },
           "response": [
@@ -1445,7 +1445,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/List"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/List"
               },
               "status": "OK",
               "code": 200,
@@ -1511,13 +1511,13 @@
               "raw": ""
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/MicrochipClinics?take=10&skip=0",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/MicrochipClinics?take=10&skip=0",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "Breedings",
                 "MicrochipClinics"
               ],
@@ -1555,13 +1555,13 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/MicrochipClinics?take=10&skip=0",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/MicrochipClinics?take=10&skip=0",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Breedings",
                     "MicrochipClinics"
                   ],
@@ -1639,13 +1639,13 @@
               }
             ],
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/LitterDetails/?skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/LitterDetails/?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "Breedings",
                 "{{FastTrack1 BreedingId}}",
                 "LitterDetails",
@@ -1681,13 +1681,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/LitterDetails/?skip=0&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/LitterDetails/?skip=0&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Breedings",
                     "{{FastTrack1 BreedingId}}",
                     "LitterDetails",
@@ -1766,7 +1766,7 @@
                 "value": "{{FastTrack1 ApiKey}}"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/RegistrationForm",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/RegistrationForm",
             "description": "Get data required to litter regitration form."
           },
           "response": [
@@ -1783,7 +1783,7 @@
                     "value": "{{FastTrack1 ApiKey}}"
                   }
                 ],
-                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/RegistrationForm"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/RegistrationForm"
               },
               "status": "OK",
               "code": 200,
@@ -1844,7 +1844,7 @@
                 "value": "{{FastTrack1 ApiKey}}"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/get/microchip/{{FastTrack1 Breeding Section}}",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/get/microchip/{{FastTrack1 Breeding Section}}",
             "description": "Get data required for Microchip form.\n\n\n## Values For {{Section}}\n* 0 = View Breeders section\n* 1  = View Earbranders section\n* if signed in as the person responsible can view the earbrander section and breeders section."
           },
           "response": [
@@ -1861,7 +1861,7 @@
                     "value": "{{FastTrack1 ApiKey}}"
                   }
                 ],
-                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/MicrochipForm/{{FastTrack1 Breeding Section}}"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/MicrochipForm/{{FastTrack1 Breeding Section}}"
               },
               "status": "OK",
               "code": 200,
@@ -1922,7 +1922,7 @@
                 "value": "{{FastTrack1 ApiKey}}"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/KennelAddress",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/KennelAddress",
             "description": "Get the kennel address of the breeder.\n\n\n## Retiurns\nAddress"
           },
           "response": [
@@ -1939,7 +1939,7 @@
                     "value": "{{FastTrack1 ApiKey}}"
                   }
                 ],
-                "url": "https://{{FastTrack1 Domain}}/FT19/Breedings/{{FastTrack1 BreedingId}}/KennelAddress"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Breedings/{{FastTrack1 BreedingId}}/KennelAddress"
               },
               "status": "OK",
               "code": 200,
@@ -2050,13 +2050,13 @@
               "raw": ""
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/Dashboard/Summary?age=1000&take=5",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Dashboard/Summary?age=1000&take=5",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "Dashboard",
                 "Summary"
               ],
@@ -2095,13 +2095,13 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Dashboard/Summary?age=1000&take=5",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Dashboard/Summary?age=1000&take=5",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Dashboard",
                     "Summary"
                   ],
@@ -2185,7 +2185,7 @@
                 "value": "{{FastTrack1 ApiKey}}"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/Dogs/{{FastTrack1 Dog EarBrand}}/List",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Dogs/{{FastTrack1 Dog EarBrand}}/List",
             "description": "Get a list of dogs"
           },
           "response": []
@@ -2214,19 +2214,18 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"generalDogSearchInput\": {\n        \"name\": \"homer\",\n     \n    }\n}"
+              "raw": "{\n        \"name\": \"homer\"\n\n}"
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/search/byname?skip=10&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Dogs/searchbyname?skip=10&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "Dogs",
-                "search",
-                "byname"
+                "searchbyname"
               ],
               "query": [
                 {
@@ -2258,13 +2257,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/{{FastTrack1 Dog DogName}}/SearchByName?skip=10&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Dogs/{{FastTrack1 Dog DogName}}/SearchByName?skip=10&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Dogs",
                     "{{FastTrack1 Dog DogName}}",
                     "SearchByName"
@@ -2338,13 +2337,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/{{FastTrack1 Dog DogName}}/SearchByName?skip=0&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Dogs/{{FastTrack1 Dog DogName}}/SearchByName?skip=0&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Dogs",
                     "{{FastTrack1 Dog DogName}}",
                     "SearchByName"
@@ -2428,13 +2427,13 @@
                   "raw": "{\n\t\"generalDogSearchInput\":{\n\t\t\"name\":\"homer\",\n\t\t\"earbrand\":\"123123\"\n\t\t\n\t}\n}"
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Dogs/search/byname?skip=10&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Dogs/search/byname?skip=10&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Dogs",
                     "search",
                     "byname"
@@ -2522,7 +2521,7 @@
               "mode": "raw",
               "raw": "{\r\n    \"compositeDogSearchInput\": {\r\n        \"name\": \"HOMER\",\r\n        \"earBrand\": \"VDVXB\",\r\n        \"microchipNumber\": \"956000003252311\"\r\n    }\r\n}"
             },
-            "url": "https://{{FastTrack1 Domain}}/FT19/dogs/search/composite/withname",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogs/search/composite/withname",
             "description": "Get a dog by **name, earbrand and microchip number**"
           },
           "response": [
@@ -2549,7 +2548,7 @@
                   "mode": "raw",
                   "raw": "{\n    \"compositeDogSearchInput\": {\n        \"name\": \"HOMER\",\n        \"earBrand\": \"VDVXB\",\n        \"microchipNumber\": \"956000003252311\"\n    }\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/dogs/search/composite/withname"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogs/search/composite/withname"
               },
               "status": "OK",
               "code": 200,
@@ -2615,7 +2614,7 @@
                   "mode": "raw",
                   "raw": "{\n    \"compositeDogSearchInput\": {\n        \"name\": \"HOMER\",\n        \"earBrand\": \"VDVXB\",\n        \"microchipNumber\": \"956000003252311\"\n    }\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/dogs/search/composite/withname"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogs/search/composite/withname"
               },
               "status": "OK",
               "code": 200,
@@ -2688,13 +2687,13 @@
               "raw": ""
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/Meeting/Messages?age=300&skip=0&take=6",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Meeting/Messages?age=300&skip=0&take=6",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "Meeting",
                 "Messages"
               ],
@@ -2737,13 +2736,13 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Meeting/GetMeetingUpdates?age=300&skip=0&take=5",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Meeting/GetMeetingUpdates?age=300&skip=0&take=5",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Meeting",
                     "GetMeetingUpdates"
                   ],
@@ -2825,13 +2824,13 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Meeting/GetMeetingUpdates?age=300&skip=5&take=5",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Meeting/GetMeetingUpdates?age=300&skip=5&take=5",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Meeting",
                     "GetMeetingUpdates"
                   ],
@@ -2917,7 +2916,7 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "https://{{FastTrack1 Domain}}/FT19/Meeting/{{FastTrack1 MeetingId}}/Messages",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Meeting/{{FastTrack1 MeetingId}}/Messages",
             "description": "Get a messages for a specific meeting."
           },
           "response": [
@@ -2939,13 +2938,13 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/Meeting/GetMeetingUpdate?id={{FastTrack1 MeetingId}}",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Meeting/GetMeetingUpdate?id={{FastTrack1 MeetingId}}",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "Meeting",
                     "GetMeetingUpdate"
                   ],
@@ -3050,13 +3049,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/list/unnamed?skip=0&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogsnaming/list/unnamed?skip=0&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "dogsnaming",
                     "list",
                     "unnamed"
@@ -3102,8 +3101,8 @@
                   "mode": "raw",
                   "raw": "{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 407833038,\n                \"earBrand\": \"VHJNQ\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 407833039,\n                \"earBrand\": \"VHJNR\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/check/fee",
-                "description": "Get the fee for naming of my dogs.\r\n\r\nCheck and return the fee only  \r\nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check/fee  \r\n\r\nSample body \r\n\r\n```\r\n{\r\n    \"namingRequests\": {\r\n        \"dogNameRequests\": [\r\n            {\r\n                \"dogId\": 439981707,\r\n                \"earBrand\": \"VIPOD\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            },\r\n            {\r\n                \"dogId\": 439981708,\r\n                \"earBrand\": \"VIPOE\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}\r\n\r\n```\r\n**Returns** NamingRequestInput"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogsnaming/check/fee",
+                "description": "Get the fee for naming of my dogs.\r\n\r\nCheck and return the fee only  \r\nhttps://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogsnaming/check/fee  \r\n\r\nSample body \r\n\r\n```\r\n{\r\n    \"namingRequests\": {\r\n        \"dogNameRequests\": [\r\n            {\r\n                \"dogId\": 439981707,\r\n                \"earBrand\": \"VIPOD\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            },\r\n            {\r\n                \"dogId\": 439981708,\r\n                \"earBrand\": \"VIPOE\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}\r\n\r\n```\r\n**Returns** NamingRequestInput"
               },
               "response": []
             },
@@ -3133,8 +3132,8 @@
                   "mode": "raw",
                   "raw": "{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 407833038,\n                \"earBrand\": \"VHJNQ\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 407833039,\n                \"earBrand\": \"VHJNR\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/check/proforma",
-                "description": "Get the serialized proforma invoice for naming of my dogs.\r\n\r\nCheck and return the payment only  \r\nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check/payment  \r\n\r\nSample body \r\n```\r\n{\r\n    \"namingRequests\": {\r\n        \"dogNameRequests\": [\r\n            {\r\n                \"dogId\": 439981707,\r\n                \"earBrand\": \"VIPOD\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            },\r\n            {\r\n                \"dogId\": 439981708,\r\n                \"earBrand\": \"VIPOE\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}\r\n\r\n```\r\n**Returns** PaymentInput"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogsnaming/check/proforma",
+                "description": "Get the serialized proforma invoice for naming of my dogs.\r\n\r\nCheck and return the payment only  \r\nhttps://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogsnaming/check/payment  \r\n\r\nSample body \r\n```\r\n{\r\n    \"namingRequests\": {\r\n        \"dogNameRequests\": [\r\n            {\r\n                \"dogId\": 439981707,\r\n                \"earBrand\": \"VIPOD\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            },\r\n            {\r\n                \"dogId\": 439981708,\r\n                \"earBrand\": \"VIPOE\",\r\n                \"names\": [\r\n                    \"name a\",\r\n                    \"name b\"\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}\r\n\r\n```\r\n**Returns** PaymentInput"
               },
               "response": []
             },
@@ -3164,8 +3163,8 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"paymentInput\":\r\n            {\r\n                \"stateApplicationDetails\": \"cbaf4759d92e1ff6b00c21729caef2ce||{\\\"DogNameRequests\\\":[{\\\"DogId\\\":439981707,\\\"EarBrand\\\":\\\"VIPOD\\\",\\\"Relationship\\\":\\\"Owner\\\",\\\"Fee\\\":0.0000,\\\"BaseFee\\\":0.00,\\\"Names\\\":[\\\"name a\\\",\\\"name b\\\"]},{\\\"DogId\\\":439981708,\\\"EarBrand\\\":\\\"VIPOE\\\",\\\"Relationship\\\":\\\"Owner\\\",\\\"Fee\\\":0.0000,\\\"BaseFee\\\":0.00,\\\"Names\\\":[\\\"name a\\\",\\\"name b\\\"]}]}\",\r\n                \"totalFee\": 0.0000,\r\n                \"baseTotalFee\": 0.00,\r\n                \"payWayDetails\": {\r\n                    \"CreditCard\": null,\r\n                    \"Cheque\": null,\r\n                    \"PaymentMethod\": \"Cash\",\r\n                    \"AmountToPay\": 0.0000\r\n                },\r\n                \"paymentDiscount\": {\r\n                    \"fastTrackPaymentDiscountPercentage\": 0.0,\r\n                    \"isImpersonating\": false,\r\n                    \"hasPenaltyFee\": false,\r\n                    \"fastTrackPaymentDiscountTotal\": 0.0000\r\n                }\r\n            }\r\n            \r\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/save/payment",
-                "description": "Get the fee for naming of my dogs.\n\nCheck and return the fee only  \nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check/fee  \n\nSample body \n\n```\n{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}\n\n```\n*Returns* NamingRequestInput  \n\n\n\nCheck and return the payment only  \nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check/payment  \n\nSample body \n```\n{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}\n\n```\n*Returns* PaymentInput  \n\n\n\nCheck and return the fee and payment.  \nhttps://{{FastTrack1 Domain}}/FT19/dogsnaming/check  \n\nSample body \n```\n{\n\t\"commands\":[\"fee\",\"payment\"],\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}\n```\n\n*Returns* NamingRequestInput and PaymentInput"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogsnaming/save/payment",
+                "description": "Get the fee for naming of my dogs.\n\nCheck and return the fee only  \nhttps://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogsnaming/check/fee  \n\nSample body \n\n```\n{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}\n\n```\n*Returns* NamingRequestInput  \n\n\n\nCheck and return the payment only  \nhttps://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogsnaming/check/payment  \n\nSample body \n```\n{\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}\n\n```\n*Returns* PaymentInput  \n\n\n\nCheck and return the fee and payment.  \nhttps://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogsnaming/check  \n\nSample body \n```\n{\n\t\"commands\":[\"fee\",\"payment\"],\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}\n```\n\n*Returns* NamingRequestInput and PaymentInput"
               },
               "response": [
                 {
@@ -3191,7 +3190,7 @@
                       "mode": "raw",
                       "raw": "{\n\t\"commands\":[\"fee\",\"payment\"],\n    \"namingRequests\": {\n        \"dogNameRequests\": [\n            {\n                \"dogId\": 439981707,\n                \"earBrand\": \"VIPOD\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            },\n            {\n                \"dogId\": 439981708,\n                \"earBrand\": \"VIPOE\",\n                \"names\": [\n                    \"name a\",\n                    \"name b\"\n                ]\n            }\n        ]\n    }\n}"
                     },
-                    "url": "https://{{FastTrack1 Domain}}/FT19/dogsnaming/check"
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/dogsnaming/check"
                   },
                   "status": "OK",
                   "code": 200,
@@ -3287,13 +3286,13 @@
               }
             ],
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/ActiveDogs?skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/mydogs/ActiveDogs?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "mydogs",
                 "ActiveDogs"
               ],
@@ -3329,13 +3328,13 @@
               }
             ],
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/InactiveDogs?skip=0&take=117",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/mydogs/InactiveDogs?skip=0&take=117",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "mydogs",
                 "InactiveDogs"
               ],
@@ -3373,13 +3372,13 @@
               }
             ],
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/Actions?id={{FastTrack1 DogId}}",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/mydogs/Actions?id={{FastTrack1 DogId}}",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "mydogs",
                 "Actions"
               ],
@@ -3406,7 +3405,7 @@
                     "value": "{{FastTrack1 ApiKey}}"
                   }
                 ],
-                "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/{{FastTrack1 DogId}}/get/actions"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/mydogs/{{FastTrack1 DogId}}/get/actions"
               },
               "status": "OK",
               "code": 200,
@@ -3477,13 +3476,13 @@
               "raw": "{\n    \"ids\": [\n315843932\n    ]\n}"
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/AllActions?skip=0&take=10",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/mydogs/AllActions?skip=0&take=10",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "mydogs",
                 "AllActions"
               ],
@@ -3498,7 +3497,7 @@
                 }
               ]
             },
-            "description": "Get a list of actions for a dog.\r\n\r\n\r\n## Input\r\nids[] (list of dog identifiers of tpye int)\r\n\r\n```\r\n\"ids\" : [1,2,3]\r\n```\r\n\r\nor \r\n\r\n```\r\nhttps://{{FastTrack1 Domain}}/FT19/MyDogs/Actions/All?ids=1&ids=2&ids=3\r\n```\r\n\r\n\r\n## Returns\r\nDogInvolvementActionsOutput[]"
+            "description": "Get a list of actions for a dog.\r\n\r\n\r\n## Input\r\nids[] (list of dog identifiers of tpye int)\r\n\r\n```\r\n\"ids\" : [1,2,3]\r\n```\r\n\r\nor \r\n\r\n```\r\nhttps://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/MyDogs/Actions/All?ids=1&ids=2&ids=3\r\n```\r\n\r\n\r\n## Returns\r\nDogInvolvementActionsOutput[]"
           },
           "response": [
             {
@@ -3524,13 +3523,13 @@
                   "raw": "{\n    \"ids\": [\n        -719291,\n        -719288,\n        -729160,\n        -746900,\n        -746902,\n        -746903,\n        -715934,\n        -742427,\n        -742428,\n        -742429,\n        -735381,\n        -731189,\n        -731197,\n        -722870,\n        -719294,\n        -6185,\n        -19618,\n        -22556,\n        -40698\n    ]\n}"
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/actions?skip=0&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/mydogs/list/actions?skip=0&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "mydogs",
                     "list",
                     "actions"
@@ -3611,13 +3610,13 @@
                   "raw": "{\n    \"ids\": [\n        -752722 \n,-752466 \n,-751752 \n,-751038 \n,-750739 \n,-749776 \n,-749773 \n,-749316 \n,-749315 \n,-749304 \n\n    ]\n}"
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/list/actions?skip=0&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/mydogs/list/actions?skip=0&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "mydogs",
                     "list",
                     "actions"
@@ -3694,13 +3693,13 @@
               }
             ],
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/mydogs/GetDogById?id={{FastTrack1 DogId}}",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/mydogs/GetDogById?id={{FastTrack1 DogId}}",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "mydogs",
                 "GetDogById"
               ],
@@ -3731,7 +3730,7 @@
                 "value": "{{FastTrack1 ApiKey}}"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/mydogs/GetOperations",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/mydogs/GetOperations",
             "description": "Get a list of operation I can carryout in my dogs.\n\n\n\n## Returns\nMyOperations"
           },
           "response": []
@@ -3780,7 +3779,7 @@
                 "type": "text"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/Persons/{{FastTrack1 Member Number}}/Person",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Persons/{{FastTrack1 Member Number}}/Person",
             "description": "Fetch the details of the specified person.  \n\nThis does not include sensative data eg: Password.  \nReturns data even if person is disqualified or not."
           },
           "response": []
@@ -3800,7 +3799,7 @@
                 "type": "text"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/Persons/MyDetails",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Persons/MyDetails",
             "description": "Get the details of the currently signed in person.  "
           },
           "response": []
@@ -3856,7 +3855,7 @@
               "mode": "raw",
               "raw": "{\n\t\"id\": {{FastTrack1 Member Number}}\n}"
             },
-            "url": "https://{{FastTrack1 Domain}}/FT19/Security/LoginAsUser",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Security/LoginAsUser",
             "description": "## Login as a user.\r\n\r\n## Provide\r\n\r\nThe participant identifier in the body.  \r\n\r\n## Possible status codes  \r\n500 InternalServerError (Unable to create token)  \r\n401 Unauthorized (Cannot login as user)  \r\n201 Created (Success)  \r\n\r\n\r\n## Returns\r\nCertificate for the specified user.  \r\nThis certificate must be included in all user specific requests in the header **X-ApiKey** this is case sensitive.\r\n"
           },
           "response": []
@@ -3900,7 +3899,7 @@
               "mode": "raw",
               "raw": "{\n\t\"id\": {{FastTrack1 Breeding Authority Member Number}}\n}"
             },
-            "url": "https://{{FastTrack1 Domain}}/FT19/Security/LoginAsUser",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/Security/LoginAsUser",
             "description": "## Login as a user.\r\n\r\n## Provide\r\n\r\nThe participant identifier in the body.  \r\n\r\n## Possible status codes  \r\n500 InternalServerError (Unable to create token)  \r\n401 Unauthorized (Cannot login as user)  \r\n201 Created (Success)  \r\n\r\n\r\n## Returns\r\nCertificate for the specified user.  \r\nThis certificate must be included in all user specific requests in the header **X-ApiKey** this is case sensitive.\r\n"
           },
           "response": []
@@ -3942,9 +3941,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"input\": {\n        \"memberNumber\": \"27292\",\n        \"personName\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"PAUL\",\n            \"surname\": \"WESTERVELD\"\n        },\n        \"personId\": -27292,\n        \"email\": \"fasttrackbuild+27292@gmail.com\",\n        \"dateOfBirth\": \"2000-08-21T05:29:01Z\",\n        \"gender\": \"Male\",\n        \"residentialAddress\": {\n            \"street\": \"4 CANTERBURY COURT\",\n            \"suburb\": \"SUBURB\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3808\",\n            \"country\": \"Australia\"\n        },\n        \"postalAddress\": {\n            \"street\": \"PO BOX 663\",\n            \"suburb\": \"BERWICK\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3806\",\n            \"country\": \"Australia\"\n        },\n        \"homePhone\": {\n            \"number\": null\n        },\n        \"mobilePhone\": {\n            \"number\": null\n        },\n        \"businessPhone\": {\n            \"number\": null\n        },\n        \"occupation\": \"Fertility and Reproduction/Studmaster\",\n        \"marketingOptIn\": true,\n        \"interstateRegistration\": null,\n        \"isAbleToUpload\": true,\n        \"isAbleToAssociateInterstateAcount\": false,\n        \"photoFile\": null,\n        \"isPostalAddressDifferent\": true,\n        \"isInterstateUser\": false,\n        \"photoImageUrl\": \"https://fasttracktestb.blob.core.windows.net/fasttrackresources/Photos/-27292.jpg?st=2019-08-21T03%3A31%3A38Z&se=2019-08-21T03%3A37%3A38Z&sr=b&sp=r&sig=pGhoozYzNjcs3Pdx1B5qndArCLwCcDe04WfkbG%2FzcZM%3D\",\n        \"personPhotoId\": null,\n        \"personPhotoDateAdded\": \"2019-08-21T05:29:01Z\",\n        \"requiresNewPhoto\": true,\n        \"isParticipant\": true,\n        \"canUpdateAllDetailsInThisRelease\": true,\n        \"hasOptedOutOfReceivingSMSNotifications\": false,\n        \"isParticipantNameOnPublicTrainersList\": false,\n        \"isEligibleForPublicTrainersList\": false\n    }\n}"
+              "raw": "{\n    \"input\": {\n        \"memberNumber\": \"27292\",\n        \"personName\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"PAUL\",\n            \"surname\": \"WESTERVELD\"\n        },\n        \"personId\": -27292,\n        \"email\": \"fasttrackbuild+27292123123123@gmail.com\",\n        \"dateOfBirth\": \"2000-08-21T05:29:01Z\",\n        \"gender\": \"Male\",\n        \"residentialAddress\": {\n            \"street\": \"4 CANTERBURY COURT\",\n            \"suburb\": \"SUBURB\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3808\",\n            \"country\": \"Australia\"\n        },\n        \"postalAddress\": {\n            \"street\": \"PO BOX 663\",\n            \"suburb\": \"BERWICKs\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3806\",\n            \"country\": \"Australia\"\n        },\n        \"homePhone\": {\n            \"number\": \"1231231\"\n        },\n        \"mobilePhone\": {\n            \"number\": \"0123456879\"\n        },\n        \"businessPhone\": {\n            \"number\": \"122231231\"\n        },\n        \"occupation\": \"Fertility and Reproduction/Studmaster\",\n        \"marketingOptIn\": true,\n        \"interstateRegistration\": null,\n        \"isAbleToUpload\": true,\n        \"isAbleToAssociateInterstateAcount\": false,\n        \"photoFile\": null,\n        \"isPostalAddressDifferent\": true,\n        \"isInterstateUser\": false,\n        \"photoImageUrl\": \"https://fasttracktestb.blob.core.windows.net/fasttrackresources/Photos/-27292.jpg?st=2019-08-21T03%3A31%3A38Z&se=2019-08-21T03%3A37%3A38Z&sr=b&sp=r&sig=pGhoozYzNjcs3Pdx1B5qndArCLwCcDe04WfkbG%2FzcZM%3D\",\n        \"personPhotoId\": null,\n        \"personPhotoDateAdded\": \"2019-08-21T05:29:01Z\",\n        \"requiresNewPhoto\": true,\n        \"isParticipant\": true,\n        \"canUpdateAllDetailsInThisRelease\": true,\n        \"hasOptedOutOfReceivingSMSNotifications\": false,\n        \"isParticipantNameOnPublicTrainersList\": false,\n        \"isEligibleForPublicTrainersList\": false\n    }\n}"
             },
-            "url": "https://{{FastTrack1 Domain}}/FT19/myaccount/SaveMyAccountDetails",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/SaveMyAccountDetails",
             "description": "Update Black Book\n\n\n\n\n\n## Returns\n"
           },
           "response": [
@@ -3981,7 +3980,7 @@
                   "mode": "raw",
                   "raw": "{\n    \"input\": {\n        \"memberNumber\": \"27292\",\n        \"personName\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"PAUL\",\n            \"surname\": \"WESTERVELD\"\n        },\n        \"personId\": -27292,\n        \"email\": \"fasttrackbuild+27292@gmail.com\",\n        \"dateOfBirth\": \"2000-08-21T05:29:01Z\",\n        \"gender\": \"Male\",\n        \"residentialAddress\": {\n            \"street\": \"4 CANTERBURY COURT\",\n            \"suburb\": \"SUBURB\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3808\",\n            \"country\": \"Australia\"\n        },\n        \"postalAddress\": {\n            \"street\": \"PO BOX 663\",\n            \"suburb\": \"BERWICK\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3806\",\n            \"country\": \"Australia\"\n        },\n        \"homePhone\": {\n            \"number\": null\n        },\n        \"mobilePhone\": {\n            \"number\": null\n        },\n        \"businessPhone\": {\n            \"number\": null\n        },\n        \"occupation\": \"Fertility and Reproduction/Studmaster\",\n        \"marketingOptIn\": false,\n        \"interstateRegistration\": null,\n        \"isAbleToUpload\": true,\n        \"isAbleToAssociateInterstateAcount\": false,\n        \"photoFile\": null,\n        \"isPostalAddressDifferent\": true,\n        \"isInterstateUser\": false,\n        \"photoImageUrl\": \"https://fasttracktestb.blob.core.windows.net/fasttrackresources/Photos/-27292.jpg?st=2019-08-21T03%3A31%3A38Z&se=2019-08-21T03%3A37%3A38Z&sr=b&sp=r&sig=pGhoozYzNjcs3Pdx1B5qndArCLwCcDe04WfkbG%2FzcZM%3D\",\n        \"personPhotoId\": null,\n        \"personPhotoDateAdded\": \"2019-08-21T05:29:01Z\",\n        \"requiresNewPhoto\": true,\n        \"isParticipant\": true,\n        \"canUpdateAllDetailsInThisRelease\": true,\n        \"hasOptedOutOfReceivingSMSNotifications\": false,\n        \"isParticipantNameOnPublicTrainersList\": false,\n        \"isEligibleForPublicTrainersList\": true\n    }\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/FT19/myaccount/SaveMyAccountDetails"
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/SaveMyAccountDetails"
               },
               "status": "OK",
               "code": 200,
@@ -4062,7 +4061,7 @@
               "mode": "raw",
               "raw": "{\n    \"input\": {\n    \t\"partyId\":-27292,\n    \t\"bankAccount\":{\n    \t\t\n    \t},\n    \t\"lastUpdatedBy\":\"\"\n   }\n}"
             },
-            "url": "https://{{FastTrack1 Domain}}/FT19/myaccount/SaveBankingDetails",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/SaveBankingDetails",
             "description": "Update Black Book\n\n\n\n\n\n## Returns\n"
           },
           "response": [
@@ -4100,13 +4099,13 @@
                   "raw": "{\n\t\"dogBlackBookInput\": {\n\t\t\"dogId\": \"{{FasTrack1 BlackBook Dog Id}}\",\n\t\t\"comment\":\"This is a very important dog.\",\n\t\t\"isTracking\":true\n\t}\n}"
                 },
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/save/blackbook?skip=0&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/save/blackbook?skip=0&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "myaccount",
                     "save",
                     "blackbook"
@@ -4188,13 +4187,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://{{FastTrack1 Domain}}/FT19/persons/list/blackbook?skip=0&take=10",
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/persons/list/blackbook?skip=0&take=10",
                   "protocol": "https",
                   "host": [
                     "{{FastTrack1 Domain}}"
                   ],
                   "path": [
-                    "FT19",
+                    "{{FastTrack1 Custom Route 1}}",
                     "persons",
                     "list",
                     "blackbook"
@@ -4280,7 +4279,7 @@
                 "type": "text"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/FT19/myaccount/GetMyDetails",
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/GetMyDetails",
             "description": "Get my account details\n\n\n\n\n\n## Returns\n"
           },
           "response": []
@@ -4322,13 +4321,13 @@
               "raw": "{\n\t\"TransactionSearchInput\":{\n\t\t\"IsClientPortal\": false\n\t}\n}"
             },
             "url": {
-              "raw": "https://{{FastTrack1 Domain}}/FT19/myaccount/GetMyTransactions?submit=saved",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/GetMyTransactions?submit=saved",
               "protocol": "https",
               "host": [
                 "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
+                "{{FastTrack1 Custom Route 1}}",
                 "myaccount",
                 "GetMyTransactions"
               ],
@@ -4345,6 +4344,260 @@
         }
       ],
       "_postman_id": "572919b6-93fe-47da-a4cf-9b9bfba25ab3"
+    },
+    {
+      "name": "Sandbox",
+      "item": [
+        {
+          "name": "My Account Details (v2)",
+          "_postman_id": "cf8e8d69-c596-4e9c-95e0-36966404396d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}//MyAccount/details"
+          },
+          "response": []
+        },
+        {
+          "name": "Calendar Meetings",
+          "_postman_id": "dd6e01d4-94db-497c-83e3-f8765ba474b3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Meeting/CalendarMeetings?start=1566741600&end=1570366800",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "{{FastTrack1 Public Route 1}}",
+                "Meeting",
+                "CalendarMeetings"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "1566741600"
+                },
+                {
+                  "key": "end",
+                  "value": "1570366800"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Dog Transfer",
+          "_postman_id": "2c9ae96e-e1ca-418e-bb2b-184f02bbcbbc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/DogTransfer/DogTransfer?id=112926415",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "{{FastTrack1 Public Route 1}}",
+                "DogTransfer",
+                "DogTransfer"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "112926415"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save Transfer",
+          "_postman_id": "813f24cb-7f2d-46a4-8151-b1f8797da423",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": " {\"output\":\r\n {\r\n     \"NewOwnersFirstName\": \"test first\",\r\n     \"NewOwnersSurname\": \"test surname\",\r\n     \"PhoneNumber\": \"0862321321\",\r\n     \"InterstateTransfer\": false\r\n   }\r\n }"
+            },
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/DogTransfer/DogTransfer?id=112926415",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "{{FastTrack1 Public Route 1}}",
+                "DogTransfer",
+                "DogTransfer"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "112926415"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Save MyAccount FT19/1",
+          "_postman_id": "d1a29362-20fb-4478-b811-014e7bd07e0d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "Certificate provided by Security/LoginAsUser",
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": {\n        \"memberNumber\": \"27292\",\n        \"personName\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"PAUL\",\n            \"surname\": \"WESTERVELD\"\n        },\n        \"personId\": -27292,\n        \"email\": \"fasttrackbuild+27292@gmail.com\",\n        \"dateOfBirth\": \"2000-08-21T05:29:01Z\",\n        \"gender\": \"Male\",\n        \"residentialAddress\": {\n            \"street\": \"4 CANTERBURY COURT\",\n            \"suburb\": \"SUBURB\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3808\",\n            \"country\": \"Australia\"\n        },\n        \"postalAddress\": {\n            \"street\": \"PO BOX 663\",\n            \"suburb\": \"BERWICKs\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3806\",\n            \"country\": \"Australia\"\n        },\n        \"homePhone\": {\n            \"number\": \"1231231\"\n        },\n        \"mobilePhone\": {\n            \"number\": \"123\"\n        },\n        \"businessPhone\": {\n            \"number\": \"131231\"\n        },\n        \"occupation\": \"Fertility and Reproduction/Studmaster\",\n        \"marketingOptIn\": true,\n        \"interstateRegistration\": null,\n        \"isAbleToUpload\": true,\n        \"isAbleToAssociateInterstateAcount\": false,\n        \"photoFile\": null,\n        \"isPostalAddressDifferent\": true,\n        \"isInterstateUser\": false,\n        \"photoImageUrl\": \"https://fasttracktestb.blob.core.windows.net/fasttrackresources/Photos/-27292.jpg?st=2019-08-21T03%3A31%3A38Z&se=2019-08-21T03%3A37%3A38Z&sr=b&sp=r&sig=pGhoozYzNjcs3Pdx1B5qndArCLwCcDe04WfkbG%2FzcZM%3D\",\n        \"personPhotoId\": null,\n        \"personPhotoDateAdded\": \"2019-08-21T05:29:01Z\",\n        \"requiresNewPhoto\": true,\n        \"isParticipant\": true,\n        \"canUpdateAllDetailsInThisRelease\": true,\n        \"hasOptedOutOfReceivingSMSNotifications\": false,\n        \"isParticipantNameOnPublicTrainersList\": false,\n        \"isEligibleForPublicTrainersList\": false\n    }\n}"
+            },
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/myaccount/Details",
+            "description": "Update Black Book\n\n\n\n\n\n## Returns\n"
+          },
+          "response": [
+            {
+              "id": "5546b01a-15ca-498a-add7-c1221772c506",
+              "name": "Save MyAccount",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "skip",
+                    "type": "text",
+                    "value": "0"
+                  },
+                  {
+                    "key": "take",
+                    "type": "text",
+                    "value": "10"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"input\": {\n        \"memberNumber\": \"27292\",\n        \"personName\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"PAUL\",\n            \"surname\": \"WESTERVELD\"\n        },\n        \"personId\": -27292,\n        \"email\": \"fasttrackbuild+27292@gmail.com\",\n        \"dateOfBirth\": \"2000-08-21T05:29:01Z\",\n        \"gender\": \"Male\",\n        \"residentialAddress\": {\n            \"street\": \"4 CANTERBURY COURT\",\n            \"suburb\": \"SUBURB\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3808\",\n            \"country\": \"Australia\"\n        },\n        \"postalAddress\": {\n            \"street\": \"PO BOX 663\",\n            \"suburb\": \"BERWICK\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3806\",\n            \"country\": \"Australia\"\n        },\n        \"homePhone\": {\n            \"number\": null\n        },\n        \"mobilePhone\": {\n            \"number\": null\n        },\n        \"businessPhone\": {\n            \"number\": null\n        },\n        \"occupation\": \"Fertility and Reproduction/Studmaster\",\n        \"marketingOptIn\": false,\n        \"interstateRegistration\": null,\n        \"isAbleToUpload\": true,\n        \"isAbleToAssociateInterstateAcount\": false,\n        \"photoFile\": null,\n        \"isPostalAddressDifferent\": true,\n        \"isInterstateUser\": false,\n        \"photoImageUrl\": \"https://fasttracktestb.blob.core.windows.net/fasttrackresources/Photos/-27292.jpg?st=2019-08-21T03%3A31%3A38Z&se=2019-08-21T03%3A37%3A38Z&sr=b&sp=r&sig=pGhoozYzNjcs3Pdx1B5qndArCLwCcDe04WfkbG%2FzcZM%3D\",\n        \"personPhotoId\": null,\n        \"personPhotoDateAdded\": \"2019-08-21T05:29:01Z\",\n        \"requiresNewPhoto\": true,\n        \"isParticipant\": true,\n        \"canUpdateAllDetailsInThisRelease\": true,\n        \"hasOptedOutOfReceivingSMSNotifications\": false,\n        \"isParticipantNameOnPublicTrainersList\": false,\n        \"isEligibleForPublicTrainersList\": true\n    }\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/SaveMyAccountDetails"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 21 Aug 2019 06:15:48 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "258"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-08-21T06:15:43.7928450Z\",\n        \"length\": 0,\n        \"messages\": [],\n        \"messageContext\": [\n            [\n                0,\n                200,\n                \"Your account details have been updated.\"\n            ]\n        ],\n        \"data\": [],\n        \"dataContext\": [],\n        \"message\": \"Your account details have been updated.\",\n        \"status\": 200,\n        \"success\": true\n    }\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "9eea10ea-ae89-488b-84e8-487e99b17384"
     }
   ],
   "event": [
@@ -4358,14 +4611,16 @@
           "const API_KEY_EXPIRY_VAR = `${API_KEY_VAR} Expiry`;",
           "const DOMAIN_VAR = 'FastTrack1 Domain';",
           "const USER_ID_VAR = 'FastTrack1 Member Number';",
+          "const CUSTOM_ROUTE_VAR = 'FastTrack1 Custom Route 1';",
           "",
           "function getNewToken() {",
           "  const domain = pm.variables.get(DOMAIN_VAR);",
+          "  const route = pm.variables.get(CUSTOM_ROUTE_VAR);",
           "  const id = pm.variables.get(USER_ID_VAR);",
           "  const settings = {",
           "    async: true,",
           "    crossDomain: true,",
-          "    url: `https://${domain}/FT19/Security/LoginAsUser`,",
+          "    url: `https://${domain}/${route}/Security/LoginAsUser`,",
           "    method: 'POST',",
           "    header: {",
           "      'authorization':",
@@ -4391,7 +4646,8 @@
           "  });",
           "}",
           "",
-          "getNewToken();"
+          "getNewToken();",
+          ""
         ]
       }
     },
@@ -4408,135 +4664,147 @@
   ],
   "variable": [
     {
-      "id": "813985f1-5aa3-4524-b362-91e593fb736a",
+      "id": "df2cab61-945c-4f35-8957-a24ada0a7da7",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "2f1c7783-4861-48d1-9cbf-ce6f4f613ee7",
+      "id": "0f6b4c32-34fd-4cfb-9229-902e955b3e63",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "2186f077-3f7e-4b40-8e54-5950a90e3e6a",
+      "id": "934c54bf-67c5-4bb6-a978-fe6e89077932",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "a97c0e97-bd35-49e4-85fd-c4d5ff9fd26b",
+      "id": "af320096-70a3-4167-874b-14761e6b0825",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "912d6060-21f0-442a-9380-44a5cb4d382d",
+      "id": "1a31d509-f60a-4cda-bfcf-24789b7dbe78",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "c33cbbd1-cb94-43db-b73d-9ef4ee6e72f5",
+      "id": "8f838116-4e7c-4289-affc-f2bea98767f1",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "b7f3602d-f0e0-4e03-918f-2d539edb0a71",
+      "id": "65415d07-d0b1-4590-a7be-fc41185700f3",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "67c25456-3825-45dd-bef1-7b06ae26b34a",
+      "id": "7b6e0dcb-b81a-490f-baf0-2895205a201d",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "470e5cb6-e152-43dc-be44-daa0a66f3193",
+      "id": "ccd30642-5a18-45cf-897a-e010a6797ff4",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "88beec15-784b-4f83-9181-34cc00ea0f1a",
+      "id": "6e9d322c-071e-4970-a758-1d95fbe2de34",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "45e14d39-5ddc-403c-b86c-cdf453056255",
+      "id": "e45d41f1-16ef-4279-a2d0-bb70298de74d",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "b8b150bc-6bc0-4a14-b325-654ee806533a",
+      "id": "f0faae4f-7529-4824-8060-5c539064f5d5",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "93283810-7983-406a-874f-4d5e01ac1001",
+      "id": "06662bed-95eb-4c36-a24e-7a6536541eef",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "93eacfc6-16cc-4449-9b04-2eb82ce7e4cb",
+      "id": "7ec6b8e6-d531-4f04-b42b-3eb6b59c5d6d",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "2e5897a3-1cd6-4e5f-9504-26eda25ac7a9",
+      "id": "883fe57a-c00c-47f9-9ed8-dea6a06d97a6",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "8a347626-78b3-4d9d-bd6c-e816950819d3",
+      "id": "59e8aa62-f163-422d-9fd5-3df859ca7675",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "5621726b-25c8-46f4-bf14-8fb23d3697ee",
+      "id": "f880e0fd-16d2-4e59-89b2-5177e624fac8",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "0c586009-a363-4efb-9091-16ae29ffc69c",
+      "id": "c330954c-0c4e-4974-bf60-85730487ec9c",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "71e87f50-1a39-42ad-b953-0956a31cbabe",
+      "id": "9cc3578f-02d9-4d21-9e57-99edf4db03b1",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "e0238656-76b5-477c-b8e7-7f740f84cadc",
+      "id": "a68c4c66-063e-4cf5-af82-fa215d34a444",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "3df187bc-8411-46e4-91b4-3a7b3ad83193",
+      "id": "0cf33c8f-f81f-418e-b05c-f09427bc8e8a",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
     },
     {
-      "id": "c1b426d9-ae05-4929-8279-5442f80efa67",
+      "id": "045f9382-a167-4c1e-8818-5b9ccf9ec690",
       "key": "FasTrack1 BlackBook Dog Id",
       "value": "255840010",
+      "type": "string"
+    },
+    {
+      "id": "fe2e4859-114a-41db-8434-d365dde186f2",
+      "key": "FastTrack1 Custom Route 1",
+      "value": "FT19/1c",
+      "type": "string"
+    },
+    {
+      "id": "c4305f60-9976-47e1-b989-d0c65d968211",
+      "key": "FastTrack1 Public Route 1",
+      "value": "FT19/1p",
       "type": "string"
     }
   ]
