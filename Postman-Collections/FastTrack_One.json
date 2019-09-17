@@ -2005,16 +2005,13 @@
               }
             ],
             "url": {
-              "raw": "https://fasttracktestb.cloudapp.net/FT19/1p/Breeding/PrintLitterRegistrationForms?id={{FastTrack1 BreedingId}}",
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Breeding/PrintLitterRegistrationForms?id={{FastTrack1 BreedingId}}",
               "protocol": "https",
               "host": [
-                "fasttracktestb",
-                "cloudapp",
-                "net"
+                "{{FastTrack1 Domain}}"
               ],
               "path": [
-                "FT19",
-                "1p",
+                "{{FastTrack1 Public Route 1}}",
                 "Breeding",
                 "PrintLitterRegistrationForms"
               ],
@@ -4752,145 +4749,145 @@
   ],
   "variable": [
     {
-      "id": "f9139773-c0cc-42d2-a109-c8471c0da497",
+      "id": "1b1ad9c4-b85e-400d-9562-1421d9ab8431",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "b3e50a06-ee25-42bb-b761-275b08df8b43",
+      "id": "d9f93e9f-4908-4816-bb2b-1658bfd71d9c",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "e7c2d475-18f7-46dc-bc42-379954dc575a",
+      "id": "9348c1b9-444e-4d81-b7a5-f28f703f8233",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "c46e01a1-5852-4c8a-9d25-ec4613f467a1",
+      "id": "36587bdd-b213-4dad-880e-829e435960f3",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "9543c7bd-a46a-4777-9a4c-56cc9c6f5abb",
+      "id": "0d332b5e-8962-468e-9f08-7b7550e92187",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "54d4abf6-c742-4593-b5ae-faf2fd1906cd",
+      "id": "d1169885-e9dc-4801-9f50-6cbfd7127e99",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "98efd7cc-0255-43d1-b0c9-0570ccca5343",
+      "id": "8cfd6e90-730c-4bbe-ab8e-7bbce1cf2a78",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "2ccae03d-2baa-4500-9880-12819c932d7f",
+      "id": "39bd0d45-d2ca-435a-a8c8-1886d3e31abc",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "7fc1b5b5-adb5-4b58-8aa4-b081f01f6949",
+      "id": "84a522ab-27f2-49d9-bfe5-fea323e6460e",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "f2202dc8-974f-4e18-99ed-8bcbcf550363",
+      "id": "3d7490d0-e12e-4976-a957-502c856f8d57",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "ed79cbdb-b90e-4dda-962c-c6fad3b53af5",
+      "id": "2a013b84-050d-473b-8aad-36318805301a",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "fd18442f-9b75-4646-aba4-b099529aa25b",
+      "id": "a46867be-d2ba-45dc-9457-9feb801dd778",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "28188fe1-e522-41d2-852c-41ac5631d4db",
+      "id": "d29d15e3-581f-4258-81e1-900248b9ae64",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "dc13b8a6-6259-4f11-bb94-c76a55e5c26e",
+      "id": "3b483fd5-cf83-4e96-90d4-89033b820700",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "3d5a053c-d5f9-452d-9e2e-2cce43036e6b",
+      "id": "335e1ea2-7994-4f0c-bf8e-c388a65074e7",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "135be8ef-ba26-4fdb-a405-fbf159a64562",
+      "id": "afb4d43c-ca1c-4294-bb27-f082b29d4022",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "ae4eff95-cc61-4042-80d3-13add94ca977",
+      "id": "50ac5724-cf31-4707-b956-2d34bf5b5615",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "a52849ae-9aee-4567-ace6-8c5dd6df0346",
+      "id": "5d72e4f7-f924-484e-8caf-db33d89cc72b",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "2acca625-72ee-4c21-9a9a-da861ddcdf23",
+      "id": "41c84cfd-2bb2-4799-bfcb-2a42bd854d34",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "e059bbee-45d8-4a12-a644-09beffd2c518",
+      "id": "88ecb340-6a83-4f74-a97f-dc57236eeeeb",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "63a456ba-1939-4ed2-8564-d3ab57b56bf0",
+      "id": "a9519739-674b-429d-b024-840439b74d5d",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
     },
     {
-      "id": "b71f1470-6090-4f8d-a32f-4c22d189e7a7",
+      "id": "816c406b-a928-4969-8b0b-af624fd3b97d",
       "key": "FasTrack1 BlackBook Dog Id",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "14425b48-6ddb-439e-9284-865a8272d6c3",
+      "id": "ea0cc1fe-926b-4ac3-98d4-588baaa87e8a",
       "key": "FastTrack1 Custom Route 1",
       "value": "FT19/1c",
       "type": "string"
     },
     {
-      "id": "1ddacf55-709c-4897-90a2-16658d91f58f",
+      "id": "4c1a062a-ce68-47c0-9954-912c83f4d337",
       "key": "FastTrack1 Public Route 1",
       "value": "FT19/1p",
       "type": "string"
