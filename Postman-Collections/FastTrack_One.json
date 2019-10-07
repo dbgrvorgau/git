@@ -1254,6 +1254,282 @@
           "_postman_isSubFolder": true
         },
         {
+          "name": "Issue Breeding Authority",
+          "item": [
+            {
+              "name": "Issue Breeding Authority",
+              "_postman_id": "c0f41c33-abd8-42dd-b42e-fd07807486a0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/Dog/DogBreedingAuthority/315843930"
+              },
+              "response": []
+            },
+            {
+              "name": "Issue Breeding Authority",
+              "_postman_id": "cbe235ed-7e9b-421d-85a1-f17a0df4c67a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"breedingAuthorityFirstName\": \"Derek\",\n\t\"breedingAuthoritySurname\": \"A\",\n\t\"interstateAuthority\": false\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/Dog/DogBreedingAuthority/325813347"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "cf4cb76a-1c03-4691-8ffb-9d72ebe33e21",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Accept Breeding Authority",
+          "item": [
+            {
+              "name": "Accept Breeding Authority",
+              "_postman_id": "94cb19c2-e70b-4122-814e-ba397b70c290",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Dog/AcceptBreedingAuthority"
+              },
+              "response": []
+            },
+            {
+              "name": "Accept Breeding Authority Validate",
+              "_postman_id": "1793ae91-d9f9-4e09-ac72-7d79035ea023",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Dog/ValidateBreedingAuthorityKey?authorityKey=4804234292&earBrand=VHSSV",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "{{FastTrack1 Public Route 1}}",
+                    "Dog",
+                    "ValidateBreedingAuthorityKey"
+                  ],
+                  "query": [
+                    {
+                      "key": "authorityKey",
+                      "value": "4804234292"
+                    },
+                    {
+                      "key": "earBrand",
+                      "value": "VHSSV"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Accept Breeding Authority",
+              "_postman_id": "4e8da0a7-deda-4463-9336-80f2832344f4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "accept",
+                    "value": "text/html",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"authorityKey\": \"4804194215\",\n    \"dogEarBrand\": \"VHTCV\"\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Dog/AcceptBreedingAuthority"
+              },
+              "response": [
+                {
+                  "id": "f0dbaca3-aae8-4246-8063-d6587798a745",
+                  "name": "Accept Breeding Authority  Success to self",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "value": "{{FastTrack1 ApiKey}}",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "accept",
+                        "value": "text/html",
+                        "type": "text",
+                        "disabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"authorityKey\": 4667195762,\n    \"dogEarBrand\": \"VHSSV\"\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Dog/AcceptBreedingAuthority"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 19 Sep 2019 05:55:17 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "272"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"permanent\": false,\n            \"routeName\": \"InvolvedDogs\",\n            \"routeValues\": {}\n        },\n        \"tempData\": {\n            \"flash-success\": \"Authority to breed has been granted to yourself for NARCELLE\"\n        },\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                }
+              ]
+            },
+            {
+              "name": "Accept Breeding Authority Bank Details",
+              "_postman_id": "0dce4374-6d68-4023-98f2-6ed24d1f4a6f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"isSelf\": true,\n    \"owningSyndicateId\": null,\n    \"owningSyndicateName\": \"RONALD MCCULLAGH\",\n    \"dogId\": 325813344,\n    \"dogName\": \"ANDY OSTI\",\n    \"isBitch\": false,\n    \"isBankAccountRequired\": false,\n    \"baseFee\": 20,\n    \"financialAccountDetails\": null,\n    \"payWayDetails\": {\n        \"CreditCard\": null,\n        \"Cheque\": null,\n        \"PaymentMethod\": \"Cash\",\n        \"AmountToPay\": 20\n    },\n    \"paymentDiscount\": {\n        \"fastTrackPaymentDiscountPercentage\": 10,\n        \"isImpersonating\": true,\n        \"hasPenaltyFee\": false,\n        \"fastTrackPaymentDiscountTotal\": 0\n    }\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Dog/AcceptBreedingAuthorityBankDetails"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "c9541326-3595-423b-92fa-0ed829e8250d",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "End Breeding Authority",
+          "_postman_id": "f18ee048-28c1-4a9d-a722-dbff934167de",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/Dog/DogCancelBreedingAuthority/246692423"
+          },
+          "response": []
+        },
+        {
           "name": "Breedings",
           "_postman_id": "f9ff6843-1a92-4a2f-acc5-82eef778abc0",
           "protocolProfileBehavior": {
@@ -4423,6 +4699,367 @@
             "description": "Get my account details\n\n\n\n\n\n## Returns\n"
           },
           "response": []
+        },
+        {
+          "name": "Finance Details",
+          "_postman_id": "3fc779ee-ef3e-4dc5-ac57-13e996a949b5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/myaccount/Finance"
+          },
+          "response": [
+            {
+              "id": "3eab472b-1ac1-4c71-a7e5-bda34351b927",
+              "name": "Finance Details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/myaccount/Finance"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 06 Oct 2019 21:05:48 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "703"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"model\": {\n            \"showOutstandingFines\": false,\n            \"showOutstandingPBPPayments\": false,\n            \"financialAccountDetails\": {\n                \"financeAccountGSTDetails\": {\n                    \"partyId\": -2769,\n                    \"isSyndicate\": false,\n                    \"isRegisteredForGST\": true,\n                    \"aBN\": \"35075564191\",\n                    \"isAgreedToGSTConditions\": false,\n                    \"shouldShowTaxCompliance\": true,\n                    \"isTaxCompliant\": true\n                },\n                \"financeAccountBankDetails\": {\n                    \"partyId\": -2769,\n                    \"isRecorded\": true,\n                    \"bankAccount\": {\n                        \"bSB\": \"260660\",\n                        \"number\": \"260660000\",\n                        \"name\": \"NIELE M & VA \"\n                    },\n                    \"lastUpdatedBy\": \"MICHAEL NIELE\",\n                    \"lastUpdatedOn\": \"/Date(1570435516000+0000)/\"\n                }\n            },\n            \"canViewStatements\": true,\n            \"canChangeBackAccountDetails\": true\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": \"Finance\"\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Save Finance Bank",
+          "_postman_id": "bb7549fe-0140-4d46-b60c-4e910293d086",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"financialAccountDetails\": {\n    \"financeAccountBankDetails\": {\n      \"partyId\": -2926,\n      \"isRecorded\": true,\n      \"bankAccount\": {\n        \"bSB\": \"205581\",\n        \"number\": \"205580049\",\n        \"name\": \"205580049\"\n      },\n      \"lastUpdatedBy\": \"GRV\",\n      \"lastUpdatedOn\": null\n    }\n  }\n}\n"
+            },
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/myaccount/FinanceBank"
+          },
+          "response": []
+        },
+        {
+          "name": "Save Finance GST",
+          "_postman_id": "6f6d9a7c-d2a6-46f5-bc91-4f74b20d7b54",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"showOutstandingFines\": false,\n    \"showOutstandingPBPPayments\": true,\n    \"financialAccountDetails\": {\n        \"financeAccountGSTDetails\": {\n            \"partyId\": -2926,\n            \"isSyndicate\": false,\n            \"isRegisteredForGST\": true,\n            \"aBN\": \"12312312311\",\n            \"isAgreedToGSTConditions\": true,\n            \"shouldShowTaxCompliance\": true,\n            \"isTaxCompliant\": true\n        },\n        \"financeAccountBankDetails\": null\n    },\n    \"canViewStatements\": true,\n    \"canChangeBackAccountDetails\": true\n}"
+            },
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/myaccount/FinanceGST"
+          },
+          "response": []
+        },
+        {
+          "name": "Fines",
+          "_postman_id": "1722eaeb-c7bc-46df-929d-46163956beb2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/MyAccount/Fines"
+          },
+          "response": [
+            {
+              "id": "4c50f8a2-5bff-41d3-84b6-571d6c1a7255",
+              "name": "Fines",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/MyAccount/Fines"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 07 Oct 2019 03:48:45 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1275"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"model\": {\n            \"fines\": [\n                {\n                    \"transactionId\": 401006431,\n                    \"dueDate\": {\n                        \"ticks\": 636837984000000000\n                    },\n                    \"fineTitle\": \"Weight Variance - DYNA SMOKEY at Meadows (MEP) on the 09/01/2019\",\n                    \"fineNumber\": 296423,\n                    \"amount\": 100\n                },\n                {\n                    \"transactionId\": 408236529,\n                    \"dueDate\": {\n                        \"ticks\": 636856128000000000\n                    },\n                    \"fineTitle\": \"Fine - Hot Weather Policy\",\n                    \"fineNumber\": 299430,\n                    \"amount\": 250\n                },\n                {\n                    \"transactionId\": 440598438,\n                    \"dueDate\": {\n                        \"ticks\": 636958944000000000\n                    },\n                    \"fineTitle\": \"Non Arrival - DYNA WINK at Meadows (MEP) on the 29/05/2019\",\n                    \"fineNumber\": 312078,\n                    \"amount\": 100\n                },\n                {\n                    \"transactionId\": 441042326,\n                    \"dueDate\": {\n                        \"ticks\": 636958944000000000\n                    },\n                    \"fineTitle\": \"Greyhound not kept at registered address\",\n                    \"fineNumber\": 312193,\n                    \"amount\": 250\n                },\n                {\n                    \"transactionId\": 441044829,\n                    \"dueDate\": {\n                        \"ticks\": 636958944000000000\n                    },\n                    \"fineTitle\": \"Greyhound not kept at registered address\",\n                    \"fineNumber\": 312187,\n                    \"amount\": 1000\n                },\n                {\n                    \"transactionId\": 441042325,\n                    \"dueDate\": {\n                        \"ticks\": 636958944000000000\n                    },\n                    \"fineTitle\": \"Greyhound not located at registered kennel address\",\n                    \"fineNumber\": 312191,\n                    \"amount\": 1000\n                },\n                {\n                    \"transactionId\": 442274138,\n                    \"dueDate\": {\n                        \"ticks\": 636964992000000000\n                    },\n                    \"fineTitle\": \"Fine\",\n                    \"fineNumber\": 312732,\n                    \"amount\": 100\n                }\n            ]\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": \"Fines\"\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Fine Payment",
+          "_postman_id": "f3827e69-2e10-486f-8f12-eaf005a63434",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/MyAccount/FinePayment?id=401006431",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "{{FastTrack1 Public Route 1}}",
+                "MyAccount",
+                "FinePayment"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "401006431"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c37c3379-071f-413f-bf98-b570d1e9e6bb",
+              "name": "Fine Payment",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/MyAccount/FinePayment?id=401006431",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "{{FastTrack1 Public Route 1}}",
+                    "MyAccount",
+                    "FinePayment"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "401006431"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private, no-store,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 07 Oct 2019 03:49:35 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "289"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": {\n        \"model\": {\n            \"transactionId\": 401006431,\n            \"transactionAmount\": 100,\n            \"payWayDetails\": {\n                \"CreditCard\": null,\n                \"Cheque\": null,\n                \"PaymentMethod\": 0,\n                \"AmountToPay\": 100\n            }\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": \"FinePayment\"\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Fine Payment",
+          "_postman_id": "7c197a57-34bb-47a6-a37a-ed37997867b6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "type": "text",
+                "value": "{{FastTrack1 ApiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"transactionId\": 401006431,\n    \"transactionAmount\": 100,\n    \"payWayDetails\": {\n        \"CreditCard\": null,\n        \"Cheque\": null,\n        \"PaymentMethod\": \"Cash\",\n        \"AmountToPay\": 100\n    }\n}"
+            },
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/MyAccount/FinePayment?id=401006431",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "{{FastTrack1 Public Route 1}}",
+                "MyAccount",
+                "FinePayment"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "401006431"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "_postman_id": "572919b6-93fe-47da-a4cf-9b9bfba25ab3"
@@ -4746,145 +5383,145 @@
   ],
   "variable": [
     {
-      "id": "dccf1bcc-960e-4822-b0f6-f343c74d2894",
+      "id": "7f3ad770-231b-4902-85ab-336338915fff",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "21ae97b8-df01-4280-957e-435caea358e7",
+      "id": "e1c5fe83-2db0-4a2b-83ee-7e956d33b3b4",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "015e795e-0423-45ba-8947-77436fbf4409",
+      "id": "700f2aa1-a11d-4a9f-8698-22eeab40267a",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "777c7ef8-1f53-423c-a9d6-1728991eef36",
+      "id": "0f073a7a-dd22-448a-a0ef-ba0d50bd0314",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "e1942d03-e0c3-46b5-89de-fe64bf6d3e8f",
+      "id": "09d2a9d6-abf6-40e0-92e4-ff95ec04a7d7",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "a4f5ada9-b96b-4ed3-abcf-68f2dfb4ea9d",
+      "id": "9731392d-9be2-4898-b417-81ff618c2e34",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "d6012b23-426f-4f18-b0ef-9cb4a412dab1",
+      "id": "140e9c49-2c82-44a6-a81c-adae5e201785",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "d264fc86-c119-4b35-a40c-ff2123c6284a",
+      "id": "d0819a2a-ab17-4bf8-98d2-85a1376a243e",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "0892c831-b13c-4cb8-960d-4a28d2556b47",
+      "id": "d7564620-78e4-4335-8d82-76e805e78c11",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "2b83250c-84f3-43d7-a145-4d9489ab41e2",
+      "id": "e1f2e685-67f7-46e4-9123-f4d8e6e8789c",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "2dcd0b7e-e83b-4b99-be88-313ed28cb4d2",
+      "id": "f444c950-015d-4a74-8b81-8caec42489d8",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "f64b17fd-c37c-485c-bd4a-1191e928fc0a",
+      "id": "d30186a8-acac-4abb-87c0-02e4277bc396",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "aae8577c-2ef6-4b76-b7e0-e4fe1c54497c",
+      "id": "1142f4d6-c591-4cf5-8c7d-3e6651e83789",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "8954801d-07e5-41fb-9d8f-aabaabc2c6be",
+      "id": "c036bb01-08ad-44c3-98df-ffe32de7c53f",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "b67d132f-1dfa-4f30-8977-84ac7e4c8b1f",
+      "id": "e8344f0b-4686-40d0-a306-b160fa6fd13e",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "a4491d34-fe93-4697-b0d2-b8b34e33a354",
+      "id": "39f5b384-eb15-4608-bea3-c77e51f193d9",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "99c84222-ce1d-4961-958b-e767bd55d8c0",
+      "id": "1a7a08d8-165b-457b-85e6-e89173d33b6f",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "e22f91c6-6da6-4cdd-9641-a9aa11ff2398",
+      "id": "2a21f1e4-452c-4377-915f-472fc41ca6bf",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "71834e64-0e2a-407c-afdf-047539a55171",
+      "id": "b9058b99-ce67-4760-a538-b0a70715d3b2",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "e3afeec0-1e96-4178-a577-a23ecc14fab3",
+      "id": "b1374b3d-7123-4548-a172-161fe912f202",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "d27dbaf1-9cff-4746-bc64-9555913cdff3",
+      "id": "19c45c53-e1d6-4532-b3d5-e7f817ce559b",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
     },
     {
-      "id": "ba4bf5db-f40d-4f4d-9437-e203db193d78",
+      "id": "7a6d9dfb-121f-49da-8f42-d1b3c8b09682",
       "key": "FasTrack1 BlackBook Dog Id",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "93ed95d9-9668-459f-92d3-3467b505878f",
+      "id": "6f1cb07d-3f85-49d9-97fe-dd24a80a70b5",
       "key": "FastTrack1 Custom Route 1",
       "value": "FT19/1c",
       "type": "string"
     },
     {
-      "id": "4a33dbce-db21-48dc-b691-fde6366da918",
+      "id": "429884bb-36ae-4e10-ac0a-f1bd4bfc8788",
       "key": "FastTrack1 Public Route 1",
       "value": "FT19/1p",
       "type": "string"
