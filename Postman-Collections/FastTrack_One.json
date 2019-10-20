@@ -965,7 +965,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"studSireId\": 255840010,\n  \"studSireName\": \"FERNANDO BALE\",\n  \"studMasterName\": \"Mr PAUL WESTERVELD\",\n  \"isValidDam\": false,\n  \"errorMessage\": null,\n  \"fromList\": null,\n  \"currentServiceDetail\": \n    {\n      \"damId\": -627719,\n      \"damName\": \"MOTORETTE\",\n      \"damEarBrandNumber\": \"VGP 5057\",\n      \"damColor\": \"Black\",\n      \"damDNA\": \"Yes\",\n      \"damBreederName\": \"RONALD MCCULLAGH\",\n      \"damState\": \"VIC\",\n      \"serviceType\": \"Natural\",\n      \"dateBitchArrived\": \"2019-06-01T00:00:00.0000000Z\",\n      \"dateBitchDeparted\": \"2019-06-04T00:00:00.0000000Z\",\n      \"serviceDate\": \"2019-06-02T00:00:00.0000000Z\",\n      \"thirdPartyWitness\": \"James bond\",\n      \"fee\": 0\n    }\n  \n}"
+                  "raw": "{\n    \"studSireId\": 255840010,\n    \"studSireName\": \"FERNANDO BALE\",\n    \"studMasterName\": \"Mr PAUL WESTERVELD\",\n    \"isValidDam\": true,\n    \"fromList\": null,\n    \"currentServiceDetail\": {\n        \"damId\": 121002028,\n        \"damName\": \"SUMMER SKYE\",\n        \"damEarBrandNumber\": \"VFVXI\",\n        \"damColor\": \"BK\",\n        \"damDNA\": \"Yes\",\n        \"damBreederName\": \"RONALD MCCULLAGH\",\n        \"damState\": \"VIC\",\n        \"serviceType\": \"Artificial\",\n        \"dateBitchArrived\": \"2019-05-02T00:00:00.000Z\",\n        \"dateBitchDeparted\": \"2019-05-04T00:00:00.000Z\",\n        \"serviceDate\": \"2019-05-03T00:00:00.000Z\",\n        \"thirdPartyWitness\": \"Me\",\n        \"fee\": 0\n    },\n    \"serviceDetails\": []\n}"
                 },
                 "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/ServicesRegistration/{{FastTrack1 SireId}}/Save",
                 "description": "Register for a service\n\n\n## Status Codes\n* 401 Unauthorised (Not the stud master.)\n* 400 Bad request (See the input errors.)\n\n\n## Inputs\n\nServiceRegistrationInputOutput  \n\n\n## Returns\n\nRegisterServicePaymentGatewayInput"
@@ -994,7 +994,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n            \"RegisterService_ServiceDetailsInputSRZ\": \"7c9c1190611758bc775156addbc7f2e6||{\\\"StudSireId\\\":255840010,\\\"StudSireName\\\":\\\"FERNANDO BALE\\\",\\\"StudMasterName\\\":null,\\\"ServiceDetails\\\":[{\\\"DamId\\\":-627719,\\\"DamName\\\":\\\"MOTORETTE\\\",\\\"ServiceType\\\":\\\"Natural\\\",\\\"DateBitchArrived\\\":{\\\"ticks\\\":636949440000000000},\\\"DateBitchDeparted\\\":{\\\"ticks\\\":636952032000000000},\\\"ServiceDate\\\":{\\\"ticks\\\":636950304000000000},\\\"ThirdPartyWitness\\\":\\\"James bond\\\",\\\"Fee\\\":0.00,\\\"HasLateFeeIncluded\\\":false,\\\"LateFee\\\":0.0,\\\"BaseFee\\\":0.00}],\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailedAmendment\\\":null,\\\"AmendmentFailure\\\":false,\\\"FailureDuplicatePayment\\\":null,\\\"LoggedOnUserId\\\":0,\\\"ReceiptNumber\\\":null,\\\"IsImpersonating\\\":false}\",\n            \"PayWayDetails\": {\n                \"CreditCard\": null,\n                \"Cheque\": null,\n                \"PaymentMethod\": \"Postbillpay\",\n                \"AmountToPay\": 1000\n            }\n}"
+                  "raw": "{\n            \"RegisterService_ServiceDetailsInputSRZ\": \"aedbc7cc0dac249934389d003364546d||{\\\"StudSireId\\\":255840010,\\\"StudSireName\\\":\\\"FERNANDO BALE\\\",\\\"StudMasterName\\\":null,\\\"ServiceDetails\\\":[{\\\"DamId\\\":121002028,\\\"DamName\\\":\\\"SUMMER SKYE\\\",\\\"ServiceType\\\":\\\"Artificial\\\",\\\"DateBitchArrived\\\":{\\\"ticks\\\":636923520000000000},\\\"DateBitchDeparted\\\":{\\\"ticks\\\":636925248000000000},\\\"ServiceDate\\\":{\\\"ticks\\\":636924384000000000},\\\"ThirdPartyWitness\\\":\\\"Me\\\",\\\"Fee\\\":2000.00,\\\"HasLateFeeIncluded\\\":true,\\\"LateFee\\\":2000.00,\\\"BaseFee\\\":0.00}],\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailedAmendment\\\":null,\\\"AmendmentFailure\\\":false,\\\"FailureDuplicatePayment\\\":null,\\\"LoggedOnUserId\\\":0,\\\"ReceiptNumber\\\":null,\\\"IsImpersonating\\\":false}\",\n            \"PayWayDetails\": {\n                \"CreditCard\": null,\n                \"Cheque\": null,\n                \"PaymentMethod\": 1,\n                \"AmountToPay\": 2000.00\n            }\n        } "
                 },
                 "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/ServicesRegistration/{{FastTrack1 SireId}}/Pay",
                 "description": "Register for a service\n\n\n## Status Codes\n* 409 Conflict (Possible duplicate payment.)\n* 400 Bad request (The service registration could not be completed. Please correct any errors before proceeding.)\n\n## Inputs\n\nServiceRegistrationInputOutput  \n\n\n## Returns\n\nRegisterServicePaymentGatewayInput"
@@ -1004,6 +1004,625 @@
           ],
           "_postman_id": "97742a53-6e80-449c-80f7-6956ae520def",
           "description": "*litter* *service registration*\r\n\r\nProvides capabilities to process the *service registration*  information.  ",
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Service Registration (AF)",
+          "item": [
+            {
+              "name": "Create",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "f61041a0-6984-4472-9278-61c8cfb9b114",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "013195ce-be19-4ce8-b763-999df20f6ff9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/Create?id=157500921",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "{{FastTrack1 Public Route 1}}",
+                    "ServiceRegistration",
+                    "Create"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "157500921"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "536342d5-4c97-4d02-9997-84837f64a4d1",
+                  "name": "Create",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/Create?id=157500921",
+                      "protocol": "https",
+                      "host": [
+                        "{{FastTrack1 Domain}}"
+                      ],
+                      "path": [
+                        "{{FastTrack1 Public Route 1}}",
+                        "ServiceRegistration",
+                        "Create"
+                      ],
+                      "query": [
+                        {
+                          "key": "id",
+                          "value": "157500921"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__RequestVerificationToken_Lw__=23xDcWdYZi1Nk2EkkxmxAINsBsDbsYXs74zqC6csrSWXTfFcW/qy4NsaTRKnnVNJLH+VZ/eung9SgTzvM9Xrw9ZcNAev1mRUljuhrltNPx386j07x+cUO9vzYIGejGADa9Ack02JtU5aPS3YdEjSBJkQUZg=; path=/; HttpOnly"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 10 Oct 2019 23:20:33 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "616"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"studSireId\": 157500921,\n            \"studSireName\": \"ORSON ALLEN\",\n            \"studMasterName\": \"Mr PAUL WESTERVELD\",\n            \"serviceDetails\": [],\n            \"currentServiceDetail\": {\n                \"damId\": 0,\n                \"damName\": null,\n                \"damEarBrandNumber\": null,\n                \"damColor\": null,\n                \"damDNA\": null,\n                \"damBreederName\": null,\n                \"damState\": null,\n                \"serviceType\": null,\n                \"dateBitchArrived\": null,\n                \"dateBitchDeparted\": null,\n                \"serviceDate\": null,\n                \"thirdPartyWitness\": null,\n                \"possibleServiceType\": [\n                    \"\",\n                    \"Natural\",\n                    \"Artificial\"\n                ],\n                \"fee\": 0\n            },\n            \"isValidDam\": false,\n            \"errorMessage\": null,\n            \"fromList\": null\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": \"Create\"\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                }
+              ]
+            },
+            {
+              "name": "Validate Dam",
+              "_postman_id": "68d93cdf-3a2b-405c-8d6e-c66e0ad7b7c2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"damName\":\"{{FastTrack1 Dam Name}}\",\r\n    \"damEarBrandNumber\":\"{{FastTrack1 Dam Ear Brand}}\"\r\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/ValidateDam",
+                "description": "Get details of sire and stud mater.\n\n## Status Code\n* 401 Unauthorised (Signed in person is not the the dog breeding authority)\n* 404 No Found (The dam could not be found check the ear brand and name match)\n* 403 Forbidden (The dam is retired)\n\n## Returns  \nServiceRegistrationInputOutput"
+              },
+              "response": [
+                {
+                  "id": "3bb61e64-d358-4454-8040-ebb06daa7bd8",
+                  "name": "Validate Dam - Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n\t\"damName\":\"{{FastTrack1 Dam Name}}\",\r\n    \"damEarBrandNumber\":\"{{FastTrack1 Dam Ear Brand}}\"\r\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/ValidateDam"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 10 Oct 2019 23:27:38 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "355"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"isValidDam\": true,\n            \"isRetiredDam\": false,\n            \"damName\": \"SUMMER SKYE\",\n            \"damEarBrandNumber\": \"VFVXI\",\n            \"damDNA\": \"Yes\",\n            \"damColor\": \"Brindle\",\n            \"damId\": 121002028,\n            \"damState\": \"VIC\",\n            \"damBreederName\": \"RONALD MCCULLAGH\",\n            \"isEligibleToBreed\": true\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                },
+                {
+                  "id": "6605b2d2-45f0-477d-a045-23d84664eedf",
+                  "name": "Validate Dam - Failure",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n\t\"damName\":\"{{FastTrack1 Dam Name}}\",\r\n    \"damEarBrandNumber\":\"{{FastTrack1 Dam Ear Brand}}1\"\r\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/ValidateDam"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 10 Oct 2019 23:41:28 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "172"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"isValidDam\": false,\n            \"isRetiredDam\": false\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                }
+              ]
+            },
+            {
+              "name": "Calculate Service Fee",
+              "_postman_id": "8211f080-4882-4566-9ace-325ce7fcff73",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/CalculateFeeForService?serviceDate=2019-10-03T00:00:00.0000000Z",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "{{FastTrack1 Public Route 1}}",
+                    "ServiceRegistration",
+                    "CalculateFeeForService"
+                  ],
+                  "query": [
+                    {
+                      "key": "serviceDate",
+                      "value": "2019-10-03T00:00:00.0000000Z"
+                    }
+                  ]
+                },
+                "description": "Get details of sire and stud mater.\n\n\n## Inputs\nService Date \n\n## Returns  \nDecimal"
+              },
+              "response": [
+                {
+                  "id": "b4b8d8e7-39ca-4e51-9a3d-fbbfcda5e373",
+                  "name": "Calculate Service Fee",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n\t\"serviceDate\":\"2019-05-03T00:00:00.0000000Z\"\r\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/CalculateFeeForService"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 10 Oct 2019 23:29:45 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "138"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": 2100,\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                },
+                {
+                  "id": "ea5a7df9-efde-4af3-9e1a-2a22ddfb4d03",
+                  "name": "Calculate Service Fee",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/CalculateFeeForService?serviceDate=2019-05-03T00:00:00.0000000Z",
+                      "protocol": "https",
+                      "host": [
+                        "{{FastTrack1 Domain}}"
+                      ],
+                      "path": [
+                        "{{FastTrack1 Public Route 1}}",
+                        "ServiceRegistration",
+                        "CalculateFeeForService"
+                      ],
+                      "query": [
+                        {
+                          "key": "serviceDate",
+                          "value": "2019-05-03T00:00:00.0000000Z"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Fri, 11 Oct 2019 00:01:45 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "138"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": 2100,\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                }
+              ]
+            },
+            {
+              "name": "Save",
+              "_postman_id": "52cd4f01-0e20-4fa6-9d93-09cef334d70d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"studSireId\": 255840010,\n  \"studSireName\": \"FERNANDO BALE\",\n  \"studMasterName\": \"Mr PAUL WESTERVELD\",\n  \"isValidDam\": true,\n  \"fromList\": null,\n  \"currentServiceDetail\": {\n    \"damId\": 121002028\n  },\n  \"serviceDetails\": [\n    {\n      \"damId\": 121002028,\n      \"damName\": \"SUMMER SKYE\",\n      \"serviceType\": \"Artificial\",\n      \"dateBitchArrived\": \"2019-05-03T00:00:00.000Z\",\n      \"serviceDate\": \"2019-05-04T00:00:00.000Z\",\n      \"dateBitchDeparted\": \"2019-05-05T00:00:00.000Z\",\n      \"thirdPartyWitness\": \"Me\",\n      \"fee\": 0\n    },\n     {\n      \"damId\": 121002028,\n      \"damName\": \"SUMMER SKYE\",\n      \"serviceType\": \"Artificial\",\n      \"dateBitchArrived\": \"2019-05-04T00:00:00.000Z\",\n      \"serviceDate\": \"2019-05-05T00:00:00.000Z\",\n      \"dateBitchDeparted\": \"2019-05-06T00:00:00.000Z\",\n      \"thirdPartyWitness\": \"Me\",\n      \"fee\": 0\n    }\n  ]\n}\n"
+                },
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/Create",
+                "description": "Register for a service\n\n\n## Status Codes\n* 401 Unauthorised (Not the stud master.)\n* 400 Bad request (See the input errors.)\n\n\n## Inputs\n\nServiceRegistrationInputOutput  \n\n\n## Returns\n\nRegisterServicePaymentGatewayInput"
+              },
+              "response": []
+            },
+            {
+              "name": "Payment",
+              "_postman_id": "d120fd7f-8860-4a00-a002-5cc7c0e107bf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n            \"RegisterService_ServiceDetailsInputSRZ\": \"88f5d14cf1c2944a1a3eb3ac61378297||{\\\"StudSireId\\\":255840010,\\\"StudSireName\\\":\\\"FERNANDO BALE\\\",\\\"StudMasterName\\\":null,\\\"ServiceDetails\\\":[{\\\"DamId\\\":121002028,\\\"DamName\\\":\\\"SUMMER SKYE\\\",\\\"ServiceType\\\":\\\"Artificial\\\",\\\"DateBitchArrived\\\":{\\\"ticks\\\":636924384000000000},\\\"DateBitchDeparted\\\":{\\\"ticks\\\":636926112000000000},\\\"ServiceDate\\\":{\\\"ticks\\\":636925248000000000},\\\"ThirdPartyWitness\\\":\\\"Me\\\",\\\"Fee\\\":2000.00,\\\"HasLateFeeIncluded\\\":true,\\\"LateFee\\\":2000.00,\\\"BaseFee\\\":0.00},{\\\"DamId\\\":121002028,\\\"DamName\\\":\\\"SUMMER SKYE\\\",\\\"ServiceType\\\":\\\"Artificial\\\",\\\"DateBitchArrived\\\":{\\\"ticks\\\":636925248000000000},\\\"DateBitchDeparted\\\":{\\\"ticks\\\":636926976000000000},\\\"ServiceDate\\\":{\\\"ticks\\\":636926112000000000},\\\"ThirdPartyWitness\\\":\\\"Me\\\",\\\"Fee\\\":2000.00,\\\"HasLateFeeIncluded\\\":true,\\\"LateFee\\\":2000.00,\\\"BaseFee\\\":0.00}],\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailedAmendment\\\":null,\\\"AmendmentFailure\\\":false,\\\"FailureDuplicatePayment\\\":null,\\\"LoggedOnUserId\\\":0,\\\"ReceiptNumber\\\":null,\\\"IsImpersonating\\\":false}\",\n            \"PayWayDetails\": {\n                \"CreditCard\": null,\n                \"Cheque\": null,\n                \"PaymentMethod\": \"Cash\",\n                \"AmountToPay\": 4000.00\n            }\n        }"
+                },
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/PaymentGateway",
+                "description": "Register for a service\n\n\n## Status Codes\n* 409 Conflict (Possible duplicate payment.)\n* 400 Bad request (The service registration could not be completed. Please correct any errors before proceeding.)\n\n## Inputs\n\nServiceRegistrationInputOutput  \n\n\n## Returns\n\nRegisterServicePaymentGatewayInput"
+              },
+              "response": [
+                {
+                  "id": "a2b15b69-8836-4d62-a181-7df21c0cee9d",
+                  "name": "Register a service payment success (1 service)",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "value": "{{FastTrack1 ApiKey}}",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"RegisterService_ServiceDetailsInputSRZ\": \"814a4e09b02bb01598842c4002c0f29f||{\\\"StudSireId\\\":255840010,\\\"StudSireName\\\":\\\"FERNANDO BALE\\\",\\\"StudMasterName\\\":null,\\\"ServiceDetails\\\":[{\\\"DamId\\\":121002028,\\\"DamName\\\":\\\"SUMMER SKYE\\\",\\\"ServiceType\\\":\\\"Artificial\\\",\\\"DateBitchArrived\\\":{\\\"ticks\\\":636923520000000000},\\\"DateBitchDeparted\\\":{\\\"ticks\\\":636925248000000000},\\\"ServiceDate\\\":{\\\"ticks\\\":636924384000000000},\\\"ThirdPartyWitness\\\":\\\"Me\\\",\\\"Fee\\\":2100.00,\\\"HasLateFeeIncluded\\\":true,\\\"LateFee\\\":2100.00,\\\"BaseFee\\\":0.00}],\\\"PayWayDetails\\\":null,\\\"FailurePaymentDeclined\\\":null,\\\"FailureAuthorisation\\\":null,\\\"FailedAmendment\\\":null,\\\"AmendmentFailure\\\":false,\\\"FailureDuplicatePayment\\\":null,\\\"LoggedOnUserId\\\":0,\\\"ReceiptNumber\\\":null,\\\"IsImpersonating\\\":false}\",\n  \"PayWayDetails\": {\n    \"CreditCard\": null,\n    \"Cheque\": null,\n    \"PaymentMethod\": \"Cash\",\n    \"AmountToPay\": 2100.0\n  }\n}\n"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/ServiceRegistration/PaymentGateway"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 10 Oct 2019 23:40:01 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "325"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"permanent\": false,\n            \"routeName\": \"PaymentCompleted\",\n            \"routeValues\": {\n                \"id\": 483621814,\n                \"completionText\": \"Thank you, your service registration has been completed.\",\n                \"continueUrl\": \"/MyDogs/InvolvedDogs\"\n            }\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                }
+              ]
+            }
+          ],
+          "_postman_id": "b9512c8c-e48d-4ef8-b8b3-d4fef589dd2b",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "6eaf3d58-4951-4033-8619-73589f18e473",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "1617f692-eb62-46b0-99aa-7cbf19883d30",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
@@ -1300,7 +1919,7 @@
                   "mode": "raw",
                   "raw": "{\n\t\"breedingAuthorityFirstName\": \"Derek\",\n\t\"breedingAuthoritySurname\": \"A\",\n\t\"interstateAuthority\": false\n}"
                 },
-                "url": "https://{{FastTrack1 Domain}}/Dog/DogBreedingAuthority/325813347"
+                "url": "https://{{FastTrack1 Domain}}/Dog/DogBreedingAuthority/1673790021"
               },
               "response": []
             }
@@ -3600,7 +4219,193 @@
         },
         {
           "name": "Dog Kennel",
-          "item": [],
+          "item": [
+            {
+              "name": "Remove From Kennel",
+              "_postman_id": "f1abe4f8-eb38-4c76-916f-b283802d4490",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Dog/RemoveFromKennel?Id=325813348",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "{{FastTrack1 Public Route 1}}",
+                    "Dog",
+                    "RemoveFromKennel"
+                  ],
+                  "query": [
+                    {
+                      "key": "Id",
+                      "value": "325813348"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c931af68-199e-48a4-8e4e-6f80e6541715",
+                  "name": "Remove From Kennel - Successful",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "value": "{{FastTrack1 ApiKey}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Dog/RemoveFromKennel?Id=338107391",
+                      "protocol": "https",
+                      "host": [
+                        "{{FastTrack1 Domain}}"
+                      ],
+                      "path": [
+                        "{{FastTrack1 Public Route 1}}",
+                        "Dog",
+                        "RemoveFromKennel"
+                      ],
+                      "query": [
+                        {
+                          "key": "Id",
+                          "value": "338107391"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 07 Oct 2019 23:34:26 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "260"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"permanent\": false,\n            \"routeName\": \"InvolvedDogs\",\n            \"routeValues\": {}\n        },\n        \"tempData\": {\n            \"flash-success\": \"The dog was successfully removed from the kennel\"\n        },\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                },
+                {
+                  "id": "ca722c49-c9ec-430a-9823-7f1d8f323fb2",
+                  "name": "Remove From Kennel - Not successful, pre FT2-661",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "value": "{{FastTrack1 ApiKey}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Dog/RemoveFromKennel?Id=338107391",
+                      "protocol": "https",
+                      "host": [
+                        "{{FastTrack1 Domain}}"
+                      ],
+                      "path": [
+                        "{{FastTrack1 Public Route 1}}",
+                        "Dog",
+                        "RemoveFromKennel"
+                      ],
+                      "query": [
+                        {
+                          "key": "Id",
+                          "value": "338107391"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Found",
+                  "code": 302,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Location",
+                      "value": "https://localhost/LocalAuthentication/?wa=wsignin1.0&wtrealm=https%3a%2f%2ffasttracktestb.cloudapp.net%2f&wctx=rm%3d0%26id%3dpassive%26ru%3d%252fFT19%252f1p%252fDog%252fRemoveFromKennel%253fId%253d338107391&wct=2019-10-07T23%3a34%3a49Z"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 07 Oct 2019 23:34:49 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "364"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<html><head><title>Object moved</title></head><body>\r\n<h2>Object moved to <a href=\"https://localhost/LocalAuthentication/?wa=wsignin1.0&amp;wtrealm=https%3a%2f%2ffasttracktestb.cloudapp.net%2f&amp;wctx=rm%3d0%26id%3dpassive%26ru%3d%252fFT19%252f1p%252fDog%252fRemoveFromKennel%253fId%253d338107391&amp;wct=2019-10-07T23%3a34%3a49Z\">here</a>.</h2>\r\n</body></html>\r\n"
+                }
+              ]
+            }
+          ],
           "_postman_id": "cc6311ea-a771-4070-9c5d-cb8736e0491f",
           "description": "Adds the ablity to add a dog to *to kennel*\n\n\n## Status Codes  \n* 200 Ok\n* 403 Forbidden\n* 404 Not found\n* 500 Internal Server Error\n",
           "event": [
@@ -4118,6 +4923,941 @@
           }
         }
       ]
+    },
+    {
+      "name": "Dog Transfer",
+      "item": [
+        {
+          "name": "Initiate Transfer",
+          "item": [
+            {
+              "name": "Dog Transfer",
+              "_postman_id": "ec777090-2c8c-4011-85a7-c3e317016a51",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/DogTransfer/DogTransfer/139709862"
+              },
+              "response": [
+                {
+                  "id": "803bbd96-4b4b-4c3e-b718-0c3a2fc15b9f",
+                  "name": "Dog Transfer",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "value": "{{FastTrack1 ApiKey}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/DogTransfer/315843930"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 09 Oct 2019 02:32:51 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "906"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"newOwnersFirstName\": null,\n            \"newOwnersSurname\": null,\n            \"interstateTransfer\": false,\n            \"isInterstateOwner\": false,\n            \"newOwnersStreet\": null,\n            \"newOwnersSuburbOrTown\": null,\n            \"newOwnersState\": null,\n            \"newOwnersPostCode\": null,\n            \"phoneNumber\": null,\n            \"dogId\": 315843930,\n            \"dogName\": \"AMP METER\",\n            \"dogEarBrand\": \"VHSSW\",\n            \"dogMicrochip\": \"956000004921374\",\n            \"isSyndicateManager\": false,\n            \"possibleStates\": [\n                {\n                    \"selected\": false,\n                    \"text\": \"ACT\",\n                    \"value\": null\n                },\n                {\n                    \"selected\": false,\n                    \"text\": \"NSW\",\n                    \"value\": null\n                },\n                {\n                    \"selected\": false,\n                    \"text\": \"NT\",\n                    \"value\": null\n                },\n                {\n                    \"selected\": false,\n                    \"text\": \"QLD\",\n                    \"value\": null\n                },\n                {\n                    \"selected\": false,\n                    \"text\": \"SA\",\n                    \"value\": null\n                },\n                {\n                    \"selected\": false,\n                    \"text\": \"TAS\",\n                    \"value\": null\n                },\n                {\n                    \"selected\": false,\n                    \"text\": \"WA\",\n                    \"value\": null\n                },\n                {\n                    \"selected\": false,\n                    \"text\": \"NZ\",\n                    \"value\": null\n                },\n                {\n                    \"selected\": false,\n                    \"text\": \"Other\",\n                    \"value\": null\n                }\n            ]\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": \"DogTransfer\"\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                }
+              ]
+            },
+            {
+              "name": "Dog Transfer",
+              "_postman_id": "d85fc2b8-d8de-46fe-8494-8870baff98c3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"newOwnersFirstName\": \"First\",\n\t\"newOwnersSurname\": \"Surname\",\n\t\"interstateAuthority\": false,\n\t\"phoneNumber\": \"0401234567\"\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/DogTransfer/DogTransfer/246692423"
+              },
+              "response": [
+                {
+                  "id": "a26fdef9-cb2a-47f3-919b-e8c40df90de0",
+                  "name": "Dog Transfer - Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "value": "{{FastTrack1 ApiKey}}",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"newOwnersFirstName\": \"Derek\",\n\t\"newOwnersSurname\": \"A\",\n\t\"interstateAuthority\": false,\n\t\"phoneNumber\": \"0401999888\"\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/DogTransfer/315843930"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 09 Oct 2019 02:34:58 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "217"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"permanent\": false,\n            \"routeName\": \"SubmittedTransfer\",\n            \"routeValues\": {\n                \"key\": \"4829274271\"\n            }\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                },
+                {
+                  "id": "fd74b56f-31c2-4d56-8a80-df8e2c89df3e",
+                  "name": "Dog Transfer - Failure",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "value": "{{FastTrack1 ApiKey}}",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"newOwnersFirstName\": \"Derek\",\n\t\"newOwnersSurname\": \"A\",\n\t\"interstateAuthority\": false,\n\t\"phoneNumber\": \"0401999888\"\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/DogTransfer/315843930"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 09 Oct 2019 02:35:26 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "299"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"permanent\": false,\n            \"routeName\": \"InvolvedDogs\",\n            \"routeValues\": {}\n        },\n        \"tempData\": {\n            \"flash-error\": \"Transfer was not submitted. Try again or contact GRV\"\n        },\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [\n        \"FAILED_TO_CREATE_TRANSFER\"\n    ],\n    \"message\": \"Bad request\",\n    \"status\": 400,\n    \"success\": false\n}"
+                }
+              ]
+            }
+          ],
+          "_postman_id": "335b225f-2d97-47f0-a5e3-b41f642c6bb4",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "100da527-8f7e-4f53-8e68-ad3cef1df192",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "b663d78e-036b-4e09-8259-918461e1aa2c",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Accept Transfer",
+          "item": [
+            {
+              "name": "Accept Transfer",
+              "_postman_id": "6c6aeaa2-f842-4e2a-9b61-8e0202175d5c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "value": "{{FastTrack1 ApiKey}}",
+                    "type": "text"
+                  }
+                ],
+                "url": "https://{{FastTrack1 Domain}}/DogTransfer/AcceptTransfer"
+              },
+              "response": []
+            },
+            {
+              "name": "Validate Transfer Key",
+              "_postman_id": "454265ca-5998-4f42-830b-cea4d48b1cf2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  }
+                ],
+                "url": {
+                  "raw": "https://{{FastTrack1 Domain}}/DogTransfer/ValidateTransferKey?transferKey=4852781273&earBrand=VHSSW",
+                  "protocol": "https",
+                  "host": [
+                    "{{FastTrack1 Domain}}"
+                  ],
+                  "path": [
+                    "DogTransfer",
+                    "ValidateTransferKey"
+                  ],
+                  "query": [
+                    {
+                      "key": "transferKey",
+                      "value": "4852781273"
+                    },
+                    {
+                      "key": "earBrand",
+                      "value": "VHSSW"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a330e4e1-9588-4e57-bdf1-ee408b9bf274",
+                  "name": "Validate Transfer Key - key & ear brand valid",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"transferKey\": 4852781214,\n\t\"earBrand\": \"VHSSW\"\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/ValidateTransferKey"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 16 Oct 2019 00:00:04 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "446"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"dogEarBrand\": \"VHSSW\",\n            \"transferKey\": null,\n            \"keyComboValid\": true,\n            \"namedDog\": true,\n            \"dogName\": \"AMP METER\",\n            \"microchipNumber\": \"956000004921374\",\n            \"selfOwned\": false,\n            \"impersonating\": false,\n            \"forceOwnershipChange\": false,\n            \"transferFee\": 0,\n            \"selectedSyndicate\": 0,\n            \"possibleSyndicates\": null,\n            \"isDisqualified\": false,\n            \"isSuspended\": false\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                },
+                {
+                  "id": "abe5b8fa-457f-4c48-8bdd-5d1af3950e50",
+                  "name": "Validate Transfer Key - ear brand valid",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"transferKey\": 48527812141,\n\t\"earBrand\": \"VHSSW\"\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/ValidateTransferKey"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 16 Oct 2019 00:00:43 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "447"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"dogEarBrand\": \"VHSSW\",\n            \"transferKey\": null,\n            \"keyComboValid\": false,\n            \"namedDog\": true,\n            \"dogName\": \"AMP METER\",\n            \"microchipNumber\": \"956000004921374\",\n            \"selfOwned\": false,\n            \"impersonating\": false,\n            \"forceOwnershipChange\": false,\n            \"transferFee\": 0,\n            \"selectedSyndicate\": 0,\n            \"possibleSyndicates\": null,\n            \"isDisqualified\": false,\n            \"isSuspended\": false\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                },
+                {
+                  "id": "ef7542a2-e5a5-4cf4-9517-836948e02fbe",
+                  "name": "Validate Transfer Key - ear brand not valid",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"transferKey\": 4852781214,\n\t\"earBrand\": \"VHSSW1\"\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/ValidateTransferKey"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 16 Oct 2019 00:00:25 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "425"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"dogEarBrand\": null,\n            \"transferKey\": null,\n            \"keyComboValid\": false,\n            \"namedDog\": false,\n            \"dogName\": null,\n            \"microchipNumber\": null,\n            \"selfOwned\": false,\n            \"impersonating\": false,\n            \"forceOwnershipChange\": false,\n            \"transferFee\": 0,\n            \"selectedSyndicate\": 0,\n            \"possibleSyndicates\": null,\n            \"isDisqualified\": false,\n            \"isSuspended\": false\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                }
+              ]
+            },
+            {
+              "name": "Accept Transfer",
+              "_postman_id": "6ccf051a-03fd-49ea-bfd7-eaea4b256f2e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"DogEarBrand\": \"NGBZT\",\n    \"TransferKey\": \"4852781435\",\n    \"SelfOwned\": false,\n    \"SelectedSyndicate\": \"-231274\"\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/DogTransfer/AcceptTransfer"
+              },
+              "response": [
+                {
+                  "id": "41d6088e-4ad9-44fe-b61e-9db84a4cd3ab",
+                  "name": "Accept Transfer - Minimal success back to self",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"dogEarBrand\": \"VHSSW\",\n    \"transferKey\": 4852781257\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/AcceptTransfer"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 16 Oct 2019 00:12:56 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "271"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"permanent\": false,\n            \"routeName\": \"InvolvedDogs\",\n            \"routeValues\": {}\n        },\n        \"tempData\": {\n            \"flash-success\": \"Successfully transferred ownership of AMP METER to yourself\"\n        },\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                },
+                {
+                  "id": "b13c8d7f-1009-4251-879b-745dbea5a523",
+                  "name": "Accept Transfer - Success back to self",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"dogEarBrand\": \"VHSSW\",\n    \"transferKey\": 4829274271,\n    \"keyComboValid\": true,\n    \"namedDog\": true,\n    \"dogName\": \"AMP METER\",\n    \"microchipNumber\": \"956000004921374\",\n    \"selfOwned\": false,\n    \"impersonating\": false,\n    \"forceOwnershipChange\": false,\n    \"transferFee\": 0,\n    \"selectedSyndicate\": 0,\n    \"possibleSyndicates\": null,\n    \"isDisqualified\": false,\n    \"isSuspended\": false\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/AcceptTransfer"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 09 Oct 2019 04:07:04 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "271"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"permanent\": false,\n            \"routeName\": \"InvolvedDogs\",\n            \"routeValues\": {}\n        },\n        \"tempData\": {\n            \"flash-success\": \"Successfully transferred ownership of AMP METER to yourself\"\n        },\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                }
+              ]
+            },
+            {
+              "name": "Accept Transfer Payment",
+              "_postman_id": "0c6d1c9f-b633-4fe7-b1fe-32dfb6c10f22",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"serialisedBase\": \"45ae63758416037304d376fca3db47e6||{\\\"IsSelfOwnership\\\":true,\\\"OwningSyndicateId\\\":null,\\\"OwningSyndicateName\\\":\\\"\\\",\\\"DogId\\\":315843930,\\\"DogName\\\":\\\"AMP METER\\\",\\\"ForceOwnershipChange\\\":false,\\\"DateEffective\\\":{\\\"ticks\\\":637067808000000000}}\",\n  \"serialisedFinanceAccount\": null,\n  \"payWayDetails\": {\n    \"CreditCard\": null,\n    \"Cheque\": null,\n    \"PaymentMethod\": \"Cash\",\n    \"AmountToPay\": 36.0\n  },\n  \"paymentDiscount\": {\n    \"fastTrackPaymentDiscountPercentage\": 10.0,\n    \"isImpersonating\": false,\n    \"hasPenaltyFee\": false,\n    \"fastTrackPaymentDiscountTotal\": 0.0\n  },\n  \"baseFee\": 40.0\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/DogTransfer/AcceptTransferPayment"
+              },
+              "response": [
+                {
+                  "id": "1fa866d1-18f1-4263-9095-537a29408940",
+                  "name": "Accept Transfer - Success back to self",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"dogEarBrand\": \"VHSSW\",\n    \"transferKey\": 4829274271,\n    \"keyComboValid\": true,\n    \"namedDog\": true,\n    \"dogName\": \"AMP METER\",\n    \"microchipNumber\": \"956000004921374\",\n    \"selfOwned\": false,\n    \"impersonating\": false,\n    \"forceOwnershipChange\": false,\n    \"transferFee\": 0,\n    \"selectedSyndicate\": 0,\n    \"possibleSyndicates\": null,\n    \"isDisqualified\": false,\n    \"isSuspended\": false\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/AcceptTransfer"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 09 Oct 2019 04:07:04 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "271"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"permanent\": false,\n            \"routeName\": \"InvolvedDogs\",\n            \"routeValues\": {}\n        },\n        \"tempData\": {\n            \"flash-success\": \"Successfully transferred ownership of AMP METER to yourself\"\n        },\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                },
+                {
+                  "id": "448f3719-dede-4411-b9d3-01bbd0ec7710",
+                  "name": "Accept Transfer Payment - Successful payment",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"serialisedBase\": \"45ae63758416037304d376fca3db47e6||{\\\"IsSelfOwnership\\\":true,\\\"OwningSyndicateId\\\":null,\\\"OwningSyndicateName\\\":\\\"\\\",\\\"DogId\\\":315843930,\\\"DogName\\\":\\\"AMP METER\\\",\\\"ForceOwnershipChange\\\":false,\\\"DateEffective\\\":{\\\"ticks\\\":637067808000000000}}\",\n  \"serialisedFinanceAccount\": null,\n  \"payWayDetails\": {\n    \"CreditCard\": null,\n    \"Cheque\": null,\n    \"PaymentMethod\": \"Cash\",\n    \"AmountToPay\": 36.0\n  },\n  \"paymentDiscount\": {\n    \"fastTrackPaymentDiscountPercentage\": 10.0,\n    \"isImpersonating\": false,\n    \"hasPenaltyFee\": false,\n    \"fastTrackPaymentDiscountTotal\": 0.0\n  },\n  \"baseFee\": 40.0\n}\n"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/AcceptTransferPayment"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 16 Oct 2019 00:16:57 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "337"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"permanent\": false,\n            \"routeName\": \"PaymentCompleted\",\n            \"routeValues\": {\n                \"id\": 485279624,\n                \"completionText\": \"You have successfully transferred ownership of AMP METER to yourself\",\n                \"continueUrl\": \"/MyDogs/InvolvedDogs\"\n            }\n        },\n        \"tempData\": {},\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                },
+                {
+                  "id": "a86979f8-e61c-469d-8ffc-282b42aba35b",
+                  "name": "Accept Transfer - Minimal success back to self",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-ApiKey",
+                        "type": "text",
+                        "value": "{{FastTrack1 ApiKey}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"dogEarBrand\": \"VHSSW\",\n    \"transferKey\": 4852781257\n}"
+                    },
+                    "url": "https://{{FastTrack1 Domain}}/DogTransfer/AcceptTransfer"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Cache-Control",
+                      "value": "private, no-store,no-cache"
+                    },
+                    {
+                      "key": "Pragma",
+                      "value": "nocache"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Expires",
+                      "value": "Thu, 01 Jan 1970 00:00:00 GMT,-1"
+                    },
+                    {
+                      "key": "Set-Cookie",
+                      "value": "__TempData=; path=/; secure; HttpOnly"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "DENY"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 16 Oct 2019 00:12:56 GMT"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "271"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"model\": {\n            \"permanent\": false,\n            \"routeName\": \"InvolvedDogs\",\n            \"routeValues\": {}\n        },\n        \"tempData\": {\n            \"flash-success\": \"Successfully transferred ownership of AMP METER to yourself\"\n        },\n        \"viewBag\": {},\n        \"viewName\": null\n    },\n    \"length\": 11,\n    \"messages\": [],\n    \"message\": \"Ok\",\n    \"status\": 200,\n    \"success\": true\n}"
+                }
+              ]
+            }
+          ],
+          "_postman_id": "8ca1e730-8c3d-47bb-bcdb-90d931ff545b",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "aff83717-425c-4f97-9959-109db00e60bd",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "1c637309-86bb-4e1f-8ecc-a063f3d6fe34",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        }
+      ],
+      "_postman_id": "94089ba7-17fb-4ef4-8bcd-ea9fb7e5b3bd"
     },
     {
       "name": "Person",
@@ -5383,145 +7123,145 @@
   ],
   "variable": [
     {
-      "id": "14732ab7-4bac-4bc7-8ba0-dd0bc2a8fb30",
+      "id": "d1ed25b3-1bad-4772-830b-b868fe52e7c3",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "0cd0c85d-33c3-4606-aef3-e12ed941fb23",
+      "id": "5987c2a4-6408-4ef3-abe1-b56ad61d087d",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "e3dc6d6e-ced9-46ad-a92d-09e07054b664",
+      "id": "9c87219c-997b-416a-a2d7-0db4f9b53940",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "08ae23b7-381d-4b01-bf18-e731fb2101fd",
+      "id": "9359d2a3-bba6-4187-b943-d60d933315fb",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "c53130de-ffe2-4ee5-b010-fbf69b37b11c",
+      "id": "129164da-2b19-45a9-b661-527e82821679",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "703a9a03-b2bb-44be-941a-081eabc8f2ea",
+      "id": "23f984c3-a31b-4c79-8c06-50772ae41785",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "518a0e14-5a7c-4e74-a145-9927c041d3b4",
+      "id": "51a5a2fe-ea9e-43b7-80a3-57e480982c8a",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "4297be5b-9b77-4511-bb92-e2dd6d8c09ba",
+      "id": "fb70daf1-822a-48ea-a149-41af55616178",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "ba8cee1f-e394-4eeb-b975-a1053b3f8bc0",
+      "id": "f6f82d02-7f59-4a5d-92a3-da8ba2b9deee",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "70a5623e-64a7-4a8c-888b-027294aa0650",
+      "id": "d9074845-08ae-417e-95e0-18de3a6e2fdf",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "fe57069f-dde8-41d3-9df3-f7185e469632",
+      "id": "10a28c13-84ca-4a6b-80ea-38945f1f5d96",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "00f77e88-7377-4362-b516-464f51f5607b",
+      "id": "98d2bdeb-2195-4596-af9e-9ec39149869f",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "758633ab-3c64-4b7b-a0f4-d4db1f6b3081",
+      "id": "9de5da42-3196-419b-852f-4f03d1b932db",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "c05163aa-5e57-4c7d-81fc-cf54e96c1414",
+      "id": "87ae570a-4492-4751-b1ea-65ef367422ee",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "d9f83039-c655-4910-bbf2-da2dac62a9c4",
+      "id": "e547c951-4d9a-4f86-bbe7-277c86a03176",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "4c22e402-a6e6-4c8a-be95-8b3e99fcef03",
+      "id": "ce2a2bad-289d-47da-a753-d94cca8a2bab",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "9be392c0-33fa-4e55-9138-36eb86fdfbae",
+      "id": "72b74a66-6dcd-4ae2-8272-52f367733d88",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "6ced7ca8-6d94-4fbb-b33e-7a49c812bee5",
+      "id": "993f7996-883d-4b9f-8ddb-cc5d22f07448",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "2c88ab39-0570-4cf3-9109-d5500348b624",
+      "id": "1099b877-5e16-499d-bea1-25e803021766",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "b1336dd3-93df-4c9f-bafb-2a86630ebd42",
+      "id": "d90ceb21-8785-42a2-899b-81fe07bdcc84",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "198d506a-5b3a-4361-9b11-a916809e9565",
+      "id": "e85ae598-27bc-462c-bca3-6d51be176463",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
     },
     {
-      "id": "c65c3e31-1c17-4861-9b20-74f0bfeaf165",
+      "id": "c701c695-07c2-409d-9ce1-dbe577c72f9e",
       "key": "FasTrack1 BlackBook Dog Id",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "d5cc7794-ee4b-4e42-b38b-05e347ca3c10",
+      "id": "f678274e-cf68-4a23-8d86-e4c8d4c398b7",
       "key": "FastTrack1 Custom Route 1",
       "value": "FT19/1c",
       "type": "string"
     },
     {
-      "id": "e9f70184-a3ea-40f3-8762-0ba876aeab36",
+      "id": "a3faf068-c3ec-4504-9891-d6da32005fab",
       "key": "FastTrack1 Public Route 1",
       "value": "FT19/1p",
       "type": "string"
