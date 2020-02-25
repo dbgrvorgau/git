@@ -2142,9 +2142,20 @@
                 "key": "X-ApiKey",
                 "value": "{{FastTrack1 ApiKey}}",
                 "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
               }
             ],
-            "url": "https://{{FastTrack1 Domain}}/Dog/DogCancelBreedingAuthority/246692423"
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"id\":246692423\n}",
+              "options": {}
+            },
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Public Route 1}}/Dog/DogCancelBreedingAuthority"
           },
           "response": []
         },
@@ -7054,6 +7065,61 @@
               "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-08-21T06:15:43.7928450Z\",\n        \"length\": 0,\n        \"messages\": [],\n        \"messageContext\": [\n            [\n                0,\n                200,\n                \"Your account details have been updated.\"\n            ]\n        ],\n        \"data\": [],\n        \"dataContext\": [],\n        \"message\": \"Your account details have been updated.\",\n        \"status\": 200,\n        \"success\": true\n    }\n}"
             }
           ]
+        },
+        {
+          "name": "Trial Tracks",
+          "_postman_id": "3033aa08-1fbc-4602-b3a8-f5253499d34e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/TrialBooking/GetTrialTracks"
+          },
+          "response": []
+        },
+        {
+          "name": "Trial Sessions",
+          "_postman_id": "46ef004e-2159-4fbf-a088-4c1335acd54f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/TrialBooking/GetTrialSessions?trackId=-122",
+              "protocol": "https",
+              "host": [
+                "{{FastTrack1 Domain}}"
+              ],
+              "path": [
+                "{{FastTrack1 Custom Route 1}}",
+                "TrialBooking",
+                "GetTrialSessions"
+              ],
+              "query": [
+                {
+                  "key": "trackId",
+                  "value": "-122"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "_postman_id": "9eea10ea-ae89-488b-84e8-487e99b17384"
@@ -7123,145 +7189,145 @@
   ],
   "variable": [
     {
-      "id": "d1ed25b3-1bad-4772-830b-b868fe52e7c3",
+      "id": "c5bd4d01-b1c4-4dca-b33b-661c66145c14",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "5987c2a4-6408-4ef3-abe1-b56ad61d087d",
+      "id": "e0ecb7c7-2e02-43d7-a13e-e025ffeaaf49",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "9c87219c-997b-416a-a2d7-0db4f9b53940",
+      "id": "cb87ca83-f4b3-4408-b226-454ffacc2c39",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "9359d2a3-bba6-4187-b943-d60d933315fb",
+      "id": "ffbcb096-f5da-4c8a-b6af-8fad44eb30e3",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "129164da-2b19-45a9-b661-527e82821679",
+      "id": "e9f24480-985d-49af-a320-3bd515b6b79f",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "23f984c3-a31b-4c79-8c06-50772ae41785",
+      "id": "88b3feeb-7565-4147-b444-65b5ab6d817e",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "51a5a2fe-ea9e-43b7-80a3-57e480982c8a",
+      "id": "90336bb7-a0cf-4dfb-8a45-42c9b8262692",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "fb70daf1-822a-48ea-a149-41af55616178",
+      "id": "67a643e5-479d-4a2d-8c73-01a72f68c266",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "f6f82d02-7f59-4a5d-92a3-da8ba2b9deee",
+      "id": "3efcc131-6f59-4363-bc96-92d150ab630e",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "d9074845-08ae-417e-95e0-18de3a6e2fdf",
+      "id": "d7995433-655c-467e-8cd1-e285ca82bd4b",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "10a28c13-84ca-4a6b-80ea-38945f1f5d96",
+      "id": "db95999c-c746-4f77-8810-de77aa2861a6",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "98d2bdeb-2195-4596-af9e-9ec39149869f",
+      "id": "dd2e7ad3-2acb-4050-aa57-0315120876be",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "9de5da42-3196-419b-852f-4f03d1b932db",
+      "id": "149750f4-bac9-421d-803c-899dbc954a54",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "87ae570a-4492-4751-b1ea-65ef367422ee",
+      "id": "12e527e1-a018-44ef-960e-ac370fc41e38",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "e547c951-4d9a-4f86-bbe7-277c86a03176",
+      "id": "f0716d40-cf9c-4e32-8329-6947f5445342",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "ce2a2bad-289d-47da-a753-d94cca8a2bab",
+      "id": "c72dcf0c-b2a1-4531-ad32-6a8befb4c6a2",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "72b74a66-6dcd-4ae2-8272-52f367733d88",
+      "id": "27a946ca-be63-442a-9c5c-7623c1d03e7e",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "993f7996-883d-4b9f-8ddb-cc5d22f07448",
+      "id": "c592464b-e41c-4b32-b912-2382cb1fa399",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "1099b877-5e16-499d-bea1-25e803021766",
+      "id": "d10fd184-23e2-4fe0-981d-6008d0dd52e5",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "d90ceb21-8785-42a2-899b-81fe07bdcc84",
+      "id": "d7a6742d-93d4-4043-8fef-a47e43115435",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "e85ae598-27bc-462c-bca3-6d51be176463",
+      "id": "77e89834-1af1-49bd-a1cf-1de7f4c409e2",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
     },
     {
-      "id": "c701c695-07c2-409d-9ce1-dbe577c72f9e",
+      "id": "8f2d178a-7b9c-4303-b49b-a92841985bb9",
       "key": "FasTrack1 BlackBook Dog Id",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "f678274e-cf68-4a23-8d86-e4c8d4c398b7",
+      "id": "8f514e20-d39d-4acd-b046-f240b2311d8f",
       "key": "FastTrack1 Custom Route 1",
       "value": "FT19/1c",
       "type": "string"
     },
     {
-      "id": "a3faf068-c3ec-4504-9891-d6da32005fab",
+      "id": "3da3d5ec-9d1d-4790-9d74-7e73122eaebb",
       "key": "FastTrack1 Public Route 1",
       "value": "FT19/1p",
       "type": "string"
