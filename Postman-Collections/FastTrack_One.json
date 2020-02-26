@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "212d9f75-b645-4973-9f35-d97881a6f1c6",
-    "name": "Master FastTrack One# 1",
+    "name": "Master FastTrack One#",
     "description": "# Introduction\r\nProvides access to FastTrack One\r\n\r\n# Overview\r\nTo access any functionality in FastTrack One a user must be logged in\r\n\r\n# Authentication\r\nTo access any functionality in FastTrack One a user must be logged in\r\n\r\n# Error Codes\r\n\r\nPossible status codes\r\n500 InternalServerError\r\n401 Unauthorized\r\n201 Created\r\n200 Ok\r\n\r\n\r\n# Error Message\r\nThese are messages return in the meta data objkect \r\nThe error messages will have some text and code that is documented in the API its self.  \r\n\r\n\r\n\r\n# Sampling Parameters\r\n\r\nSome API return list of data and require sample size information.   \r\n\r\nThe sample size is used to determijne how many records are sampled and the sample age specifies how many units old the data can be that is sampled.\r\n\r\nA sample age type is determined by the method being called and the documentation should reflect if it is years, months, day, hours or minutes.\r\n\r\n\r\n# Result with Meta Data\r\n\r\nResults return the results and meta data\r\n\r\n```\r\ninterface Meta<T>: Wrap<T> {\r\n   error: string (nullable)\r\n   dateCreated: string\r\n   totalNumberRows: int\r\n   take: int\r\n   skip: int\r\n}\r\n```\r\n\r\n# Result Wrapper  \r\n\r\nResults are always wrapped  \r\n\r\n\r\n```\r\ninterface Wrap<T> {\r\n   result: T\r\n}\r\n```\r\n\r\nA result gets wrapped. The meta data provides meta information for the result.  \r\n\r\n---\r\n\r\n# API Exception Handler\r\n\r\nThe following error codes are known to the API Error Handler.  \r\n\r\n## ArgumentNullException  \r\n\r\n```\r\n{\r\n   ErrorCode = 400,\r\n   \"ErrorMessage\" : \"Bad Request (F1.2)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n\r\n\r\n## ArgumentOutOfRangeException  \r\n\r\n```\r\n{\r\n   ErrorCode = 400,\r\n   \"ErrorMessage\" : \"Bad Request (F1.3)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n\r\n\r\n## ArgumentOutOfRangeException  \r\n\r\n```\r\n{\r\n   ErrorCode = 400,\r\n   \"ErrorMessage\" : \"Bad Request (F1.1)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n\r\n## Catch all   \r\n\r\n```\r\n{\r\n   ErrorCode = 500,\r\n   \"ErrorMessage\" : \"Internal Server Error (F1)\",\r\n   \"StatusCode\": 500\r\n}\r\n```\r\n\r\n---\r\n\r\n# Payway Details\r\n```\r\n\r\n\r\nexport enum PaymentMethods {\r\n    Cheque,\r\n    Cash,\r\n    MoneyOrder,\r\n    CreditCard,\r\n    Postbillpay,\r\n    BankTransfer\r\n}\r\n\r\nexport interface PayWayDetails\r\n{\r\n\r\n    isMSO: boolean = false;\r\n    isFeeAmendmentDisabled: boolean;\r\n    creditCard: CardPaymentDetails;\r\n    cheque: ChequePaymentDetails;\r\n    moneyOrder: MoneyOrderDetails;\r\n    PaymentMethod:PaymentMethods;\r\n    amountToPay: number;\r\n    isFeeAmended: boolean;\r\n    authorisedPerson: string;\r\n    authorisationCode: string;\r\n    reason: string;\r\n    doDuplicateCheck: boolean;\r\n    isDuplicateDetected: boolean;\r\n    isDuplicateOverridden: boolean;\r\n    isPostbillpayDisabled: boolean;\r\n\r\n}\r\n\r\n\r\nexport interface CardPaymentDetails \r\n{\r\n    cardholder: string;\r\n    number: string;\r\n    expiryMonth: string;\r\n    expiryYear: string;\r\n    CCV: string;\r\n}\r\n\r\nexport interface ChequePaymentDetails{       \r\n    accountNumber: string;\r\n    bank: string;\r\n    BSB: string;\r\n    drawer: string;\r\n    chequeNumber: string;\r\n}\r\n\r\nexport interface MoneyOrderDetails \r\n{\r\n    drawer: string;\r\n    issuingOffice: string;\r\n    moneyOrderNo: string;\r\n}  \r\n\r\n```\r\n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
@@ -7697,6 +7697,7 @@
       "listen": "prerequest",
       "script": {
         "id": "7b77f7e6-b779-4794-aa85-bb08a1b6c9ff",
+        "type": "text/javascript",
         "exec": [
           "const API_KEY_VAR = 'FastTrack1 ApiKey';",
           "const API_KEY_EXPIRY_VAR = `${API_KEY_VAR} Expiry`;",
@@ -7739,152 +7740,161 @@
           "",
           "getNewToken();",
           ""
-        ],
-        "type": "text/javascript"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "8534b31f-ec66-4484-939a-2d9d001a6a04",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
       }
     }
   ],
   "variable": [
     {
-      "id": "15590311-6621-4058-ac09-19174c1235c8",
+      "id": "61d6026b-64bc-4ede-ac16-cedce88323f2",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "8d6d5a94-1088-4b18-85e3-012c1a3eb64e",
+      "id": "10465dfd-5a0c-4b4d-990c-da47ec056c18",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "47d3f96b-d20d-472e-8948-ea7ef91c0272",
+      "id": "f312304c-e8a6-463a-b794-df02509073f7",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "99a3b706-1576-4dac-8975-6c69fe58cd45",
+      "id": "76965837-0b38-4a28-91e4-1ea7456fc948",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "831a2bf3-eda2-428d-a87e-0dd949725836",
+      "id": "3af8fde0-b0c9-435c-aeb2-7d2f8c84c7b8",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "29ab55d6-5a78-4069-870c-36f2bd2743df",
+      "id": "36766049-5c6e-45a1-96f2-a383149e2144",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "2e02ec25-f6bd-4cf5-8881-3e72da57db6c",
+      "id": "89bb04b9-16c2-4d0a-b408-a25e3213519a",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "23ff7625-5b91-476b-8c4d-4a3492354cc4",
+      "id": "07a4b2a9-882a-42e1-b481-3bb61c35c156",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "759a9b94-bd25-4331-87ab-6e5df7c1ca31",
+      "id": "6b6d1573-45a6-4a53-9b75-d97f0e1ac6e7",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "5f717ccb-1a21-4b47-ac15-ad5e5cfbae48",
+      "id": "94d130ae-ce29-4eb7-be57-19ff45711e09",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "22f77798-edd0-4075-9656-aff0c5c88dc6",
+      "id": "b4176ba4-2acf-42d9-9933-d762cbc18141",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "f89e1df9-9b75-43d0-a4c9-d9b762f1acce",
+      "id": "e30b8901-43cd-4146-88ec-13d5d38f6967",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "627a5057-944c-4368-a580-29772a91b0d9",
+      "id": "6df438c3-6b2a-45f3-aa34-8de13afba011",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "d217f3ab-eab4-4232-b914-8ca601fd1e01",
+      "id": "d12e7151-ef66-406b-9930-252acd890b1e",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "1e0979da-dc46-4944-a359-59de5d6e5bd1",
+      "id": "da22a931-a445-4b33-91a0-9b4344b6f3c2",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "dc268d36-62f2-47a6-929c-5717df688e13",
+      "id": "cd8a5e6e-6fc3-406f-8403-e8b136b075e0",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "070c9582-bf8a-4e96-ba54-28c4c8c2a88c",
+      "id": "f0fb9708-6e0b-44fe-a5da-5d8c47198497",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "b04bfdc3-575c-4c2b-a363-4bc966795ea9",
+      "id": "b4fc05e6-b52f-4823-9df9-f9a4936f304c",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "62effa79-ea2d-43f7-b282-f03719936054",
+      "id": "f7949416-a78a-4d12-9742-22b14b60f64c",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "09e5a15b-36c9-4442-9f69-03cd2aa2fb95",
+      "id": "911571fd-f319-4569-a734-6654704724df",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "de8adcc4-8f36-47e4-a3d1-6faf61b77dff",
+      "id": "f2a5c9a6-63ee-42b2-b272-5436fb2ab24b",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
     },
     {
-      "id": "66122e42-c502-4663-bc9f-7598d3c71ae4",
+      "id": "816ce2e7-40ba-4bb9-82ed-4cfaafee6a6c",
       "key": "FasTrack1 BlackBook Dog Id",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "3e8b1578-a6f6-45bb-92dd-146dda106f5d",
+      "id": "4b6b299e-5907-4fb2-9fa7-0e34078b120f",
       "key": "FastTrack1 Custom Route 1",
       "value": "FT19/1c",
       "type": "string"
     },
     {
-      "id": "bebf2492-6b0c-4a62-ac0b-494193ef20b6",
+      "id": "79fb51a7-4e75-4cf5-af29-4b00f5211397",
       "key": "FastTrack1 Public Route 1",
       "value": "FT19/1p",
       "type": "string"
