@@ -7202,6 +7202,116 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Save MyAccount Copy",
+          "_postman_id": "2c0c7d13-d0a0-4683-a043-c988e52f4192",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ApiKey",
+                "value": "{{FastTrack1 ApiKey}}",
+                "type": "text",
+                "description": "Certificate provided by Security/LoginAsUser"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"input\": {\n        \"memberNumber\": \"27292\",\n        \"personName\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"PAUL\",\n            \"surname\": \"WESTERVELD\"\n        },\n        \"personId\": -27292,\n        \"email\": \"fasttrackbuild+27292123123123@gmail.com\",\n        \"dateOfBirth\": \"2000-08-21T05:29:01Z\",\n        \"gender\": \"Male\",\n        \"residentialAddress\": {\n            \"street\": \"4 CANTERBURY COURT\",\n            \"suburb\": \"SUBURB\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3808\",\n            \"country\": \"Australia\"\n        },\n        \"postalAddress\": {\n            \"street\": \"PO BOX 663\",\n            \"suburb\": \"BERWICKs\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3806\",\n            \"country\": \"Australia\"\n        },\n        \"homePhone\": {\n            \"number\": \"1231231\"\n        },\n        \"mobilePhone\": {\n            \"number\": \"0123456879\"\n        },\n        \"businessPhone\": {\n            \"number\": \"122231231\"\n        },\n        \"occupation\": \"Fertility and Reproduction/Studmaster\",\n        \"marketingOptIn\": true,\n        \"interstateRegistration\": null,\n        \"isAbleToUpload\": true,\n        \"isAbleToAssociateInterstateAcount\": false,\n        \"photoFile\": null,\n        \"isPostalAddressDifferent\": true,\n        \"isInterstateUser\": false,\n        \"photoImageUrl\": \"https://fasttracktestb.blob.core.windows.net/fasttrackresources/Photos/-27292.jpg?st=2019-08-21T03%3A31%3A38Z&se=2019-08-21T03%3A37%3A38Z&sr=b&sp=r&sig=pGhoozYzNjcs3Pdx1B5qndArCLwCcDe04WfkbG%2FzcZM%3D\",\n        \"personPhotoId\": null,\n        \"personPhotoDateAdded\": \"2019-08-21T05:29:01Z\",\n        \"requiresNewPhoto\": true,\n        \"isParticipant\": true,\n        \"canUpdateAllDetailsInThisRelease\": true,\n        \"hasOptedOutOfReceivingSMSNotifications\": false,\n        \"isParticipantNameOnPublicTrainersList\": false,\n        \"isEligibleForPublicTrainersList\": false\n    }\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/SaveMyAccountDetails",
+            "description": "Update Black Book\n\n\n\n\n\n## Returns\n"
+          },
+          "response": [
+            {
+              "id": "51c7acd4-f840-4b86-8043-39571294be0d",
+              "name": "Save MyAccount",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Certificate provided by Security/LoginAsUser",
+                    "key": "X-ApiKey",
+                    "type": "text",
+                    "value": "{{FastTrack1 ApiKey}}"
+                  },
+                  {
+                    "key": "skip",
+                    "type": "text",
+                    "value": "0"
+                  },
+                  {
+                    "key": "take",
+                    "type": "text",
+                    "value": "10"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"input\": {\n        \"memberNumber\": \"27292\",\n        \"personName\": {\n            \"title\": \"Mr\",\n            \"firstName\": \"PAUL\",\n            \"surname\": \"WESTERVELD\"\n        },\n        \"personId\": -27292,\n        \"email\": \"fasttrackbuild+27292@gmail.com\",\n        \"dateOfBirth\": \"2000-08-21T05:29:01Z\",\n        \"gender\": \"Male\",\n        \"residentialAddress\": {\n            \"street\": \"4 CANTERBURY COURT\",\n            \"suburb\": \"SUBURB\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3808\",\n            \"country\": \"Australia\"\n        },\n        \"postalAddress\": {\n            \"street\": \"PO BOX 663\",\n            \"suburb\": \"BERWICK\",\n            \"state\": \"VIC\",\n            \"postCode\": \"3806\",\n            \"country\": \"Australia\"\n        },\n        \"homePhone\": {\n            \"number\": null\n        },\n        \"mobilePhone\": {\n            \"number\": null\n        },\n        \"businessPhone\": {\n            \"number\": null\n        },\n        \"occupation\": \"Fertility and Reproduction/Studmaster\",\n        \"marketingOptIn\": false,\n        \"interstateRegistration\": null,\n        \"isAbleToUpload\": true,\n        \"isAbleToAssociateInterstateAcount\": false,\n        \"photoFile\": null,\n        \"isPostalAddressDifferent\": true,\n        \"isInterstateUser\": false,\n        \"photoImageUrl\": \"https://fasttracktestb.blob.core.windows.net/fasttrackresources/Photos/-27292.jpg?st=2019-08-21T03%3A31%3A38Z&se=2019-08-21T03%3A37%3A38Z&sr=b&sp=r&sig=pGhoozYzNjcs3Pdx1B5qndArCLwCcDe04WfkbG%2FzcZM%3D\",\n        \"personPhotoId\": null,\n        \"personPhotoDateAdded\": \"2019-08-21T05:29:01Z\",\n        \"requiresNewPhoto\": true,\n        \"isParticipant\": true,\n        \"canUpdateAllDetailsInThisRelease\": true,\n        \"hasOptedOutOfReceivingSMSNotifications\": false,\n        \"isParticipantNameOnPublicTrainersList\": false,\n        \"isEligibleForPublicTrainersList\": true\n    }\n}"
+                },
+                "url": "https://{{FastTrack1 Domain}}/{{FastTrack1 Custom Route 1}}/myaccount/SaveMyAccountDetails"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "private,no-cache"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "nocache"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Expires",
+                  "value": "-1"
+                },
+                {
+                  "key": "Set-Cookie",
+                  "value": "__TempData=; path=/; secure; HttpOnly"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 21 Aug 2019 06:15:48 GMT"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "258"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"result\": {\n        \"dateCreated\": \"2019-08-21T06:15:43.7928450Z\",\n        \"length\": 0,\n        \"messages\": [],\n        \"messageContext\": [\n            [\n                0,\n                200,\n                \"Your account details have been updated.\"\n            ]\n        ],\n        \"data\": [],\n        \"dataContext\": [],\n        \"message\": \"Your account details have been updated.\",\n        \"status\": 200,\n        \"success\": true\n    }\n}"
+            }
+          ]
         }
       ],
       "_postman_id": "572919b6-93fe-47da-a4cf-9b9bfba25ab3"
@@ -10218,145 +10328,145 @@
   ],
   "variable": [
     {
-      "id": "b15a68c9-6873-49d8-967f-5c98da46db72",
+      "id": "45851aa5-2b56-4aa9-a436-f549bf2853a8",
       "key": "FastTrack1 Registered DamId For Breeding",
       "value": "-752747",
       "type": "string"
     },
     {
-      "id": "52bb636a-5655-4137-b7e3-44716449a932",
+      "id": "7bbd4fa8-5c9e-48c7-9cbc-db7b2b9ad367",
       "key": "FastTrack1 MeetingId",
       "value": "-2926",
       "type": "string"
     },
     {
-      "id": "61a928d9-67e8-42ab-8e00-b47fd39e248e",
+      "id": "2f0da811-c1bc-4dc1-b62f-359d760ae1f1",
       "key": "FastTrack1 Member Number",
       "value": "27292",
       "type": "string"
     },
     {
-      "id": "5a8e9ae1-8048-434e-bc48-3f7b75cbf10d",
+      "id": "a70f9836-8f64-4db9-9650-ece67050b073",
       "key": "FastTrack1 BreedingId",
       "value": "393774011",
       "type": "string"
     },
     {
-      "id": "6b2e5e37-de26-495d-8738-f75a1e3769e9",
+      "id": "1ad65868-7a5a-4843-9c39-6b640a54816e",
       "key": "Default Sample Age",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "3ef0f660-c9af-47d7-bacd-91a4653c597e",
+      "id": "b913a67a-65cc-459b-b055-707939af17f5",
       "key": "Default Sample Size",
       "value": "500",
       "type": "string"
     },
     {
-      "id": "a760c3d2-7f36-4b38-82fa-2c68f5195f97",
+      "id": "fdfc69a7-3e0f-49cb-83a3-db0f4b4dfe38",
       "key": "FastTrack1 Litters From Year",
       "value": "2017",
       "type": "string"
     },
     {
-      "id": "c4f2f074-7a0a-4843-890a-6aa20b524f8b",
+      "id": "044e2227-e903-4f17-a75f-0e45afd9db63",
       "key": "FastTrack1 Litters To Year",
       "value": "2019",
       "type": "string"
     },
     {
-      "id": "c94d8b7d-a729-441d-ab0e-a845a1d7c787",
+      "id": "ab1a446c-778c-4b5c-9f0d-c68f3806f21b",
       "key": "FastTrack1 Dog MicroChip",
       "value": "AAAAA",
       "type": "string"
     },
     {
-      "id": "d134a684-9528-42d7-b5a5-90298d2d58ac",
+      "id": "ae93758f-ce63-4154-91a3-ca0d240ee3c9",
       "key": "FastTrack1 Dog EarBrand",
       "value": "ZZZZZ",
       "type": "string"
     },
     {
-      "id": "34137205-c860-4f86-b869-285398e3f2cf",
+      "id": "be61a840-f5ad-438a-9e16-986a0b080b7e",
       "key": "FastTrack1 LitterId",
       "value": "123",
       "type": "string"
     },
     {
-      "id": "60dddd51-ad3a-478d-ac60-d5e8bab6e3dd",
+      "id": "3ad7686e-329e-436c-a054-4db570dc3d8d",
       "key": "FastTrack1 Breeding Section",
       "value": "1",
       "type": "string"
     },
     {
-      "id": "44d2a266-a938-4442-a5d8-dcf1304b1f3d",
+      "id": "29b7f6ed-384d-4fee-8cb0-d7a21df21012",
       "key": "FastTrack1 Dog DogName",
       "value": "homer",
       "type": "string"
     },
     {
-      "id": "7eb18455-577d-4c90-a669-c4a5e4570563",
+      "id": "0725428a-d3b8-4078-88f7-d8ed2fc6ed30",
       "key": "FastTrack1 DogId",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "f5845f4f-761e-436d-9f9b-d55cd9df494a",
+      "id": "58dd6a9d-0ff8-47e5-92cc-a7f61f9c6ef6",
       "key": "FastTrack1 SireId",
       "value": "1490820093",
       "type": "string"
     },
     {
-      "id": "607e08c7-a24c-4d52-845e-fef4d87231d1",
+      "id": "9c1b5a62-e914-4fa6-bdb4-276d1f3a9edf",
       "key": "FastTrack1 Dam Name",
       "value": "MOTORETTE",
       "type": "string"
     },
     {
-      "id": "d667082c-768d-4228-a134-325c0ce10f0f",
+      "id": "5915347c-333c-4769-a955-cb5736fd1b13",
       "key": "FastTrack1 Dam Ear Brand",
       "value": "VGP 5057",
       "type": "string"
     },
     {
-      "id": "ae814c02-18e3-49c2-8aca-e4e113e1b265",
+      "id": "6a75df5e-a269-44b8-94a4-24c8c67b7dd9",
       "key": "FastTrack1 Breeding Authority Member Number",
       "value": "31205",
       "type": "string"
     },
     {
-      "id": "023104ed-fb7a-4023-94c3-7573e33351d9",
+      "id": "2e5029c3-3a3b-4074-afb0-99d077766709",
       "key": "FastTrack1 Service Registration Service Date",
       "value": "2019-06-06T01:56:30.7731909Z",
       "type": "string"
     },
     {
-      "id": "f7552149-f33c-4e7b-9b42-72c8dee34977",
+      "id": "988cdf88-8624-41a5-882f-cc21fab37a11",
       "key": "FastTrack1 EarBranderId",
       "value": "-11",
       "type": "string"
     },
     {
-      "id": "b4438fda-1422-41e8-9fa4-232f975438b7",
+      "id": "fe8fc3e6-178c-4718-a1ec-05842e01d468",
       "key": "FastTrack1 EarBrander Postal Code",
       "value": "3101",
       "type": "string"
     },
     {
-      "id": "004a780a-d094-4f00-a469-c3947d6d6505",
+      "id": "5176500c-60d8-48af-a27d-a1998f6ca23e",
       "key": "FasTrack1 BlackBook Dog Id",
       "value": "255840010",
       "type": "string"
     },
     {
-      "id": "9c4a1f87-47ff-40d8-80a7-4a6d3ad2a2f7",
+      "id": "2f7dcd81-606f-4116-8f8b-2ffb71efe739",
       "key": "FastTrack1 Custom Route 1",
       "value": "FT19/1c",
       "type": "string"
     },
     {
-      "id": "668f7439-1267-4b36-b013-86383b24835b",
+      "id": "37403535-3eab-4382-b028-3f0f5064c6ed",
       "key": "FastTrack1 Public Route 1",
       "value": "FT19/1p",
       "type": "string"
